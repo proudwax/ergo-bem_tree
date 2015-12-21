@@ -1,0 +1,8 @@
+.contact{
+	display: flex;
+	flex-direction: column;
+}
+.contact__phone, .contact__email{
+	clear: both;
+	/*float: left;*/
+}

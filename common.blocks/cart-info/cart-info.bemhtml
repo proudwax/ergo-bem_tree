@@ -1,0 +1,29 @@
+block('cart-info')(
+	content()(function(){
+		return [
+			{
+				elem: 'cart',
+				content: [
+					{
+						block: 'link',
+						mods: { theme : 'ergo', pseudo : true },
+						content: 'Корзина: '
+					}					
+				]
+			},
+			{
+				elem: 'info',
+				content: [
+					{
+						elem: 'count',
+						content: 'Товаров: 2 шт.'
+					},
+					{
+						elem: 'sum',
+						content: 'К оплате: 20 000<i class="icon fa fa-rub"></i>'
+					}
+				]
+			}
+		]
+	})
+)

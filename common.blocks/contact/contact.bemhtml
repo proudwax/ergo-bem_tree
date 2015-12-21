@@ -1,0 +1,22 @@
+block('contact')(
+	elem('phone')(
+		tag()('a'),
+		mix()({
+			block: 'link',
+			mods: { theme : 'ergo' },
+		}),
+		attrs()(function(){
+			return { href: 'tel:' + this.ctx.content }
+		})		
+	),
+	elem('email')(
+		tag()('a'),
+		mix()({
+			block: 'link',
+			mods: { theme : 'ergo' },
+		}),
+		attrs()(function(){
+			return { href: 'mailto:' + this.ctx.content }
+		})
+	)
+)

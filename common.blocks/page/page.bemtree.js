@@ -4,7 +4,10 @@ block('page').content()(function() {
             block: 'header'
         },
         {
-            block: 'main'
+            block: 'sticky'
+        },
+        {
+            block: 'content'
         },
         {
             block: 'footer'
