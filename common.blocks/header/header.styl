@@ -14,9 +14,14 @@ ctx = '.header'
     	flex: 0 1 auto;
     	flex-direction: row;
     	flex-wrap: wrap;
+    	padding-top: 1rem;
+    	padding-bottom: 1rem;
     }
 
-    &__logo, &__contact, &__cart{
+    &__row:first-child{
+    }
+
+    &__col{
     	flex: 1 1 auto;
     	padding-left: 1rem;
     	padding-right: 1rem;
@@ -24,12 +29,12 @@ ctx = '.header'
     	margin-left: -1rem;*/
     }
 
-    &__contact{
+    &__col_text_center{
     	justify-content: center;
     }
 
-    &__cart{
-    	justify-content: right;
+    &__col_text_right{
+    	justify-content: flex-end;
     }
 
     &__navigation{

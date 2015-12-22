@@ -4,12 +4,12 @@ block('header').content()(function() {
     		elem: 'row',
     		content: [
 		        {
-		            elem: 'logo',
+		            elem: 'col',
 		            mix: { block: 'logo' }
 		        },
 		        {
 		        	block: 'contact',
-		        	mix: { block: 'header', elem: 'contact' },
+		        	mix: { block: 'header', elem: 'col' },
 		        	content: [
 						{
 							elem: 'phone',
@@ -24,12 +24,12 @@ block('header').content()(function() {
 		        },
 		        {
 		        	block: 'cart-info',
-		        	mix: { block: 'header', elem: 'cart' },
+		        	mix: { block: 'header', elem: 'col', mods: { 'text': 'right' } },
 		        	count: 2,
 		        	sum: 20000
 		        }
     		]
-    	},
+    	}/*,
     	{
     		elem: 'row',
     		content: [
@@ -59,6 +59,6 @@ block('header').content()(function() {
 		        	]
 		        }
     		]
-    	}
+    	}*/
     ];
 });

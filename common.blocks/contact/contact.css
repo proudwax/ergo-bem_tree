@@ -1,5 +1,6 @@
 .contact{
 	display: flex;
+	flex: 0 1 auto;
 	flex-direction: column;
 }
 .contact__phone, .contact__email{
