@@ -4,7 +4,11 @@ block('page').content()(function() {
             block: 'header'
         },
         {
-            block: 'sticky'
+            block: 'sticky',
+            mods: { theme: 'ergo', navigation: true }
+        },
+        {
+            block: 'swiper'
         },
         {
             block: 'content'

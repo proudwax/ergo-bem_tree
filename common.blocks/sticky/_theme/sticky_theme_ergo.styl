@@ -1,6 +1,13 @@
 ctx = '.sticky_theme_ergo'
 {ctx} {
+	/* Использовать padding, если вычесть размер их из длины */
+	/*padding-left: 1rem;
+	padding-right: 1rem;*/
+	margin-left: -1rem;
+	margin-right: -1rem;
+
    	&.sticky_fixed > .sticky__panel{
+		/*max-width: calc(1250px - 2rem);*/
 		max-width: 1250px;
 	}
 	.page_goods-card &.sticky_fixed > .sticky__panel{
