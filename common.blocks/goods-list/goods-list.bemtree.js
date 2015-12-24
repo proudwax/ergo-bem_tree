@@ -6,17 +6,16 @@ block('goods-list').content()(function() {
 			"title": "Ergobaby — Organic Navy",
 			"name": "Organic Navy",
 			"category": 1,
-			"preview": "/assets/i/promo1.jpg",
+			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo1.jpg",
 			"image": [
-				"/assets/i/promo1.jpg",
-				"/assets/i/promo1-1.jpg"
+				"http://ergobaby.yazvyazda.ru/assets/i/promo1.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo1-1.jpg"
 			],
-			"price": [
+			"price":
 				{
 					"old": 10000,
 					"current": 7500
-				}
-			],
+				},
 			"desc": "Назначение — городской"
 		},
 		{
@@ -24,15 +23,14 @@ block('goods-list').content()(function() {
 			"title": "Ergobaby — Organic Bundle of Joy - Navy",
 			"name": "Organic Bundle of Joy - Navy",
 			"category": 1,
-			"preview": "/assets/i/promo2.jpg",
+			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo2.jpg",
 			"image": [
-				"/assets/i/promo2.jpg",
-				"/assets/i/promo2-1.jpg",
-				"/assets/i/promo2-2.jpg"
+				"http://ergobaby.yazvyazda.ru/assets/i/promo2.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo2-1.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo2-2.jpg"
 			],
-			"price": [
-				{ "current": 10000 }
-			],
+			"price":
+				{ "current": 10000 },
 			"desc": "Назначение — городской"
 		},
 		{
@@ -40,15 +38,13 @@ block('goods-list').content()(function() {
 			"title": "Ergobaby — Original Bundle of Joy - Black/Camel",
 			"name": "Original Bundle of Joy - Black/Camel",
 			"category": 1,
-			"preview": "/assets/i/promo3.jpg",
+			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo3.jpg",
 			"image": [
-				"/assets/i/promo3.jpg",
-				"/assets/i/promo3-1.jpg",
-				"/assets/i/promo3-2.jpg"
+				"http://ergobaby.yazvyazda.ru/assets/i/promo3.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo3-1.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo3-2.jpg"
 			],
-			"price": [
-				{ "current": 10000 }
-			],
+			"price":{ "current": 10000 },
 			"desc": "Назначение — городской"
 		},
 		{
@@ -56,15 +52,13 @@ block('goods-list').content()(function() {
 			"title": "Ergobaby — Organic Zen",
 			"name": "Organic Zen",
 			"category": 1,
-			"preview": "/assets/i/promo4.jpg",
+			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo4.jpg",
 			"image": [
-				"/assets/i/promo4.jpg",
-				"/assets/i/promo4-1.jpg",
-				"/assets/i/promo4-2.jpg"
+				"http://ergobaby.yazvyazda.ru/assets/i/promo4.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo4-1.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo4-2.jpg"
 			],
-			"price": [
-				{ "current": 10000 }
-			],
+			"price":{ "current": 10000 },
 			"desc": "Назначение — городской"
 		},
 		{
@@ -72,15 +66,13 @@ block('goods-list').content()(function() {
 			"title": "Ergobaby — Organic Dandelion",
 			"name": "Organic Dandelion",
 			"category": 1,
-			"preview": "/assets/i/promo5.jpg",
+			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo5.jpg",
 			"image": [
-				"/assets/i/promo5.jpg",
-				"/assets/i/promo5-1.jpg",
-				"/assets/i/promo5-2.jpg"
+				"http://ergobaby.yazvyazda.ru/assets/i/promo5.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo5-1.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo5-2.jpg"
 			],
-			"price": [
-				{ "current": 10000 }
-			],
+			"price":{ "current": 10000 },
 			"desc": "Назначение — городской"
 		},
 		{
@@ -88,15 +80,13 @@ block('goods-list').content()(function() {
 			"title": "Ergobaby — Organic Quartz",
 			"name": "Organic Quartz",
 			"category": 1,
-			"preview": "/assets/i/promo6.jpg",
+			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo6.jpg",
 			"image": [
-				"/assets/i/promo6.jpg",
-				"/assets/i/promo6-1.jpg",
-				"/assets/i/promo6-2.jpg"
+				"http://ergobaby.yazvyazda.ru/assets/i/promo6.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo6-1.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo6-2.jpg"
 			],
-			"price": [
-				{ "current": 10000 }
-			],
+			"price":{ "current": 10000 },
 			"desc": "Назначение — городской"
 		},
 		{
@@ -104,15 +94,13 @@ block('goods-list').content()(function() {
 			"title": "Ergobaby — Organic Dark Cocoa",
 			"name": "Organic Dark Cocoa",
 			"category": 1,
-			"preview": "/assets/i/promo7.jpg",
+			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo7.jpg",
 			"image": [
-				"/assets/i/promo7.jpg",
-				"/assets/i/promo7-1.jpg",
-				"/assets/i/promo7-2.jpg"
+				"http://ergobaby.yazvyazda.ru/assets/i/promo7.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo7-1.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo7-2.jpg"
 			],
-			"price": [
-				{ "current": 10000 }
-			],
+			"price":{ "current": 10000 },
 			"desc": "Назначение — городской"
 		},
 		{
@@ -120,15 +108,13 @@ block('goods-list').content()(function() {
 			"title": "Ergobaby — Original Teal",
 			"name": "Original Teal",
 			"category": 1,
-			"preview": "/assets/i/promo8.jpg",
+			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo8.jpg",
 			"image": [
-				"/assets/i/promo8.jpg",
-				"/assets/i/promo8-1.jpg",
-				"/assets/i/promo8-2.jpg"
+				"http://ergobaby.yazvyazda.ru/assets/i/promo8.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo8-1.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo8-2.jpg"
 			],
-			"price": [
-				{ "current": 10000 }
-			],
+			"price":{ "current": 10000 },
 			"desc": "Назначение — городской"
 		},
 		{
@@ -136,15 +122,13 @@ block('goods-list').content()(function() {
 			"title": "Ergobaby — Original Red",
 			"name": "Original Red",
 			"category": 1,
-			"preview": "/assets/i/promo9.jpg",
+			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo9.jpg",
 			"image": [
-				"/assets/i/promo9.jpg",
-				"/assets/i/promo9-1.jpg",
-				"/assets/i/promo9-2.jpg"
+				"http://ergobaby.yazvyazda.ru/assets/i/promo9.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo9-1.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo9-2.jpg"
 			],
-			"price": [
-				{ "current": 10000 }
-			],
+			"price":{ "current": 10000 },
 			"desc": "Назначение — городской"
 		},
 		{
@@ -152,20 +136,63 @@ block('goods-list').content()(function() {
 			"title": "Ergobaby — Original Indigo Mint Dots",
 			"name": "Original Indigo Mint Dots",
 			"category": 1,
-			"preview": "/assets/i/promo10.jpg",
+			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo10.jpg",
 			"image": [
-				"/assets/i/promo10.jpg",
-				"/assets/i/promo10-1.jpg",
-				"/assets/i/promo10-2.jpg"
+				"http://ergobaby.yazvyazda.ruhttp://ergobaby.yazvyazda.ru/assets/i/promo10.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo10-1.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo10-2.jpg"
 			],
-			"price": [
-				{ "current": 10000 }
-			],
+			"price":{ "current": 10000 },
 			"desc": "Назначение — городской"
 		}
 	]);
 
-    return [
-    	
-    ];
+    return items.map(function(item){
+		return {
+			elem: 'item',
+			js: { filter: item.category },
+			content: [
+				{
+					block: 'goods',
+					js: {	
+						'goods-id': item['goods-id'], 
+						title: item.title, 
+						/* source: '/assets/json/1.json' */ /* , cost: 10000, name: 'Organic Navy' */
+					},
+					mods: { 'shadow': true, 'showcase': true },
+					content: [
+						{
+							elem: 'container',
+							content: [
+								{
+									elem: 'image',
+									content: [
+										{
+											block : 'image',
+											url: item.preview,
+											alt: item.name												
+										}
+									]
+								},
+								{
+									elem: 'content',
+									content: [
+										{
+											elem: 'name',
+											content: item.name
+										},
+										{
+											elem: 'price',
+											content: item.price.current
+										}
+									]
+								}
+							]
+						}
+					]
+				}			
+			]
+		}
+	});
+	
 });

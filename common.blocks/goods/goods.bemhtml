@@ -1,0 +1,87 @@
+block('goods')(
+	def()(function(){
+        return applyNext({ _js: this.ctx.js })
+    }),
+	elem('price').content()(function(){
+			return [
+				applyNext(),
+				{
+					block: 'icon',
+					cls: 'fa fa-rub'
+				}
+			]
+	}),
+	match(function(){ return this.mods.showcase && this._js['goods-id'] })(
+		elem('content').content()(function() {
+			return [
+				applyNext(),
+				{
+					elem: 'action',
+					mix: [{ block : 'control-group' }], 
+					content:[
+						{
+							block: 'button',
+							mix: [{ block: 'goods-card-link', js: true }, { block: 'history-use', js: true }],
+							mods: { theme: 'ergo', size: 'm', 'more': true, type : 'link' },
+							text: 'Подробнее',
+							url : this._js['goods-id'],
+							icon: {
+								block: 'icon',
+								cls: 'fa fa-search-plus'
+							}
+						},
+						{
+							block: 'button',
+							mods: { view : 'action', theme: 'ergo', size: 'm', 'add': true },
+							text: 'Купить',
+							icon: {
+								block: 'icon',
+								cls: 'fa fa-shopping-cart'
+							}
+						}
+					]	
+				}
+			];
+		}),
+		elem('name').content()(function(){
+			return [{
+				block: 'link',
+				mods: { theme: 'ergo', 'more': true },
+				mix: [{ block: 'goods-card-link', js: true }, { block: 'history-use', js: true }],
+				url: this._js['goods-id'],
+				content: applyNext()
+			}]
+		})
+	),
+	match(function(){ return this.mods['in-mimi-cart'] && this._js['goods-id'] })(
+		js()(true),
+		elem('content').content()(function() {
+			return [
+				applyNext(),
+				{
+					elem: 'action',
+					content:[
+						{
+							block: 'button',
+							mods: { view : 'action', theme: 'ergo', size: 'm', view : 'plain', 'trash': true },
+							icon: {
+								block: 'icon',
+							}
+						}
+					]	
+				}
+			];
+		}),
+		elem('name').content()(function(){
+			return [{
+				block: 'link',
+				mods: { theme: 'ergo', 'more': true },
+				mix: [{ block: 'goods-card-link', js: true }, { block: 'history-use', js: true }],
+				url: this._js['goods-id'],
+				content: applyNext()
+			}]
+		})
+	)	
+)
+
+
