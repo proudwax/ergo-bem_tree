@@ -3,7 +3,7 @@ block('footer').content()(function() {
     	{
             block: 'contact',
             content: [
-				{
+				/*{
 					elem: 'phone',
 					mix: { block: 'character', mods: { 'plus': true } },
 					content: '7(000)000-00-00'
@@ -11,7 +11,7 @@ block('footer').content()(function() {
 				{
 					elem: 'email',
 					content: 'info@info.com'
-				}
+				}*/
             ]
         },
         {

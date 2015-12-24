@@ -2,7 +2,9 @@
     shouldDeps: [
 		{ block: 'events', elems: ['channels'] },
 		{ block: 'header'},
-		{ block: 'sticky'},
+		{ block: 'sticky', mods: { theme: 'ergo', navigation: true, filter: true }},
+		{ block: 'swiper'},
+		{ block: 'goods-list'},
 		{ block: 'content'},
 		{ block: 'footer'}
     ]

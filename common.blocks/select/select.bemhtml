@@ -1,0 +1,15 @@
+block('select').def()(function() {
+    return applyNext({ _selectMods: this.mods });
+});
+
+block('popup').match(function(){ return this._selectMods && this._selectMods.tail === true })(
+	content()(function(){
+		return [
+			{
+				elem: 'tail',
+				tag: 'i'
+			},
+			applyNext(),
+		]
+	})
+);

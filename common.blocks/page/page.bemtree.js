@@ -4,10 +4,21 @@ block('page').content()(function() {
             block: 'header'
         },
         {
-            block: 'sticky'
+            block: 'sticky',
+            mods: { theme: 'ergo', navigation: true }
+        },
+        {
+            block: 'swiper'
         },
         {
             block: 'content'
+        },
+		/* {
+            block: 'sticky',
+            mods: { theme: 'ergo', filter: true }
+        }, */
+		{
+            block: 'goods-list'
         },
         {
             block: 'footer'

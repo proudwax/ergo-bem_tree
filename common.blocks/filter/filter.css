@@ -1,0 +1,25 @@
+.filter{
+
+}
+.radio-group_theme_ergo.radio-group.radio-group_type_button, .select_theme_ergo.select{
+	display: none;
+	margin: -9999px 0 0 -9999px;
+	visibility: hidden;
+	display: none;
+	position: relative;
+}
+.filter__group.radio-group{
+	/* left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%); */
+	padding-left: 1.5rem;
+}
+.filter__group.select{
+	padding-left: 1.5rem;
+}
+.radio-group_theme_ergo.radio-group_js_inited.radio-group_visible, .select_theme_ergo.select_js_inited.select_visible{
+	margin: 0;
+    visibility: visible;
+	display: inline-block;
+}
