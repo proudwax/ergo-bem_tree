@@ -23,10 +23,14 @@ block('header').content()(function() {
 		            ]
 		        },
 		        {
-		        	block: 'cart-info',
-		        	mix: { block: 'header', elem: 'col', mods: { 'text': 'right' } },
-		        	count: 2,
-		        	sum: 20000
+		        	elem: 'col', mods: { 'text': 'right' },
+		        	content: [
+						{
+							block: 'cart-info',
+							count: 2,
+							sum: 20000
+						}
+					]
 		        }
     		]
     	}/*,
