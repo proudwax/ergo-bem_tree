@@ -1,6 +1,6 @@
 ({
     shouldDeps: [
         { block: 'menu', mods: { theme: 'ergo' } },
-		{ block: 'menu-item' }
+		{ block: 'menu-item', mods: { type: 'link' } }
     ]
 })

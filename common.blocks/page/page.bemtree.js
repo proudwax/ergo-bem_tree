@@ -13,10 +13,10 @@ block('page').content()(function() {
         {
             block: 'content'
         },
-		/* {
+		 {
             block: 'sticky',
             mods: { theme: 'ergo', filter: true }
-        }, */
+        }, 
 		{
             block: 'goods-list'
         },

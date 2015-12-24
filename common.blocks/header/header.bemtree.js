@@ -12,7 +12,7 @@ block('header').content()(function() {
 		        	mix: { block: 'header', elem: 'col' },
 		        },
 		        {
-		        	elem: 'col', mods: { 'text': 'right' },
+		        	elem: 'col',
 		        	content: [
 						{
 							block: 'cart-info',
