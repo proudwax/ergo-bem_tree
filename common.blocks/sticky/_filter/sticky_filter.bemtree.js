@@ -1,4 +1,4 @@
-block('sticky').mod('filter', true).content()(function() {
+ block('sticky').mod('filter', true).content()(function() {
     return [
         {	
 			block: 'filter',
