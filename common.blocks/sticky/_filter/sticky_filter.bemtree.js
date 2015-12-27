@@ -7,7 +7,7 @@
 				{
 					block: 'radio-group',
 					mix: [{ block: 'filter', elem: 'group' }],
-					mods: { theme : 'islands', size : 'm', type : 'button' },
+					mods: { theme : 'islands', size : 'm', type : 'button', visible: true },
 					name: 'radio',
 					val: '',
 					options: [

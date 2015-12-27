@@ -1,7 +1,7 @@
 block('header').content()(function() {
     return [
     	{
-    		elem: 'row',
+    		elem: 'inner',
     		content: [
 		        {
 		            elem: 'col',

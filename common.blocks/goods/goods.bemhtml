@@ -6,8 +6,8 @@ block('goods')(
 			return [
 				applyNext(),
 				{
-					block: 'icon',
-					cls: 'fa fa-rub'
+					block: 'rub',
+					mods: { size: 'small' }
 				}
 			]
 	}),

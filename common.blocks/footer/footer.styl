@@ -1,10 +1,19 @@
 ctx = '.footer'
 {ctx} {
     background: #f6f5f3;
+    background: inherit;
     border-top: 1px solid #e6e6e6;
 
     margin: 0 -1rem;
     padding: 0 1rem;
 	padding-top: 1rem;
 
+	&__inner{
+		box-sizing: border-box;
+    	display: flex;
+    	flex: 1 1 auto;
+    	/*flex-flow: row wrap;*/
+    	padding-top: 1rem;
+    	padding-bottom: 1rem;
+	}
 }

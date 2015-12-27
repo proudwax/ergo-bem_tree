@@ -24,6 +24,8 @@ provide(BEMDOM.decl(this.name, {
 	_redraw: function(){
 		var width__action = this.findBlockInside('goods').elem('action')[0] ? this.findBlockInside('goods').elem('action')[0].offsetWidth : 0;
 
+		console.log(width__action);
+
 		this.setMod('show', width__action > 165 ? 'text' : 'icon');
 	}
 }));

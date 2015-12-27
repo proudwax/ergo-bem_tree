@@ -46,6 +46,8 @@ provide(BEMDOM.decl(this.name, {
 		this.bindToWin('resize', function(e) {
 			this.sticky_top = this.domElem[0].offsetTop != 0 ? this.domElem[0].offsetTop : this.elem('backing').domElem[0].offsetTop;
 			
+			throttle(this._getIndent(), 300);
+			
 			this.setMod('fixed', BEMDOM.win.scrollTop() >= this.sticky_top);
 			this.setMod(this.elem('panel'), 'shadow', BEMDOM.win.scrollTop() >= this.sticky_top);
 		});

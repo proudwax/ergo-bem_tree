@@ -13,12 +13,17 @@ block('page').content()(function() {
         {
             block: 'content'
         },
-		 {
-            block: 'sticky',
-            mods: { theme: 'ergo', filter: true }
-        }, 
-		{
-            block: 'goods-list'
+        {
+            block: 'section',
+            content: [
+        		{
+                    block: 'sticky',
+                    mods: { theme: 'ergo', filter: true }
+                }, 
+        		{
+                    block: 'goods-list'
+                }
+            ]
         },
         {
             block: 'footer'

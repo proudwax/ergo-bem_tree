@@ -6,7 +6,7 @@ block('contact')(
 			mods: { theme : 'ergo' },
 		}),
 		attrs()(function(){
-			return { href: 'tel:' + this.ctx.content }
+			return { href: 'tel:+' + this.ctx.content }
 		})		
 	),
 	elem('email')(
