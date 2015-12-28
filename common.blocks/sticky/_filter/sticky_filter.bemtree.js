@@ -7,7 +7,7 @@
 				{
 					block: 'radio-group',
 					mix: [{ block: 'filter', elem: 'group' }],
-					mods: { theme : 'islands', size : 'm', type : 'button', visible: true },
+					mods: { theme : 'ergo', size : 'm', type : 'button', visible: true },
 					name: 'radio',
 					val: '',
 					options: [
@@ -19,7 +19,7 @@
 				},
 				{
 					block : 'select',
-					mods : { mode : 'radio', theme : 'islands', size : 'm', 'small': true, 'tail': true },
+					mods : { mode : 'radio', theme : 'ergo', size : 'm', 'small': true, 'tail': true },
 					mix: [{ block: 'filter', elem: 'group' }],
 					name: 'radio',
 					val : '',

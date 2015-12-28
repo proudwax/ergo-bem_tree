@@ -1,27 +1,32 @@
-.sticky{
+ctx = '.sticky'
+{ctx} {
 	position: relative;
 	margin: 0 -1rem;
-}
-.sticky__panel{
-	background-color: #fff;
-	overflow: hidden;
-	width: 100%;
-}
-.sticky__backing{
-	display: none;
-	position: relative;
-}
-.sticky_fixed > .sticky__panel{
-	position: fixed;
-	max-width: 1250px;
-	top: 0;
-	background: rgba(255, 255, 255, .95);
-	z-index: 10;
-	transition: box-shadow 0.2s ease 0.1s;
-}
-.sticky_fixed  > .sticky__backing{
-	display: block;
-}
-.sticky__panel_shadow{
-	box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+
+	&__panel{
+		background-color: #fff;
+		overflow: hidden;
+		/* width: 100%; */
+	}
+	
+	&__panel_shadow{
+		box-shadow:0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+	}
+	
+	&__backing{
+		display: none;
+		position: relative;
+	}
+	
+	&_fixed > &__panel{
+		position: fixed;
+		background: rgba(255, 255, 255, .95);
+		top: 0;
+		z-index: 10;
+		transition: box-shadow 0.2s ease 0.1s;
+	}
+		
+	&_fixed > &__backing{
+		display: block;
+	}
 }

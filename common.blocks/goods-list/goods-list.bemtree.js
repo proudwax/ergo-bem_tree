@@ -157,7 +157,7 @@ block('goods-list').content()(function() {
 					js: {	
 						'goods-id': item['goods-id'], 
 						title: item.title, 
-						/* source: '/assets/json/1.json' */ /* , cost: 10000, name: 'Organic Navy' */
+						/* source: '/assets/json/1.json', cost: 10000, name: 'Organic Navy' */
 					},
 					mods: { 'shadow': true, 'showcase': true },
 					content: [
@@ -181,6 +181,10 @@ block('goods-list').content()(function() {
 											elem: 'name',
 											content: item.name
 										},
+										/* {
+											elem: 'old_price',
+											content: item.price.old
+										}, */
 										{
 											elem: 'price',
 											content: item.price.current

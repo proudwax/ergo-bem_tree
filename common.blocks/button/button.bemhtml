@@ -1,0 +1,9 @@
+block('button')(
+    match(function(){ return this.ctx.badge; })(
+		elem('text').tag()('b'),
+		content()(function(){
+			return [ applyNext(), { elem: 'badge', content: this.ctx.badge }];
+		})
+	),
+	elem('badge').tag()('span')
+);

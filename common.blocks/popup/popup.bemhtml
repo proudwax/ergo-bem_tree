@@ -1,0 +1,11 @@
+block('popup').match(function(){ return this.mods.tail })(
+	content()(function(){
+		return [
+			{
+				elem: 'tail',
+				tag: 'i'
+			},
+			applyNext(),
+		]
+	})
+);

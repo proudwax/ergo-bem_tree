@@ -11,17 +11,15 @@ ctx = '.header'
     	box-sizing: border-box;
     	display: flex;
     	flex: 0 1 auto;
-        flex-flow: row wrap;
+        flex-flow: column nowrap;
     	padding-top: 1rem;
     	padding-bottom: 1rem;
+		align-items: flex-start;
     }
 
     &__col{
     	flex: 1 1 auto;
-    	padding-left: 1rem;
-    	padding-right: 1rem;
-    	/*margin-right: -1rem;
-    	margin-left: -1rem;*/
+    	padding-bottom: 2rem;
     }
 
     &__col_text_center{
@@ -35,4 +33,32 @@ ctx = '.header'
     &__navigation{
     	flex-shrink: 1;
     }
+
+	@media only screen and (min-width: 40em) {
+		&__inner{
+			flex-flow: row wrap;
+		}	
+		
+		&__col{
+			flex: 1 1 auto;
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+	}
+	/* @media only screen and (min-width: 48em) {
+		&__col{
+			flex: 1 1 auto;
+		}
+	}
+	@media only screen and (min-width: 62em) {
+		&__col{
+			flex: 1 1 auto;
+		}
+	}
+	@media only screen and (min-width: 75em) {
+		&__col{
+			flex: 1 1 auto;
+		}	
+	} */
+	
 }

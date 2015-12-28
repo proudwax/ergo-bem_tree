@@ -1,18 +1,23 @@
 block('page').content()(function() {
     return [
-        {
-            block: 'header'
-        },
-        {
-            block: 'sticky',
-            mods: { theme: 'ergo', navigation: true }
-        },
-        {
-            block: 'swiper'
-        },
-        {
-            block: 'content'
-        },
+		{
+            block: 'section',
+            content: [
+				{
+					block: 'header'
+				},
+				{
+					block: 'sticky',
+					mods: { theme: 'ergo', navigation: true }
+				},
+				{
+					block: 'swiper'
+				},
+				{
+					block: 'content'
+				}
+			]
+		},
         {
             block: 'section',
             content: [
