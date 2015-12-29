@@ -15,6 +15,9 @@ block('page').content()(function() {
 				},
 				{
 					block: 'content'
+				},
+				{
+					block: 'slider'
 				}
 			]
 		},

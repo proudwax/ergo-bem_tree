@@ -16,8 +16,6 @@ provide(BEMDOM.decl(this.name, {
 					}), 
 					_this = this;
 				
-				/* console.log(); */
-				
 				channels('onGoodsCard').on('click', function(){
 					slider.onResize();
 				});
@@ -27,5 +25,3 @@ provide(BEMDOM.decl(this.name, {
 }));
 
 });
-
-
