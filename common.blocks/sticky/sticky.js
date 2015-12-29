@@ -64,7 +64,8 @@ provide(BEMDOM.decl(this.name, {
 
 		arr.reduce(function(indent, current, i){
 			current.sticky_top = current.sticky_top - indent;
-			current.elem('panel').css({'top': indent, 'z-index': 10 - i }); 
+			current.elem('panel').css({'top': indent }); 
+			// current.elem('panel').css({'top': indent, 'z-index': 10 - i }); 
 			
 			return indent + current.sticky_height;
 		}, 0);

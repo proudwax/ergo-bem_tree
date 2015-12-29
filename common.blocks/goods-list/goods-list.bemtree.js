@@ -159,7 +159,7 @@ block('goods-list').content()(function() {
 						title: item.title, 
 						/* source: '/assets/json/1.json', cost: 10000, name: 'Organic Navy' */
 					},
-					mods: { 'shadow': true, 'showcase': true },
+					mods: { 'border': true, 'showcase': true },
 					content: [
 						{
 							elem: 'container',
