@@ -1,7 +1,8 @@
 ({
 	shouldDeps: [
+		{ elems : ['container'] },
         { block: 'plugin', elem: 'swiper' },
-		{ block: 'spin', mods : {theme : 'islands', size : 'l'} }
+		{ block: 'spin', mods : {theme : 'ergo' } }
     ]/* ,
     mustDeps: [
 		{ elem : 'button', elem: 'slide' },

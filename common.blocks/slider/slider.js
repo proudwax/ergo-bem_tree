@@ -6,21 +6,33 @@ provide(BEMDOM.decl(this.name, {
 	onSetMod : {
 		'js': {
             'inited': function() {				
-				var slider = new Swiper(this.findBlockInside({block: 'plugin', elem: 'swiper'}).elem('swiper'), {
+				var _this = this,
+					slider = new Swiper(this.elem('content'), {
+						autoHeight: true,
 						nextButton: this.elem('button', 'next', true),
 						prevButton: this.elem('button', 'prev', true),
 						pagination: this.elem('pagination'),
 						paginationClickable: true,
 						spaceBetween: 0,
-						loop: true
-					}), 
-					_this = this;
-				
+						loop: true,
+					    onImagesReady: function(swiper){
+					    	alert('re');
+					    },
+					    onSlideChangeStart: function(swiper){
+					    	_this._onInit();
+					    }
+					});
+
 				channels('onGoodsCard').on('click', function(){
 					slider.onResize();
 				});
             }
         }
+	},
+
+	_onInit: function(){
+		this.setMod(this.elem('spin'), 'invisible', true);
+		this.setMod(this.elem('content'), 'visible', true);
 	}
 }));
 

@@ -11,14 +11,11 @@ block('page').content()(function() {
 					mods: { theme: 'ergo', navigation: true }
 				},
 				{
-					block: 'swiper'
-				},
-				{
-					block: 'content'
-				},
-				{
 					block: 'slider'
-				}
+				},
+                {
+                    block: 'content'
+                }
 			]
 		},
         {
