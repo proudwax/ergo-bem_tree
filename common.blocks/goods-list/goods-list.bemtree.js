@@ -152,7 +152,17 @@ block('goods-list').content()(function() {
 			"desc": "Назначение — городской"
 		}
 	]);
-
+	
+	function buildElemLable(price_current, price_old){
+		if(price_old != undefined){
+			var percent = Math.ceil(100 - ((price_current / price_old) * 100));
+			return {
+				elem: 'lable',
+				content: 'до -' + percent + ' %'
+			};
+		}
+	}
+	
     return items.map(function(item){
 		return {
 			elem: 'item',
@@ -170,6 +180,7 @@ block('goods-list').content()(function() {
 						{
 							elem: 'container',
 							content: [
+								buildElemLable(item.price.current, item.price.old),
 								{
 									elem: 'image',
 									content: [
