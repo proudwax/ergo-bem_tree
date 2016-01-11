@@ -23,7 +23,7 @@ block('page').content()(function() {
             content: [
         		{
                     block: 'sticky',
-                    mods: { theme: 'ergo', filter: true }
+                    mods: { theme: 'ergo', filter: true, 'cart-button': true }
                 }, 
         		{
                     block: 'goods-list'
