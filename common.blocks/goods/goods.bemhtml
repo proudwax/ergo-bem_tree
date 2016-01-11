@@ -2,15 +2,61 @@ block('goods')(
 	def()(function(){
         return applyNext({ _js: this.ctx.js })
     }),
+
 	elem('price').content()(function(){
-			return [
-				applyNext(),
+		var price_current = '',
+			price_old = '';
+		
+		if(this.ctx.price_old){
+			price_old = [
 				{
-					block: 'rub',
-					mods: { size: 'small' }
+					elem: 'price_old',
+					content: this.ctx.price_old
 				}
-			]
+			];
+		}		
+
+		if(this.ctx.price_current){
+			mods_current = price_old ? true : false;
+
+			price_current = [
+				{
+					elem: 'price_current',
+					mods: { 'best': mods_current },
+					content: this.ctx.price_current
+				}
+			];
+		}
+
+
+
+		return [
+			applyNext(),
+			price_current,
+			price_old
+		]
 	}),
+
+	elem('price_current').content()(function(){
+		return [
+			applyNext(),
+			{
+				block: 'rub',
+				mods: { size: 'small' }
+			}
+		]
+	}),
+
+	elem('price_old').content()(function(){
+		return [
+			applyNext(),
+			{
+				block: 'rub',
+				mods: { size: 'small' }
+			}
+		]
+	}),
+
 	match(function(){ return this.mods.showcase && this._js['goods-id'] })(
 		elem('content').content()(function() {
 			return [

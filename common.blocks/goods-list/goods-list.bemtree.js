@@ -62,20 +62,6 @@ block('goods-list').content()(function() {
 			"desc": "Назначение — городской"
 		},
 		{
-			"goods-id": 5,
-			"title": "Ergobaby — Organic Dandelion",
-			"name": "Organic Dandelion",
-			"category": 4,
-			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo5.jpg",
-			"image": [
-				"http://ergobaby.yazvyazda.ru/assets/i/promo5.jpg",
-				"http://ergobaby.yazvyazda.ru/assets/i/promo5-1.jpg",
-				"http://ergobaby.yazvyazda.ru/assets/i/promo5-2.jpg"
-			],
-			"price":{ "current": 10000 },
-			"desc": "Назначение — городской"
-		},
-		{
 			"goods-id": 6,
 			"title": "Ergobaby — Organic Quartz",
 			"name": "Organic Quartz",
@@ -87,6 +73,23 @@ block('goods-list').content()(function() {
 				"http://ergobaby.yazvyazda.ru/assets/i/promo6-2.jpg"
 			],
 			"price":{ "current": 10000 },
+			"desc": "Назначение — городской"
+		},
+		{
+			"goods-id": 5,
+			"title": "Ergobaby — Organic Dandelion",
+			"name": "Organic Dandelion",
+			"category": 4,
+			"preview": "http://ergobaby.yazvyazda.ru/assets/i/promo5.jpg",
+			"image": [
+				"http://ergobaby.yazvyazda.ru/assets/i/promo5.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo5-1.jpg",
+				"http://ergobaby.yazvyazda.ru/assets/i/promo5-2.jpg"
+			],
+			"price":{
+				"old": 15000,
+				"current": 10000
+			},
 			"desc": "Назначение — городской"
 		},
 		{
@@ -128,7 +131,10 @@ block('goods-list').content()(function() {
 				"http://ergobaby.yazvyazda.ru/assets/i/promo9-1.jpg",
 				"http://ergobaby.yazvyazda.ru/assets/i/promo9-2.jpg"
 			],
-			"price":{ "current": 10000 },
+			"price":{ 
+				"old": 20000,
+				"current": 10000
+			},
 			"desc": "Назначение — городской"
 		},
 		{
@@ -181,13 +187,10 @@ block('goods-list').content()(function() {
 											elem: 'name',
 											content: item.name
 										},
-										/* {
-											elem: 'old_price',
-											content: item.price.old
-										}, */
 										{
 											elem: 'price',
-											content: item.price.current
+											price_current: item.price.current,
+											price_old: item.price.old
 										}
 									]
 								}
