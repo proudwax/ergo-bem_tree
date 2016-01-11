@@ -7,12 +7,10 @@ provide(BEMDOM.decl(this.name, {
                 var link = this.findBlockInside('button'),
                     popup = this.findBlockInside('popup')
                         .setAnchor(link);
-				
+
                 link.on('click', function() {
                     popup.toggleMod('visible', true);
                 });	
-				
-				alert('re');
             }
         }
     }

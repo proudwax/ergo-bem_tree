@@ -1,6 +1,6 @@
 block('cart-button')(
-	tag()('form'),
-	attrs()(function(){
+	// tag()('form')
+	/*attrs()(function(){
 		return { 
 			'accept-charset': this.ctx['accept-charset'], 
 			action: this.ctx.action, 
@@ -35,5 +35,5 @@ block('cart-button')(
 	),
 	elem('action')(
 		mix()('col-xs-3')
-	)
+	)*/
 )
