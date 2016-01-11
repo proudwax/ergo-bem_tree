@@ -3,7 +3,7 @@ block('sticky').mod('navigation', true).content()(function() {
         {
         	block: 'menu',
         	mix: { block: 'header', elem: 'navigation' },
-        	mods : { theme : 'ergo', 'top': true, type: 'horizontal' },
+        	mods : { theme : 'ergo', 'top': true, type: 'horizontal', size: 'm' },
         	content: [
         		{
         			block: 'menu-item',
