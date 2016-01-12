@@ -1,0 +1,22 @@
+block('cart-popup')(
+	js()(true),
+	
+	elem('footer')(
+		content()(function(){
+			return [
+				{
+					block : 'button',
+					mods : { theme : 'ergo', size : 'm', type : 'link', view : 'action'  },
+					url : '#',
+					text : 'Перейти в корзину'
+				}/* ,
+				{
+					block : 'button',
+					mods : { theme : 'ergo', size : 'm', type : 'link' },
+					url : '#',
+					text : 'Оформить заказ'
+				} */
+			]
+		})
+	)
+)

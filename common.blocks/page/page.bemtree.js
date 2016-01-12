@@ -23,7 +23,7 @@ block('page').content()(function() {
             content: [
         		{
                     block: 'sticky',
-                    mods: { theme: 'ergo', filter: true, 'cart-button': true }
+                    mods: { theme: 'ergo', filter: true, 'cart-preview': true }
                 }, 
         		{
                     block: 'goods-list'

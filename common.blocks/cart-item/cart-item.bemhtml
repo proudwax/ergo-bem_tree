@@ -1,0 +1,16 @@
+block('cart-item')(
+	
+	mix()({ block: 'link', mods: { theme: 'ergo' } }),
+	
+	tag()('a'),
+	
+	attrs()(function(){ return {'href': this.ctx.id} }),
+	
+	elem('image').content()(function(){
+		return {
+			block: 'image',
+			url: this.ctx.url
+		}
+	})
+	
+)
