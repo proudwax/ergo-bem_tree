@@ -6,6 +6,13 @@ ctx = '.sticky_theme_ergo'
 		right: 1rem;
 		margin: 0 auto;
 	}
+	
+	@media only screen and (max-width: 64em) {
+		&.sticky_fixed > .sticky__panel{
+			max-width: calc(100% - 240px);
+		}		
+	}
+	
 	.page_goods-card &.sticky_fixed > .sticky__panel{
 		max-width: 625px;
 		width: 50%;

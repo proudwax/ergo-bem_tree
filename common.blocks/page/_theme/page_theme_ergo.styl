@@ -69,6 +69,12 @@ ctx = '.page_theme_ergo'
 		padding: 0 1rem;
 	}
 	
+	@media only screen and (max-width: 64em) {
+		.page__container{
+			max-width: calc(100% - 240px);
+		}
+	}
+	
 	@media screen and (orientation: portrait) { 
 		&.page_goods-card .page__container > div.sticky, &.page_goods-card .page__container > .section{
 			width: 100%;
