@@ -45,16 +45,12 @@ block('sticky').mod('cart-preview', true).content()(function() {
 		if(data.list != 0){
 			return {
 				block: 'cart-popup',
+				js: true,
 				content: [
 					{
 						elem: 'header',
-						content: [
-							{
-								block: 'link',
-								mods: { theme : 'ergo', size : 'l', pseudo : true },
-								content: 'В корзине ' + data.count + ' товара &mdash; ' + data.total + ' руб.'
-							}
-						]
+						count: data.count,
+						total: data.total
 					},
 					{
 						elem: 'list',
@@ -92,12 +88,16 @@ block('sticky').mod('cart-preview', true).content()(function() {
 								elem: 'name',
 								content: item.name
 							},
-							{
+							/* {
 								elem: 'price',
 								price_old: item.price.old,
 								price_current: item.price.current
-							}
+							} */
 						]
+					},
+					{
+						elem: 'trash',
+						url: '#' + item['goods-id']
 					}
 				]
 			}
@@ -138,110 +138,3 @@ block('sticky').mod('cart-preview', true).content()(function() {
 		}
     ];
 });
-
-
-
-/* 
-{
-		elem: 'header',
-		content: [
-			{
-				block: 'link',
-				mods: { theme : 'ergo', size : 'l', pseudo : true },
-				content: 'В корзине 2 товара &mdash; 20 000 руб.'
-			}
-		]
-	},
-	{
-		elem: 'list',
-		content: [
-			{
-				block: 'goods',
-				js: { 'goods-id': 1, title: 'Ergobaby — Organic Navy', source: '/assets/json/1.json' , cost: 10000, name: 'Organic Navy'},
-				mods: { 'in-mimi-cart': true },
-				content: [
-					{
-						elem: 'container',
-						content: [
-							{
-								elem: 'image',
-								content: [
-									{
-										block : 'image',
-										url: '/assets/i/promo1.jpg',
-										alt: ''												
-									}
-								]
-							},
-							{
-								elem: 'content',
-								content: [
-									{
-										elem: 'name',
-										content: 'Organic Navy'
-									},
-									{
-										elem: 'price',
-										content: 10000
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			{
-				block: 'goods',
-				js: { 'goods-id': 2, title: 'Ergobaby — Organic Bundle of Joy - Navy', source: '/assets/json/2.json', cost: 10000, name: 'Organic Bundle of Joy - Navy' },
-				mods: { 'in-mimi-cart': true },
-				content: [
-					{
-						elem: 'container',
-						content: [
-							{
-								elem: 'image',
-								content: [
-									{
-										block : 'image',
-										url: '/assets/i/promo2.jpg',
-										alt: ''												
-									}
-								]
-							},
-							{
-								elem: 'content',
-								content: [
-									{
-										elem: 'name',
-										content: 'Organic Bundle of Joy - Navy'
-									},
-									{
-										elem: 'price',
-										content: 10000
-									}
-								]
-							}
-						]
-					}
-				]
-			}									
-		]
-	},
-	{
-		elem: 'footer',
-		content: [
-			{
-				block : 'button',
-				mods : { theme : 'ergo', size : 'm', type : 'link'  },
-				url : '#',
-				text : 'Перейти в корзину'
-			},
-			{
-				block : 'button',
-				mods : { theme : 'ergo', size : 'm', type : 'link', view : 'action' },
-				url : '#',
-				text : 'Оформить заказ'
-			}
-		]
-	}
- */

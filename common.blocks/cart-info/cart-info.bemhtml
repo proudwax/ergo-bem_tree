@@ -16,12 +16,12 @@ block('cart-info')(
 				content: [
 					{
 						elem: 'count',
-						content: 'Товаров: ' + this.ctx.count + ' шт.'
+						content: 'Товаров: ' + this.ctx.content.count + ' шт.'
 					},
 					{
 						elem: 'sum',
 						content: [
-							'К оплате: ' + this.ctx.sum,
+							'К оплате: ' + this.ctx.content.sum,
 							{
 								block: 'rub',
 								mods: { size: 'small' }

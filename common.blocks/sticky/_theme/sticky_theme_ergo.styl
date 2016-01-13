@@ -1,16 +1,29 @@
 ctx = '.sticky_theme_ergo'
 {ctx} {
    	&.sticky_fixed > .sticky__panel{
-		max-width: calc(1250px - 2rem);
+		
+		max-width: calc(100% - 2rem);
 		left: 1rem;
 		right: 1rem;
 		margin: 0 auto;
 	}
 	
-	@media only screen and (max-width: 64em) {
+	@media only screen and (min-width: 48em) {
 		&.sticky_fixed > .sticky__panel{
 			max-width: calc(100% - 240px);
 		}		
+	}
+	
+	@media only screen and (min-width: 75em) {
+		&.sticky_fixed > .sticky__panel{
+			max-width: calc(1250px - 2rem);
+		}		
+	}
+	
+	@media screen and (orientation: portrait) { 
+		&.sticky_fixed > .sticky__panel{
+			max-width: calc(100% - 4rem);
+		}
 	}
 	
 	.page_goods-card &.sticky_fixed > .sticky__panel{

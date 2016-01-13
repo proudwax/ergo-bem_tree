@@ -15,9 +15,7 @@ block('header').content()(function() {
 		        	elem: 'col',
 		        	content: [
 						{
-							block: 'cart-info',
-							count: 2,
-							sum: 20000
+							block: 'cart-info'
 						}
 					]
 		        }
