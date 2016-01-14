@@ -1,0 +1,9 @@
+block('image')(
+	mix()({ block: 'lazy' }),
+	
+	attrs()(function(){ 
+		return applyNext({ 'data-lazy': 'dfgdf' });
+	})
+)
+
+
