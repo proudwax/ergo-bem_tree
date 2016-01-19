@@ -185,7 +185,8 @@ block('goods-list').content()(function() {
 									elem: 'image',
 									content: [
 										{
-											block : 'image',
+											block: 'image',
+											mods: { lazy: true },
 											url: item.preview,
 											alt: item.name												
 										}
