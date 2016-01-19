@@ -6,18 +6,16 @@ provide(BEMDOM.decl(this.name, {
             'inited': function(){
 				this._offsetShow = this.domElem.offset().top - BEMDOM.win.height();
 				
-				this.setMod('lazy', 'follow');
+				this
+					.setMod('lazy', 'follow')
+					._onLoad();
             }
         },
 		
 		'lazy': {
 			'follow': function(){
 				this.bindToWin('scroll', function(e){
-					if(BEMDOM.win.scrollTop() >= this._offsetShow){
-						this
-							.delMod('lazy')
-							.setMod('loaded');
-					}
+					this._onLoad();
 				});
 			},
 			
@@ -25,37 +23,32 @@ provide(BEMDOM.decl(this.name, {
 		
 		'loaded': {
 			true: function(){
-				/* this.findBlockOutside({block: 'goods', elem: 'image'}).domElem.append(this.domElem, BEMHTML.apply(
+				this._spin = BEMDOM.append(this.domElem.parent(), BEMHTML.apply(
 					{
 						block : 'spin',
-						mods : { theme : 'ergo', size : 'm', visible : true }
+						mods : { theme : 'ergo', size : 'xl', visible : true }
 					}
-				)); */
+				));
 				
-				/* BEMDOM.append(_this.elem('wrapper'), BEMHTML.apply({ block: 'spin', mods : { theme: 'ergo', size: 'xl', visible: true, center: true } */
-				
-				/* console.log(BEMHTML.apply({ block: 'spin', mods : { theme: 'ergo', size: 'xl', visible: true, center: true }})); */
-
-				console.log(BEMHTML.apply({ block: 'content', content: 'dsfsdfds' }));
-				
-				/* this.domElem.attr('src', this.params.src); */
+				this.domElem.attr('src', this.params.src);
 				
 				this
 					.bindTo('load', function() { 
-						console.log('Image load');
-						
+						this
+							.delMod('loaded')						
+							._spin.remove();
 					})
 					.unbindFromWin('scroll');
 			}
 		}
 	},
 
-	_onInit: function(){
-		
-	},
-
-	_onScroll: function(){
-	
+	_onLoad: function(){
+		if(BEMDOM.win.scrollTop() >= this._offsetShow){
+			this
+				.delMod('lazy')
+				.setMod('loaded');
+		}		
 	},
 	
 	getDefaultParams: function() {
