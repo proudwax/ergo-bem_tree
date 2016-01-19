@@ -1,6 +1,7 @@
 ({
 	shouldDeps: [
-		{ block: 'i-bem', elem: 'dom', mods: { 'init': true } },
-		{ block: 'spin', mods : {theme : 'ergo' } }
+		{ block: 'i-bem', elem: 'dom' },
+		{ block: 'spin', mods : {theme : 'ergo' } },
+		{ block: 'content' }
     ]
 })

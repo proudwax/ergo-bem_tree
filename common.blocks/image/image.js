@@ -35,7 +35,8 @@ provide(BEMDOM.decl(this.name, {
 				/* BEMDOM.append(_this.elem('wrapper'), BEMHTML.apply({ block: 'spin', mods : { theme: 'ergo', size: 'xl', visible: true, center: true } */
 				
 				/* console.log(BEMHTML.apply({ block: 'spin', mods : { theme: 'ergo', size: 'xl', visible: true, center: true }})); */
-				console.log(BEMHTML.apply({ block: 'image', attrs: { title: 'dfgdf'} }));
+
+				console.log(BEMHTML.apply({ block: 'content', content: 'dsfsdfds' }));
 				
 				/* this.domElem.attr('src', this.params.src); */
 				
