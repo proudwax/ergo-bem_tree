@@ -1,4 +1,4 @@
-modules.define('image', ['i-bem__dom', 'jquery', 'BEMHTML'], function(provide, BEMDOM, $, BEMHTML) {
+modules.define('image', ['i-bem__dom', 'jquery', 'BEMHTML', 'functions__throttle'], function(provide, BEMDOM, $, BEMHTML, throttle) {
 
 provide(BEMDOM.decl(this.name, {
 	onSetMod : {
@@ -14,14 +14,13 @@ provide(BEMDOM.decl(this.name, {
 		
 		'lazy': {
 			'follow': function(){
-				this.bindToWin('scroll', function(e){
+				throttle(this.bindToWin('scroll', function(e){
 					this._onLoad();
-				});
-			},
-			
+				}), 300);
+			}
 		},
 		
-		'loaded': {
+		'loading': {
 			true: function(){
 				this._spin = BEMDOM.append(this.domElem.parent(), BEMHTML.apply(
 					{
@@ -29,16 +28,23 @@ provide(BEMDOM.decl(this.name, {
 						mods : { theme : 'ergo', size : 'xl', visible : true }
 					}
 				));
-				
-				this.domElem.attr('src', this.params.src);
-				
+			
+				this
+					.setMod('loaded')
+					.domElem.attr('src', this.params.src);
+			}
+		},
+		
+		'loaded': {
+			true: function(){
 				this
 					.bindTo('load', function() { 
 						this
+							.delMod('loading')
 							.delMod('loaded')						
 							._spin.remove();
 					})
-					.unbindFromWin('scroll');
+					
 			}
 		}
 	},
@@ -46,8 +52,9 @@ provide(BEMDOM.decl(this.name, {
 	_onLoad: function(){
 		if(BEMDOM.win.scrollTop() >= this._offsetShow){
 			this
+				.unbindFromWin('scroll')
 				.delMod('lazy')
-				.setMod('loaded');
+				.setMod('loading');
 		}		
 	},
 	

@@ -10,9 +10,9 @@ block('page').content()(function() {
 					block: 'sticky',
 					mods: { theme: 'ergo', navigation: true }
 				},
-				/* {
+				{
 					block: 'slider'
-				}, */
+				},
                 {
                     block: 'content'
                 }
