@@ -1,5 +1,3 @@
-
-
 ctx = '.slider'
 {ctx} {
 	&__container{
@@ -8,10 +6,10 @@ ctx = '.slider'
 		background-repeat: none;
 		color: #fff;
 		margin-left: 0;
-		margin-right: 50%;
+		margin-right: 0;
 
 		&_position_right{
-			margin-left: 50%;
+			margin-left: 0;
 			margin-right: 0;
 		}
 
@@ -42,7 +40,7 @@ ctx = '.slider'
 		font: 100 1.5rem/1.6rem "Roboto",Helvetica,sans-serif;
 	}
 
-	@media only screen and (max-width: 40em) {
+	/* @media only screen and (min-width: 48em) {
 		&__container{
 			margin-left: 0;
 			margin-right: 0;
@@ -52,8 +50,20 @@ ctx = '.slider'
 				margin-right: 0;
 			}
 		}
-	}
+	} */
 
+	@media only screen and (min-width: 75em) {
+		&__container{
+			margin-left: 0;
+			margin-right: 50%;
+
+			&_position_right{
+				margin-left: 50%;
+				margin-right: 0;
+			}
+		}
+	}	
+	
 	@media only screen and (max-width: 62em) {
 		&__title{
 			font: 300 1.4rem/1.6rem "Roboto",Helvetica,sans-serif;

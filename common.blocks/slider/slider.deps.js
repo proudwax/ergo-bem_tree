@@ -1,6 +1,6 @@
 ({
 	shouldDeps: [
-		{ elems : ['container'] },
+		{ elem : 'container' },
         { block: 'plugin', elem: 'swiper' },
 		{ block: 'spin', mods : {theme : 'ergo' } }
     ]/* ,

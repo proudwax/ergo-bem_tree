@@ -37,14 +37,16 @@ provide(BEMDOM.decl(this.name, {
 		
 		'loaded': {
 			true: function(){
-				this
-					.bindTo('load', function() { 
-						this
+				var _this = this;
+				
+				this.bindTo('load', function() { 
+					setTimeout(function(){ 
+						_this
 							.delMod('loading')
 							.delMod('loaded')						
 							._spin.remove();
-					})
-					
+					}, 300);
+				});
 			}
 		}
 	},
