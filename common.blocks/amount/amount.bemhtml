@@ -1,0 +1,30 @@
+block('amount')(
+	mix()({ block: 'control-group' }),
+	content()(function(){
+		return [
+			{
+				block : 'button',
+				mods : this.ctx.buttonMinusMods,
+				name: this.ctx.buttonMinusName,
+				icon: {
+					block: 'icon',
+				}
+			},
+			{
+				block : 'input',
+				mods : this.ctx.InputMods,
+				maxLength : this.ctx.InputMaxLength,
+				name: this.ctx.InputName,
+				val: this.ctx.InputVal
+			},			
+			{
+				block : 'button',
+				mods : this.ctx.buttonPlusMods,
+				name: this.ctx.buttonPlusName,
+				icon: {
+					block: 'icon',
+				}
+			},			
+		]
+	})
+)

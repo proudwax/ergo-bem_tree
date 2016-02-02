@@ -1,0 +1,20 @@
+block('cart')(
+	elem('trash')(
+		content()(function(){
+			return {
+				block: 'button',
+				mods: { view : 'action', type: 'link', theme: 'ergo', size: 'm', view : 'plain', 'trash': true },
+				url: this.ctx.url,
+				icon: {
+					block: 'icon'
+				}
+			}
+		})
+	)
+
+	/*content()(function(){
+		return [
+			
+		]
+	})*/
+)
