@@ -9,24 +9,17 @@ block('page').content()(function() {
 				{
 					block: 'sticky',
 					mods: { theme: 'ergo', navigation: true }
-				},
-				{
-					block: 'cart'
 				}
 			]
 		},
-        /* {
+		{
             block: 'section',
-            content: [
-        		{
-                    block: 'sticky',
-                    mods: { theme: 'ergo', filter: true, 'cart-preview': true }
-                }, 
-        		{
-                    block: 'goods-list'
-                }
-            ]
-        }, */
+			content: [
+				{
+                    block: 'cart'
+                }			
+			]
+		},
         {
             block: 'footer'
         }

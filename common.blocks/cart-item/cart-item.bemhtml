@@ -1,10 +1,14 @@
 block('cart-item')(
 	
-	mix()({ block: 'link', mods: { theme: 'ergo' } }),
+	js()(true),
 	
-	tag()('a'),
+	mod('view', 'cart-popup')(
+		mix()({ block: 'link', mods: { theme: 'ergo' } }),
 	
-	attrs()(function(){ return {'href': this.ctx.id} }),
+		tag()('a'),
+		
+		attrs()(function(){ return {'href': this.ctx.id} })
+	),
 	
 	elem('image').content()(function(){
 		return {
@@ -13,5 +17,4 @@ block('cart-item')(
 			url: this.ctx.url
 		}
 	})
-	
 )

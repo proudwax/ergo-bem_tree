@@ -1,0 +1,66 @@
+ctx = '.cart'
+{ctx} {
+	background-color: #fff;
+	margin-left: -1rem;
+	margin-right: -1rem;
+	
+	&__header, &__footer{
+		display: flex;
+		align-items: center;
+		padding: 1rem;
+	}
+	&__header{
+		border-bottom: 1px solid #e6e6e6;	
+	}
+	
+	&__footer{
+		border-top: 1px solid #e6e6e6;	
+	}
+	
+	&__container{
+		display: flex;
+		flex-flow: row wrap;
+	}
+	
+	&__title{
+		width: 50%;
+	}
+	
+	&__total{
+		width: 75%;
+		box-sizing: border-box;
+		padding-right: 1rem;
+	}
+	
+	&__amount, &__price, &__action{
+		width: 25%;
+	}
+	
+	&__item{
+		width: 100%;
+		padding: 1rem;
+		border-top: 1px solid #e6e6e6;
+		position: relative;
+	}
+	
+	&__item:first-child{
+		border-top: 0;
+	}
+
+	&__title{
+		font-size: 18px;
+		line-height: 22px;	
+	}
+
+	&__amount, &__name, &__price{
+		font-size: 15px;
+		line-height: 18px;
+	}
+	
+	&__trash{
+		position: absolute;
+		right: 30px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}

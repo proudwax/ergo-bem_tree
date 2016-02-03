@@ -1,0 +1,38 @@
+block('cart')(
+	js()(true),
+
+	elem('trash')(
+		content()(function(){
+			return {
+				block: 'button',
+				mods: { view : 'action', type: 'link', theme: 'ergo', size: 'm', view : 'plain', 'trash': true },
+				url: this.ctx.url,
+				icon: {
+					block: 'icon'
+				}
+			}
+		})
+	),
+	
+	elem('image')(
+		content()(function(){
+			return {
+				block: 'image',
+				alt: this.ctx.alt,
+				url: this.ctx.url
+			}
+		})
+	),
+	
+	elem('title')(
+		tag()('h1')
+	)
+	
+	
+
+	/*content()(function(){
+		return [
+			
+		]
+	})*/
+)
