@@ -11,6 +11,6 @@ block('root').replace()(function() {
         scripts: [
             { elem: 'js', url: 'index.min.js' }
         ],
-        mods: { theme: 'ergo' }
+        mods: { theme: 'ergo', view: 'cart' }
     };
 });
