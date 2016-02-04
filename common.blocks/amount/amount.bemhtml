@@ -1,4 +1,5 @@
 block('amount')(
+	js()(true),
 	mix()({ block: 'control-group' }),
 	content()(function(){
 		return [

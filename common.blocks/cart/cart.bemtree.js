@@ -63,7 +63,7 @@ block('cart').content()(function() {
 								content: [
 									{
 										block: 'amount',
-										js: true,
+										// js: true,
 										buttonMinusMods: { theme : 'ergo', size : 'm', 'minus': true },
 										buttonPlusMods: { theme : 'ergo', size : 'm', 'plus': true },
 										InputMods : { theme : 'ergo', size : 'm', 'count': true },
