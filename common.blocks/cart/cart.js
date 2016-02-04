@@ -1,12 +1,18 @@
-modules.define('cart', ['i-bem__dom', 'BEMHTML'], function(provide, BEMDOM, BEMHTML) {
+modules.define('cart', ['i-bem__dom', 'BEMHTML', 'events__channels'], function(provide, BEMDOM, BEMHTML, channels) {
 
 provide(BEMDOM.decl(this.name, {
     onSetMod : {
         'js' : {
             'inited' : function() {
+				var _this = this;
+			
 				this._items = this.findBlocksInside('cart-item');
 				
                 this.elem('total').html(this._getText());
+				
+				channels('amount').on('change', function(){
+					/* console.log(_this); */
+				});
 
             }
         }
