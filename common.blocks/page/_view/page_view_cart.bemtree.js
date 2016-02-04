@@ -9,10 +9,15 @@ block('page').content()(function() {
 				{
 					block: 'sticky',
 					mods: { theme: 'ergo', navigation: true }
-				},
-                {
+				}
+			]
+		},
+		{
+            block: 'section',
+			content: [
+				{
                     block: 'cart'
-                }
+                }			
 			]
 		},
         {

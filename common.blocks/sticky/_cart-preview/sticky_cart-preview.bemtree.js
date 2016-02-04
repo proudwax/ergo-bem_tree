@@ -78,6 +78,7 @@ block('sticky').mod('cart-preview', true).content()(function() {
 				content: [
 					{
 						block: 'cart-item',
+						mods: { view: 'cart-popup' },
 						id: item['goods-id'],
 						content: [
 							{

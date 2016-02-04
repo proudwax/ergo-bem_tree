@@ -1,27 +1,28 @@
 block('amount')(
 	js()(true),
+
 	mix()({ block: 'control-group' }),
+	
 	content()(function(){
 		return [
 			{
-				block : 'button',
-				mods : this.ctx.buttonMinusMods,
-				name: this.ctx.buttonMinusName,
+				block: 'button',
+				mods: { theme : 'ergo', size : 'm', 'minus': true },
+				name: 'minus',
 				icon: {
 					block: 'icon',
 				}
 			},
 			{
-				block : 'input',
-				mods : this.ctx.InputMods,
-				maxLength : this.ctx.InputMaxLength,
-				name: this.ctx.InputName,
-				val: this.ctx.InputVal
+				block: 'input',
+				mods: { theme : 'ergo', size : 'm', 'count': true },
+				name: 'count',
+				val: this.ctx.content
 			},			
 			{
-				block : 'button',
-				mods : this.ctx.buttonPlusMods,
-				name: this.ctx.buttonPlusName,
+				block: 'button',
+				mods: { theme : 'ergo', size : 'm', 'plus': true },
+				name: 'plus',
 				icon: {
 					block: 'icon',
 				}

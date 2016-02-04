@@ -48,21 +48,36 @@ block('cart').content()(function() {
 				content: [
 					{
 						block: 'cart-item',
-						id: item['goods-id'],
+						mods: { view: 'cart' },
+						params: { 'goods-id': item['goods-id'] },
 						content: [
 							{
-								elem: 'image',
-								url: item.preview
-							},
-							{
-								elem: 'name',
-								content: item.name
+								elem: 'content',
+								content: [
+									{
+										elem: 'image',
+										alt: item.name,
+										url: item.preview
+									},
+									{
+										elem: 'name',
+										content: [
+											{
+												block: 'link',
+												mods : { theme : 'ergo' },
+												url : item['goods-id'],
+												content: item.name
+											}
+										]
+									}
+								]
 							},
 							{
 								elem: 'amount',
 								content: [
 									{
 										block: 'amount',
+<<<<<<< HEAD
 										// js: true,
 										buttonMinusMods: { theme : 'ergo', size : 'm', 'minus': true },
 										buttonPlusMods: { theme : 'ergo', size : 'm', 'plus': true },
@@ -71,6 +86,9 @@ block('cart').content()(function() {
 										InputVal: 1,
 										InputName: 'count'
 										// content: item.count
+=======
+										content: item.count
+>>>>>>> 456f6aac5d050a06f20fa819c9edc6b27e1bc71f
 									}
 								]
 							},
@@ -83,7 +101,7 @@ block('cart').content()(function() {
 										mods: { size: 'small' }
 									}
 								]
-							} 
+							}
 						]
 					},
 					{
@@ -98,15 +116,45 @@ block('cart').content()(function() {
     return [
     	{ 
     		elem: 'header',
-    		content: 'Корзина'
+    		content: [
+				{
+					elem: 'title',
+					content: 'Корзина'
+				},
+				{
+					elem: 'amount',
+					content: 'Количество'				
+				},
+				{
+					elem: 'price',
+					content: 'Цена'
+				}
+			]
+			
     	},
     	{
-    		elem: 'content',
+    		elem: 'container',
     		content: elemListItem(cart.list)
     	},
     	{
     		elem: 'footer',
-    		content: 'Итог'
+    		content: [
+				{
+					elem: 'total',
+					content: 'Итого:'
+				},
+				{
+					elem: 'action',
+					content: [
+						{
+							block : 'button',
+							mods : { theme : 'ergo', size : 'xl', view : 'action' },
+							text : 'Купить сейчас!'
+						}
+					]
+				}
+			]
+			
     	}
     ];
 });

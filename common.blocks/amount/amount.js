@@ -11,6 +11,7 @@ provide(BEMDOM.decl(this.name, {
 				this._input = this.findBlockInside({block: 'input', modName: 'count', modVal: true});
 				this._plus = this.findBlockInside({block: 'button', modName: 'plus', modVal: true});
 					
+				_this._input.domElem.find('input').attr('maxlength', this.params.maxLength);
 				_this._minus.setMod('disabled', this._input.getVal() == 1);
 				_this._plus.setMod('disabled', this._input.getVal() == 99);
 
@@ -81,7 +82,13 @@ provide(BEMDOM.decl(this.name, {
 	
 	getVal: function(){
 		return this._input.getVal();
-	}
+	},
+	
+	getDefaultParams : function() {
+        return {
+            maxLength: 2,
+        };
+    }	
 }));
 
 });
