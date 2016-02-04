@@ -77,18 +77,7 @@ block('cart').content()(function() {
 								content: [
 									{
 										block: 'amount',
-<<<<<<< HEAD
-										// js: true,
-										buttonMinusMods: { theme : 'ergo', size : 'm', 'minus': true },
-										buttonPlusMods: { theme : 'ergo', size : 'm', 'plus': true },
-										InputMods : { theme : 'ergo', size : 'm', 'count': true },
-										InputMaxLength : 2,
-										InputVal: 1,
-										InputName: 'count'
-										// content: item.count
-=======
 										content: item.count
->>>>>>> 456f6aac5d050a06f20fa819c9edc6b27e1bc71f
 									}
 								]
 							},
