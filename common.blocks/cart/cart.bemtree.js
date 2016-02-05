@@ -90,12 +90,12 @@ block('cart').content()(function() {
 										mods: { size: 'small' }
 									}
 								]
+							},
+							{
+								elem: 'trash',
+								url: '#' + item['goods-id']
 							}
 						]
-					},
-					{
-						elem: 'trash',
-						url: '#' + item['goods-id']
 					}
 				]
 			}

@@ -16,5 +16,19 @@ block('cart-item')(
 			mods: { lazy: true },
 			url: this.ctx.url
 		}
-	})
+	}),
+	
+	elem('trash')(
+		content()(function(){
+			return {
+				block: 'button',
+				mix: { block: 'button-trash' },
+				mods: { view : 'action', type: 'link', theme: 'ergo', size: 'm', view : 'plain', 'trash': true },
+				url: this.ctx.url,
+				icon: {
+					block: 'icon'
+				}
+			}
+		})
+	)
 )

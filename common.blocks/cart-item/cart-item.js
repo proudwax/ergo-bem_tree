@@ -6,8 +6,12 @@ provide(BEMDOM.decl(this.name, {
             'inited' : function() {
 				var _this = this;
 				
+				this._trash = this.findBlockInside('button-trash');
+				this._trash.bindTo('click', _this._goTrash);
+				
+				
 				this.params.count = Number(this.findBlockInside('amount').getVal());
-
+				
 				Amount.on(this.domElem, 'change', function(e){
 					_this.params.count = Number(this.getVal());
 					
@@ -16,7 +20,11 @@ provide(BEMDOM.decl(this.name, {
 
             }
         }
-    }
+    },
+	
+	_goTrash: function(){
+		this.domElem.prevObject.context.remove();
+	}
 }));
 
 });

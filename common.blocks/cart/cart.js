@@ -29,12 +29,16 @@ provide(BEMDOM.decl(this.name, {
 	_getEnding: function(count){
 		ending = ['ов', '', 'а', 'а', 'а', 'ов', 'ов', 'ов', 'ов', 'ов'];
 		
-		return ending[count % 10];
+		if(count >= 11 && count <= 14){
+			return 'ов';
+		}else{
+			return ending[count % 10];
+		}
 	},
 	
 	_getText: function(){
 		this._getTotal();
-	
+
 		rub = [{
 			block: 'rub',
 			mods: { size: 'small' }
