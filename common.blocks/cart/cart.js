@@ -1,4 +1,4 @@
-modules.define('cart', ['i-bem__dom', 'BEMHTML', 'events__channels'], function(provide, BEMDOM, BEMHTML, channels) {
+modules.define('cart', ['i-bem__dom', 'BEMHTML', 'cart-item'], function(provide, BEMDOM, BEMHTML, CartItem) {
 
 provide(BEMDOM.decl(this.name, {
     onSetMod : {
@@ -10,9 +10,9 @@ provide(BEMDOM.decl(this.name, {
 				
                 this.elem('total').html(this._getText());
 				
-				/* channels('amount').on('change', function(){
-					console.log(_this);
-				}); */
+				CartItem.on(this.domElem, 'change', function(e){					
+					_this.elem('total').html(_this._getText());
+				});
             }
         }
     },
@@ -23,7 +23,7 @@ provide(BEMDOM.decl(this.name, {
 			total.sum = total.sum + cur.params.count * cur.params.price;
 
 			return {'count': total.count, 'sum': total.sum}
-		}, {'count': 0, 'sum': 0});
+		}, {'count': 0, 'sum': 0});	
 	},
 	
 	_getEnding: function(count){
