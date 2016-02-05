@@ -10,10 +10,9 @@ provide(BEMDOM.decl(this.name, {
 				
                 this.elem('total').html(this._getText());
 				
-				channels('amount').on('change', function(){
-					/* console.log(_this); */
-				});
-
+				/* channels('amount').on('change', function(){
+					console.log(_this);
+				}); */
             }
         }
     },
