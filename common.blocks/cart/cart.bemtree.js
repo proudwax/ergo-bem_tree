@@ -49,7 +49,7 @@ block('cart').content()(function() {
 					{
 						block: 'cart-item',
 						mods: { view: 'cart' },
-						params: { 'goods-id': item['goods-id'] },
+						js: { 'goods-id': item['goods-id'], 'name': item.name, 'price': item.price.current, 'count': item.count },
 						content: [
 							{
 								elem: 'content',
