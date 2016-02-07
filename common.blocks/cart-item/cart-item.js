@@ -1,53 +1,37 @@
-modules.define('cart-item', ['i-bem__dom', 'jquery', 'BEMHTML', 'events', 'events__channels', 'amount'], function(provide, BEMDOM, $, BEMHTML, events, channels, Amount) {
+modules.define('cart-item', ['i-bem__dom', 'events__channels', 'jquery', 'amount'], function(provide, BEMDOM, channels, $, Amount) {
 
 provide(BEMDOM.decl(this.name, {
     onSetMod : {
         'js' : {
             'inited' : function() {
 				var _this = this;
-							
-				/*this.findBlockInside('amount')._input.bindTo('change', function(){
-					console.log(this);
-				});*/
 
-				/*this.findBlockInside('amount')._input.domElem.on('change', function(){
-					console.log(this);
-				});*/
+				this.findBlockInside('button-trash').bindTo('click', function(e){
+					e.preventDefault();
 
-				/*this.findBlockInside('amount').on('input', 'change', function(){
-					console.log(this);
-				});*/
+					_this._goTrash();
+					
+					channels('trash').emit('click');
+				});
+				
+				
+				this.params.count = Number(this.findBlockInside('amount').getVal());
+				
+				Amount.on(this.domElem, 'change', function(e){
+					_this.params.count = Number(this.getVal());
+					
+					_this.emit('change');
+				});
 
-				Amount.on(this.domElem, 'change click keypress', function(){ console.log(this); }, this);
-
-				// console.log(this.findBlockInside('amount'));
-
-				/*this.on(this.findBlockInside('amount').domElem, 'change', function(){
-					console.log(this);
-				});*/
-				
-				/* console.log(this.findBlockInside('amount')); */
-			
-				/* this.findBlockInside('amount').bindTo('change', function(){
-					console.log(this);
-				}); */
-				
-				/* amount.on('changeCount', function(){
-					console.log(this);
-				}); */
-				
-				/* console.log(); */
-				
-				/* changeCount.emit('changeCount', function(){
-					console.log(this);
-				}); */
-				
-				/* channels('amount').on('change', function(){
-					console.log(_this);
-				}); */
             }
         }
-    }
+    },
+	
+	_goTrash: function(){
+		BEMDOM.destruct(this.domElem);
+
+        return this.dropElemCache('cart-item');
+	}
 }));
 
 });

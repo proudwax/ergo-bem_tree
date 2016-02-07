@@ -1,40 +1,49 @@
-modules.define('cart', ['i-bem__dom', 'BEMHTML', 'events__channels'], function(provide, BEMDOM, BEMHTML, channels) {
+modules.define('cart', ['i-bem__dom', 'BEMHTML', 'events__channels', 'cart-item'], function(provide, BEMDOM, BEMHTML, channels, CartItem) {
 
 provide(BEMDOM.decl(this.name, {
     onSetMod : {
         'js' : {
             'inited' : function() {
 				var _this = this;
-			
+
 				this._items = this.findBlocksInside('cart-item');
-				
                 this.elem('total').html(this._getText());
+
+                channels('trash').on('click', function(){
+					_this._items = _this.findBlocksInside('cart-item');
+					_this.elem('total').html(_this._getText());
+				});
 				
-				channels('amount').on('change', function(){
-					/* console.log(_this); */
+				CartItem.on(this.domElem, 'change', function(e){
+					_this.elem('total').html(_this._getText());
 				});
             }
         }
     },
 	
 	_getTotal: function(){
+
 		this._total = this._items.reduce(function(total, cur){
 			total.count = total.count + cur.params.count;		
 			total.sum = total.sum + cur.params.count * cur.params.price;
 
 			return {'count': total.count, 'sum': total.sum}
-		}, {'count': 0, 'sum': 0});
+		}, {'count': 0, 'sum': 0});	
 	},
 	
 	_getEnding: function(count){
 		ending = ['ов', '', 'а', 'а', 'а', 'ов', 'ов', 'ов', 'ов', 'ов'];
 		
-		return ending[count % 10];
+		if(count >= 11 && count <= 14){
+			return 'ов';
+		}else{
+			return ending[count % 10];
+		}
 	},
 	
 	_getText: function(){
 		this._getTotal();
-	
+
 		rub = [{
 			block: 'rub',
 			mods: { size: 'small' }

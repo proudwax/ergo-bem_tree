@@ -16,6 +16,8 @@ provide(BEMDOM.decl(this.name, {
 				_this._plus.setMod('disabled', this._input.getVal() == 99);
 
 				changeCount.on('changeCount', function(e, data){ //count
+					_this.emit('change');
+					
 					_this._minus.setMod('disabled', data == 1);
 					_this._plus.setMod('disabled', data == 99);
 				});
