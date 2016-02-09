@@ -135,7 +135,7 @@ block('cart').content()(function() {
 						{
 							block : 'button',
 							mods : { theme : 'ergo', size : 'xl', view : 'action' },
-							text : 'Купить сейчас!'
+							text : 'Оформить заказ'
 						}
 					]
 				}
