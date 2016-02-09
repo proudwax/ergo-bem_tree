@@ -4,6 +4,8 @@
 	],
     shouldDeps: [
 		{ block: 'link', mods: { theme: 'ergo' } },
+		{ block: 'input' },
+		{ block: 'amount' },
 		{ block: 'rub' }
 	]
 })

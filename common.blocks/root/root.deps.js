@@ -1,5 +1,5 @@
 ({
     shouldDeps: [
-        { block: 'page', mods: { theme: 'ergo', view: 'cart' } }
+        { block: 'page', mods: { theme: 'ergo', view: /* 'cart' */ /* 'index' */ 'order' } }
     ]
 })

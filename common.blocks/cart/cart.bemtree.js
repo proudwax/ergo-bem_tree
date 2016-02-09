@@ -65,6 +65,12 @@ block('cart').content()(function() {
 											mods : { theme : 'ergo' },
 											url : item['goods-id'],
 											content: item.name
+										},
+										{
+											block: 'input',
+											mods: { 'invisibile': true },
+											name: 'name',
+											val: item.name
 										}
 									]
 								}
@@ -86,6 +92,12 @@ block('cart').content()(function() {
 								{
 									block: 'rub',
 									mods: { size: 'small' }
+								},
+								{
+									block: 'input',
+									mods: { 'invisibile': true },
+									name: 'price',
+									val: item.price.current
 								}
 							]
 						},
@@ -134,8 +146,8 @@ block('cart').content()(function() {
 					content: [
 						{
 							block : 'button',
-							mods : { theme : 'ergo', size : 'xl', view : 'action' },
-							text : 'Купить сейчас!'
+							mods : { theme : 'ergo', size : 'xl', view : 'action', type: 'submit' },
+							text : 'Оформить заказ'
 						}
 					]
 				}
