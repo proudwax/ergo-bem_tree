@@ -41,6 +41,53 @@ block('order-cart').content()(function() {
 		}
 	);
 	
+	function elemList(items){
+		return items.map(function(item){
+			return [
+				{
+					block: 'cart-list',
+					content: [
+						{
+							elem: 'content',
+							content: [
+								{
+									elem: 'image',
+									alt: item.name,
+									url: item.preview
+								},
+								{
+									elem: 'name',
+									content: [
+										{
+											block: 'link',
+											mods : { theme : 'ergo' },
+											url : item['goods-id'],
+											content: item.name
+										}
+									]
+								}
+							]
+						},
+						{
+							elem: 'amount',
+							content: item.count + ' шт.'
+						},
+						{
+							elem: 'price',
+							content: [
+								item.price.current,
+								{
+									block: 'rub',
+									mods: { size: 'small' }
+								}
+							]
+						}
+					]
+				}
+			]
+		});	
+	}
+	
     return [
     	{ 
     		elem: 'header',
@@ -48,8 +95,32 @@ block('order-cart').content()(function() {
 				{
 					elem: 'title',
 					content: 'Корзина'
+				},
+				{
+					elem: 'amount',
+					content: 'Количество'				
+				},
+				{
+					elem: 'price',
+					content: 'Цена'
 				}
 			]
+			
+    	},
+    	{
+    		elem: 'container',
+    		content: elemList(cart.list)
+    	},
+    	{
+    		elem: 'footer',
+    		content: [
+				{
+					elem: 'total',
+					count: cart.count, 
+					total: cart.total
+				}
+			]
+			
     	}
     ];
 });

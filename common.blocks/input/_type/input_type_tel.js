@@ -3,8 +3,7 @@ modules.define('input', ['i-bem__dom', 'plagin__masked'], function(provide, BEMD
 provide(Input.decl({ modName: 'type', modVal: 'tel' }, {
 	onSetMod : {
 		'js': function() {
-			console.log(this);
-            /* this.elem('control').mask('+7 (000) 000-0000'); */
+            this.elem('control').mask('+7 (000) 000-0000');
 		}
 	}
 }));

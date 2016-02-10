@@ -1,0 +1,27 @@
+ctx = '.row'
+{ctx} {
+
+	display: flex;
+	flex-flow: row wrap;
+	flex: 0 1 auto;
+	margin-left: -.25rem;
+	margin-right: -.25rem;
+
+	&__col{
+	   margin-left: .25rem;
+	   margin-right: .25rem;
+	}
+	
+	getWidth(col){
+		(100% / 12 * col)
+	}
+	
+	for colCount, i in (1 2 3 4 5 6 7 8 9 10 11 12) {
+	
+		colWidth = getWidth(colCount);
+	
+        &__col_{colCount}{
+           width: 'calc(%s - .5rem)' % colWidth;
+        }
+    }
+}
