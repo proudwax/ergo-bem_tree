@@ -1,5 +1,4 @@
 block('order-cart').content()(function() {
-
 	var cart = (
 		{
 			"count": 4,
@@ -97,12 +96,21 @@ block('order-cart').content()(function() {
 					content: 'Корзина'
 				},
 				{
-					elem: 'amount',
-					content: 'Количество'				
-				},
-				{
-					elem: 'price',
-					content: 'Цена'
+					elem: 'change',
+					content: [
+						{
+							block: 'link',
+							mods: { theme: 'ergo', size: 'm' },
+							url: '#',
+							content: [
+								{
+									block: 'icon',
+									cls: 'fa fa-pencil'
+								},
+								'Изменить заказ'
+							]
+						}
+					]				
 				}
 			]
 			

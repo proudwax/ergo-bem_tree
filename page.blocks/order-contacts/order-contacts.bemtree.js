@@ -80,9 +80,13 @@ block('order-contacts').content()(function() {
 			elem: 'footer',
 			content: [
 				{
-					block : 'button',
-					mods : { theme : 'ergo', size : 'l', view : 'action', type : 'submit' },
-					text : 'Отправить'					
+					block: 'button',
+					mods: { theme : 'ergo', size : 'l', view : 'action', type : 'submit' },
+					text: 'Отправить',
+					icon: {
+						block: 'icon',
+						cls: 'fa fa-paper-plane'
+					}
 				}
 			]
 		}

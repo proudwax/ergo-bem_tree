@@ -1,4 +1,6 @@
 block('page').content()(function() {
+	var data = this.data; 			// Пришла из data.json 
+		
     return [
 		{
             block: 'section',
@@ -42,7 +44,8 @@ block('page').content()(function() {
 							block: 'section',
 							content: [
 								{
-									block: 'order-cart'
+									block: 'order-cart',
+									js: { total: data.total, count: data.count }
 								}
 							]
 						}
