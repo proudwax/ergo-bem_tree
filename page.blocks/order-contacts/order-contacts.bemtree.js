@@ -4,6 +4,7 @@ block('order-contacts').content()(function() {
 		[
 			{
 				"block": "input",
+				"lable": "Имя",
 				"options": {
 					"type": "text",
 					"name": "name", 
@@ -12,14 +13,16 @@ block('order-contacts').content()(function() {
 			},
 			{
 				"block": "input",
+				"lable": "Телефон",
 				"options": {
 					"type": "tel",
 					"name": "tel", 
-					"placeholder": "Телефон" 
+					"placeholder": "+7 (000) 000-0000" 
 				}
 			},
 			{
 				"block": "input",
+				"lable": "Email",
 				"options": {
 					"type": "email", 
 					"name": "mail",
@@ -28,6 +31,7 @@ block('order-contacts').content()(function() {
 			},
 			{
 				"block": "input",
+				"lable": "Адрес",
 				"options": {
 					"type": "text", 
 					"name": "address",
@@ -43,8 +47,12 @@ block('order-contacts').content()(function() {
 				elem: 'input',
 				content: [
 					{
+						block: 'lable',
+						content: item.lable
+					},
+					{
 						block: item.block,
-						mods: { theme: 'ergo', size: 'l', 'has-clear' : true, width : 'available', type: item.options.type },		
+						mods: { theme: 'ergo', size: 'l', 'has-clear' : true, type: item.options.type },		
 						placeholder: item.options.placeholder,
 						name: item.options.name
 					}
@@ -67,6 +75,16 @@ block('order-contacts').content()(function() {
 		{
 			elem: 'content',
 			content: getInput(order)
+		},
+		{
+			elem: 'footer',
+			content: [
+				{
+					block : 'button',
+					mods : { theme : 'ergo', size : 'l', view : 'action', type : 'submit' },
+					text : 'Отправить'					
+				}
+			]
 		}
     ];
 });

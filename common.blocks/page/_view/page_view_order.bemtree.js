@@ -16,23 +16,35 @@ block('page').content()(function() {
 			]
 		},
         {
-			block: 'section-row',
-			content: [
+			block : 'row',
+			content : [
 				{
-					block: 'section',
-					mods: { col: 8 },
+					elem : 'col',
+					cls: 'row__col_6',
+					mods : { m: 6 },
 					content: [
 						{
-							block: 'order-contacts'
+							block: 'section',
+							content: [
+								{
+									block: 'order-contacts'
+								}
+							]
 						}
 					]
 				},
 				{
-					block: 'section',
-					mods: { col: 4 },
+					elem: 'col',
+					cls: 'row__col_6',
+					mods: { m: 6 },
 					content: [
 						{
-							block: 'order-cart'
+							block: 'section',
+							content: [
+								{
+									block: 'order-cart'
+								}
+							]
 						}
 					]
 				}	
