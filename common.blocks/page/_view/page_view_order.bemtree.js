@@ -11,10 +11,11 @@ block('page').content()(function() {
 				{
 					block: 'sticky',
 					mods: { theme: 'ergo', navigation: true }
-				},
+				}/* ,
                 {
-                    block: 'content'
-                }
+                    block: 'content',
+					mods: { view: 'map' }
+                } */
 			]
 		},
         {
