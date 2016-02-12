@@ -33,7 +33,7 @@ block('order-contacts').content()(function() {
 				"block": "input",
 				"lable": "Адрес",
 				"options": {
-					"type": "text", 
+					"type": "geo", 
 					"name": "address",
 					"placeholder": "Адрес" 
 				}

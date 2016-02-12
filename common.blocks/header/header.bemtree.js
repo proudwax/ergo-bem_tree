@@ -1,4 +1,6 @@
 block('header').content()(function() {
+	var data = this.data; 			// Пришла из data.json 
+
     return [
     	{
     		elem: 'inner',
@@ -15,7 +17,8 @@ block('header').content()(function() {
 		        	elem: 'col',
 		        	content: [
 						{
-							block: 'cart-info'
+							block: 'cart-info',
+							js: { total: data.total, count: data.count }
 						}
 					]
 		        }

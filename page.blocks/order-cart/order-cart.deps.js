@@ -4,7 +4,8 @@
 			{ block: 'i-bem', elem: 'dom' }
 		],
         shouldDeps: [
-			{ block: 'cart-list' }
+			{ block: 'cart-list' },
+			{ block: 'get-ending' }
 		]
     },
     {

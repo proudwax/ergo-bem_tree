@@ -2,12 +2,15 @@
     {
         mustDeps: [
 			{ block: 'i-bem', elem: 'dom' }
+		],
+		shouldDeps: [
+			{ block: 'spin', mods : {theme : 'ergo' } }
 		]
     },
     {
         tech: 'js',
         mustDeps: [
-			{ block: 'spin', mods: { theme: 'ergo' }, tech: 'bemhtml' }
+			{ block: 'spin', tech: 'bemhtml' }
         ]
     }
 ])
