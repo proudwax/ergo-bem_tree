@@ -12,20 +12,31 @@ ctx = '.order-cart'
 		align-items: center;
 	}
 	
-	&__title, &__amount, &__price{
+	&__title, &__change{
 		display: inline-block;
+		width: 50%;
+	}
+	
+	&__change{
+		text-align: right;
 		font-size: 15px;
-		line-height: 18px;		
+		line-height: 18px;
+		
+		.link{
+			.icon{
+				padding-right: 3px;
+			}
+		}
 	}
 	
 	&__title{
-		width: 50%;
 		font-size: 18px;
 		line-height: 22px;
 	}
-
-	&__amount, &__price{
-		width: 25%;
+	
+	&__total{
+		font-size: 15px;
+		line-height: 18px;
 	}
 	
 	&__content{
@@ -35,10 +46,5 @@ ctx = '.order-cart'
 	&__footer{
 		border-top: 1px solid #e6e6e6;
 		padding: 1rem;
-	}
-	
-	&__total{
-		font-size: 18px;
-		line-height: 22px;	
 	}
 }

@@ -1,4 +1,6 @@
 block('page').content()(function() {
+	var data = this.data; 			// Пришла из data.json 
+		
     return [
 		{
             block: 'section',
@@ -21,7 +23,7 @@ block('page').content()(function() {
 				{
 					elem : 'col',
 					cls: 'row__col_6',
-					mods : { m: 6 },
+					mods : { 6: true },
 					content: [
 						{
 							block: 'section',
@@ -36,13 +38,14 @@ block('page').content()(function() {
 				{
 					elem: 'col',
 					cls: 'row__col_6',
-					mods: { m: 6 },
+					mods: { 6: true },
 					content: [
 						{
 							block: 'section',
 							content: [
 								{
-									block: 'order-cart'
+									block: 'order-cart',
+									js: { total: data.total, count: data.count }
 								}
 							]
 						}
