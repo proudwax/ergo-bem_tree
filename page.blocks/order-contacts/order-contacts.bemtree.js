@@ -48,7 +48,7 @@ block('order-contacts').content()(function() {
 				content: [
 					{
 						block: 'lable',
-						content: item.lable
+						content: item.lable + ':'
 					},
 					{
 						block: item.block,
