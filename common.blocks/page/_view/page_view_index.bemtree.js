@@ -14,7 +14,8 @@ block('page').content()(function() {
 					block: 'slider'
 				},
                 {
-                    block: 'content'
+                    block: 'content',
+					mods: { view: 'main' }
                 }
 			]
 		},

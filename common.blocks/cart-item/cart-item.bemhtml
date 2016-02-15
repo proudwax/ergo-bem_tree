@@ -2,13 +2,13 @@ block('cart-item')(
 	
 	js()(true),
 	
-	mod('view', 'cart-popup')(
+	/* mod('view', 'cart-popup')(
 		mix()({ block: 'link', mods: { theme: 'ergo' } }),
 	
 		tag()('a'),
 		
 		attrs()(function(){ return {'href': this.ctx.id} })
-	),
+	), */
 	
 	elem('image').content()(function(){
 		return {

@@ -6,7 +6,7 @@
 		{ block: 'slider'},
 		{ block: 'section'},
 		{ block: 'goods-list'},
-		{ block: 'content'},
+		{ block: 'content', mods: { view: 'main' } },
 		{ block: 'footer'}
     ]
 })

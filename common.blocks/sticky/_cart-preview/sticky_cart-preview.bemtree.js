@@ -55,7 +55,7 @@ block('sticky').mod('cart-preview', true).content()(function() {
 					{
 						elem: 'list',
 						content: [
-							elemListItem(data.list)
+							elemListList(data.list)
 						]
 					},
 					{
@@ -71,12 +71,50 @@ block('sticky').mod('cart-preview', true).content()(function() {
 		}
 	}
 
-	function elemListItem(items){
+	function elemListList(items){
 		return items.map(function(item){
 			return {
 				elem: 'item',
 				content: [
 					{
+						block: 'cart-item',
+						mods: { view: 'cart-popup' },
+						js: { 'goods-id': item['goods-id'], 'name': item.name, 'price': item.price.current, 'count': item.count },
+						content: [
+							{
+								elem: 'content',
+								content: [
+									{
+										elem: 'image',
+										alt: item.name,
+										url: item.preview
+									},
+									{
+										elem: 'name',
+										content: [
+											{
+												block: 'link',
+												mods : { theme : 'ergo' },
+												url : item['goods-id'],
+												content: item.name
+											},
+											{
+												block: 'input',
+												mods: { 'invisibile': true },
+												name: 'name',
+												val: item.name
+											}
+										]
+									}
+								]
+							},
+							{
+								elem: 'trash',
+								url: '#' + item['goods-id']
+							}
+						]
+					}				
+					/* {
 						block: 'cart-item',
 						mods: { view: 'cart-popup' },
 						id: item['goods-id'],
@@ -89,17 +127,17 @@ block('sticky').mod('cart-preview', true).content()(function() {
 								elem: 'name',
 								content: item.name
 							},
-							/* {
+							{
+								elem: 'trash',
+								url: '#' + item['goods-id']
+							}
+							{
 								elem: 'price',
 								price_old: item.price.old,
 								price_current: item.price.current
-							} */
+							}
 						]
-					},
-					{
-						elem: 'trash',
-						url: '#' + item['goods-id']
-					}
+					} */
 				]
 			}
 		});	

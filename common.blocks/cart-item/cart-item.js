@@ -13,18 +13,20 @@ provide(BEMDOM.decl(this.name, {
 					
 					channels('trash').emit('click');
 				});
-				
-				
+            }
+        },
+		
+		'view': {
+			'cart': function(){
 				this.params.count = Number(this.findBlockInside('amount').getVal());
-				
+					
 				Amount.on(this.domElem, 'change', function(e){
 					_this.params.count = Number(this.getVal());
 					
 					_this.emit('change');
-				});
-
-            }
-        }
+				});				
+			}
+		}
     },
 	
 	_goTrash: function(){
