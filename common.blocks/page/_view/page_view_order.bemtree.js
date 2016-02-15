@@ -11,11 +11,11 @@ block('page').content()(function() {
 				{
 					block: 'sticky',
 					mods: { theme: 'ergo', navigation: true }
-				}/* ,
+				},
                 {
                     block: 'content',
 					mods: { view: 'map' }
-                } */
+                }
 			]
 		},
         {
@@ -23,7 +23,7 @@ block('page').content()(function() {
 			content : [
 				{
 					elem : 'col',
-					cls: 'row__col_6',
+					cls: 'row__col_6 row__col_last_portrait',
 					mods : { 6: true },
 					content: [
 						{

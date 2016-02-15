@@ -3,12 +3,16 @@ modules.define('input', ['i-bem__dom', 'BEMHTML', 'dom', 'jquery'], function(pro
 provide(Input.decl({ modName: 'type', modVal: 'geo' }, {
 	onSetMod : {
 		'js': function() {
-
+			var _this = this;
+			
 			this._placeholder = this.elem('control').attr('placeholder');
 
             this.bindTo('geo', 'click', function(){
-            	this.setMod('disabled', true)
-            		._getGeo();
+				this.setMod('disabled', true)
+					._getGeo();
+            	setTimeout(function(){
+					_this._getModal('Произошла ошибка обработки данных.');
+				}, _this.params.lifeTime);
             });	
 		},
 
@@ -126,10 +130,16 @@ provide(Input.decl({ modName: 'type', modVal: 'geo' }, {
 
        	modal_init.bindTo('pointerclick', function(e){
        		dom.contains(this.elem('content'), $(e.target)) || setTimeout(function(){
-          			BEMDOM.destruct(modal_init.domElem);;
+          			BEMDOM.destruct(modal_init.domElem);
     			}, 300);
        	});
-	}
+	},
+	
+	getDefaultParams : function(){
+        return {
+            lifeTime : 15000
+        };
+    }
 	
 }));
 });
