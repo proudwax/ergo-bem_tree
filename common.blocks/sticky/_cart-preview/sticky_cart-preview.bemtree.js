@@ -74,9 +74,9 @@ block('sticky').mod('cart-preview', true).content()(function() {
 	function elemListList(items){
 		return items.map(function(item){
 			return {
-				elem: 'item',
+				/*elem: 'item',
 				content: [
-					{
+					{*/
 						block: 'cart-item',
 						mods: { view: 'cart-popup' },
 						js: { 'goods-id': item['goods-id'], 'name': item.name, 'price': item.price.current, 'count': item.count },
@@ -138,8 +138,8 @@ block('sticky').mod('cart-preview', true).content()(function() {
 							}
 						]
 					} */
-				]
-			}
+				/*]
+			}*/
 		});	
 	}
 
