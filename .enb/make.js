@@ -1,3 +1,6 @@
+var fs = require('fs');
+var path = require('path');
+
 var techs = {
         // essential
         fileProvider: require('enb/techs/file-provider'),
@@ -29,71 +32,96 @@ var techs = {
         { path: 'libs/bem-components/design/desktop.blocks', check: false },
         'common.blocks',
         'desktop.blocks',
-        'page.blocks'
+        'pages.blocks'
     ];
+
+var PROJECT = 'index';
+var MODS = JSON.parse(fs.readFileSync('modifiers.json', 'utf8'));
+var FOLDERS = Object.keys(MODS);
 
 module.exports = function(config) {
     var isProd = process.env.YENV === 'production';
 
-    config.nodes('*.bundles/*', function(nodeConfig) {
-        nodeConfig.addTechs([
-            // essential
-            [enbBemTechs.levels, { levels: levels }],
-            [techs.fileProvider, { target: '?.bemdecl.js' }],
-            [enbBemTechs.deps],
-            [enbBemTechs.files],
+    FOLDERS.forEach(function(folder){
+        config.nodes('static.page/' + folder, function (nodeConfig){
+            nodeConfig.addTechs([
+                [enbBemTechs.levels, { levels: levels }]
+            ]);
 
-            // css
-            [techs.stylus, {
-                target: '?.css',
-                sourcemap: !isProd,
-                autoprefixer: {
-                    browsers: ['ie >= 10', 'last 2 versions', 'opera 12.1', '> 2%']
-                }
-            }],
 
-            // bemtree
-            [techs.bemtree, { sourceSuffixes: ['bemtree', 'bemtree.js'] }],
+            MODS[folder].forEach(function(page){
+                nodeConfig.addTechs([
+                    [techs.fileProvider, { target: folder + page + '.bemdecl.js' }],
 
-            // bemhtml
-            [techs.bemhtml, { sourceSuffixes: ['bemhtml', 'bemhtml.js'] }],
+                    // client bemhtml
+                    [enbBemTechs.depsByTechToBemdecl,{
+                        target: folder + page + '.bemhtml.bemdecl.js',
+                        sourceTech: 'js',
+                        destTech: 'bemhtml'
+                    }],
+                    [enbBemTechs.deps,{
+                        bemdeclFile: folder + page + '.bemhtml.bemdecl.js',
+                        target: folder + page + '.bemhtml.deps.js'
+                    }],
+                    [enbBemTechs.files,{
+                        depsFile: folder + page + '.bemhtml.deps.js',
+                        filesTarget: folder + page + '.bemhtml.files',
+                        dirsTarget: folder + page + '.bemhtml.dirs'
+                    }],
 
-            // html
-            [techs.bemtreeToHtml],
+                    // bemtree
+                    [techs.bemtree,{
+                        sourceSuffixes: ['bemtree', 'bemtree.js'],
+                        target: folder + page + '.bemhtml.bemtree.js',
+                        filesTarget: folder + page + '.bemhtml.files'
+                    }],
 
-            // client bemhtml
-            [enbBemTechs.depsByTechToBemdecl, {
-                target: '?.bemhtml.bemdecl.js',
-                sourceTech: 'js',
-                destTech: 'bemhtml'
-            }],
-            [enbBemTechs.deps, {
-                target: '?.bemhtml.deps.js',
-                bemdeclFile: '?.bemhtml.bemdecl.js'
-            }],
-            [enbBemTechs.files, {
-                depsFile: '?.bemhtml.deps.js',
-                filesTarget: '?.bemhtml.files',
-                dirsTarget: '?.bemhtml.dirs'
-            }],
-            [techs.bemhtml, {
-                target: '?.browser.bemhtml.js',
-                filesTarget: '?.bemhtml.files',
-                sourceSuffixes: ['bemhtml', 'bemhtml.js']
-            }],
+                    // bemhtml
+                    [techs.bemhtml,{
+                        sourceSuffixes: ['bemhtml', 'bemhtml.js'],
+                        target: folder + page + '.browser.bemhtml.js',
+                        filesTarget: folder + page + '.bemhtml.files'
+                    }],
 
-            // js
-            [techs.browserJs, { includeYM: true }],
-            [techs.fileMerge, {
-                target: '?.js',
-                sources: ['?.browser.js', '?.browser.bemhtml.js']
-            }],
+                    // html
+                    [techs.bemtreeToHtml,{
+                        bemhtmlTarget: folder + page + '.browser.bemhtml.js',
+                        bemtreeTarget: folder + page + '.bemhtml.bemtree.js',
+                        destTarget: folder + page + '.html'
+                    }]
+                ]);
 
-            // borschik
-            [techs.borschik, { source: '?.js', target: '?.min.js', minify: isProd }],
-            [techs.borschik, { source: '?.css', target: '?.min.css', tech: 'cleancss', minify: isProd }]
-        ]);
+                nodeConfig.addTargets([folder + page + '.html']);
+            });
 
-        nodeConfig.addTargets(['?.html', '?.min.css', '?.min.js']);
+            nodeConfig.addTechs([
+                // css
+                [techs.stylus, {
+                    filesTarget: MODS[folder] + '_' + MODS[folder][0] + '.bemhtml.files',
+                    target: PROJECT + '.css',
+                    sourcemap: !isProd,
+                    autoprefixer: {
+                        browsers: ['ie >= 10', 'last 2 versions', 'opera 12.1', '> 2%']
+                    }
+                }],
+
+                // js
+                [techs.browserJs, {
+                    includeYM: true,
+                }],
+                [techs.fileMerge, {
+                    filesTarget: MODS[folder] + '_' + MODS[folder][0] + '.bemhtml.files',
+                    sources: [MODS[folder] + '_' + MODS[folder][0] + '.browser.js', MODS[folder] + '_' + MODS[folder][0] + '.browser.bemhtml.js']
+                    target: PROJECT + '.js'
+                }],
+
+                // borschik
+                [techs.borschik, { source: PROJECT + '.js', target: PROJECT + '.min.js', minify: isProd }],
+                [techs.borschik, { source: PROJECT + '.css', target: PROJECT + '.min.css', tech: 'cleancss', minify: isProd }]
+            ]);
+
+            nodeConfig.addTargets([PROJECT + '.min.css', PROJECT + '.min.js']);
+        });
     });
+
 };

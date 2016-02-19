@@ -1,0 +1,7 @@
+{
+	"view": [
+		"index",
+		"cart",
+		"order"
+	]
+}

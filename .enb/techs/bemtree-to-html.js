@@ -25,13 +25,15 @@ module.exports = require('enb/lib/build-flow').create()
     .useSourceFilename('bemhtmlTarget', '?.bemhtml.js')
     .builder(function(bemtreeFilename, bemhtmlFilename) {
         dropRequireCache(require, bemtreeFilename);
-        /* dropRequireCache(require, bemhtmlFilename); */
-        dropRequireCache(require, this.node._root + '/data.json');
+        dropRequireCache(require, bemhtmlFilename); 
 
-        var data = require(this.node._root + '/data.json'),
+
+        var page = path.basename(bemtreeFilename, '.bemhtml.bemtree.js').split('_');,
 			BEMTREE = require(bemtreeFilename).BEMTREE,
             BEMHTML = require(bemhtmlFilename).BEMHTML;
-		
-        return BEMHTML.apply(BEMTREE.apply({ block: 'root', data: data }));
+
+
+
+        return BEMHTML.apply(BEMTREE.apply({ block: 'root', page[0]: page[1] }));
     })
     .createTech();
