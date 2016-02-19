@@ -1,4 +1,4 @@
-block('page').content()(function() {
+block('page').mod('view', 'order').content()(function() {
 	var data = this.data; 			// Пришла из data.json 
 		
     return [
