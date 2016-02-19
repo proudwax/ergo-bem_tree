@@ -18,7 +18,7 @@ block('header').content()(function() {
 		        	content: [
 						{
 							block: 'cart-info',
-							js: { total: data.total, count: data.count }
+							js: { /*total: data.total, count: data.count*/ }
 						}
 					]
 		        }

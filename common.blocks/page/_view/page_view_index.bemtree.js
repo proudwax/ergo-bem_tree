@@ -1,4 +1,4 @@
-block('page').content()(function() {
+block('page').mod('view', 'index').content()(function() {
     return [
 		{
             block: 'section',

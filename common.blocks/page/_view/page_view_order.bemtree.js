@@ -1,4 +1,4 @@
-block('page').content()(function() {
+block('page').mod('view', 'order').content()(function() {
 	var data = this.data; 			// Пришла из data.json 
 		
     return [
@@ -46,7 +46,7 @@ block('page').content()(function() {
 							content: [
 								{
 									block: 'order-cart',
-									js: { total: data.total, count: data.count }
+									js: { /*total: data.total, count: data.count*/ }
 								}
 							]
 						}

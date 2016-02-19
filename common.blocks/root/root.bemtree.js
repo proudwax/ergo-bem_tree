@@ -1,8 +1,18 @@
 block('root').replace()(function() {
 	var ctx = this.ctx;
-
-        
 	
+    console.log(ctx);
+
+    var modName =  ctx.page.modName,
+        modVal = ctx.page.modVal;
+
+    var mods = [];
+
+    mods['theme'] = 'ergo';
+    mods[modName] = modVal;
+
+    console.log(mods);
+
     return applyCtx({
         block: 'page',
         title: 'TODO',
@@ -15,6 +25,6 @@ block('root').replace()(function() {
         scripts: [
             { elem: 'js', url: 'index.min.js' }
         ],
-        mods: { theme: 'ergo', ctx[0]: ctx[1] }
+        mods: mods 
     });
 });

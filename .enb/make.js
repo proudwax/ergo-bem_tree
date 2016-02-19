@@ -31,8 +31,7 @@ var techs = {
         { path: 'libs/bem-components/design/common.blocks', check: false },
         { path: 'libs/bem-components/design/desktop.blocks', check: false },
         'common.blocks',
-        'desktop.blocks',
-        'pages.blocks'
+        'page.blocks'
     ];
 
 var PROJECT = 'index';
@@ -42,62 +41,57 @@ var FOLDERS = Object.keys(MODS);
 module.exports = function(config) {
     var isProd = process.env.YENV === 'production';
 
+
     FOLDERS.forEach(function(folder){
-        config.nodes('static.page/' + folder, function (nodeConfig){
+
+
+        config.nodes('static.page/' + folder , function (nodeConfig) {
             nodeConfig.addTechs([
                 [enbBemTechs.levels, { levels: levels }]
             ]);
-
-
-            MODS[folder].forEach(function(page){
+            
+            MODS[FOLDERS].forEach(function(page) {
                 nodeConfig.addTechs([
-                    [techs.fileProvider, { target: folder + page + '.bemdecl.js' }],
-
-                    // client bemhtml
-                    [enbBemTechs.depsByTechToBemdecl,{
-                        target: folder + page + '.bemhtml.bemdecl.js',
-                        sourceTech: 'js',
-                        destTech: 'bemhtml'
+                    [techs.fileProvider, { target: folder + '_' + page + '.bemdecl.js' }],
+                    [enbBemTechs.deps, {
+                        bemdeclFile: folder + '_' + page + '.bemdecl.js',
+                        target: folder + '_' + page + '.deps.tmp.js'
                     }],
-                    [enbBemTechs.deps,{
-                        bemdeclFile: folder + page + '.bemhtml.bemdecl.js',
-                        target: folder + page + '.bemhtml.deps.js'
-                    }],
-                    [enbBemTechs.files,{
-                        depsFile: folder + page + '.bemhtml.deps.js',
-                        filesTarget: folder + page + '.bemhtml.files',
-                        dirsTarget: folder + page + '.bemhtml.dirs'
+                    [enbBemTechs.files, {
+                        depsFile: folder + '_' + page + '.deps.tmp.js',
+                        filesTarget: folder + '_' + page + '.tmp.files',
+                        dirsTarget: folder + '_' + page + '.tmp.dirs'
                     }],
 
                     // bemtree
-                    [techs.bemtree,{
+                    [techs.bemtree, {
                         sourceSuffixes: ['bemtree', 'bemtree.js'],
-                        target: folder + page + '.bemhtml.bemtree.js',
-                        filesTarget: folder + page + '.bemhtml.files'
+                        target: folder + '_' + page + '.bemtree.tmp.js',
+                        filesTarget: folder + '_' + page + '.tmp.files'
                     }],
 
                     // bemhtml
-                    [techs.bemhtml,{
+                    [techs.bemhtml, {
                         sourceSuffixes: ['bemhtml', 'bemhtml.js'],
-                        target: folder + page + '.browser.bemhtml.js',
-                        filesTarget: folder + page + '.bemhtml.files'
+                        target: folder + '_' + page + '.bemhtml.tmp.js',
+                        filesTarget: folder + '_' + page + '.tmp.files'
                     }],
 
                     // html
-                    [techs.bemtreeToHtml,{
-                        bemhtmlTarget: folder + page + '.browser.bemhtml.js',
-                        bemtreeTarget: folder + page + '.bemhtml.bemtree.js',
-                        destTarget: folder + page + '.html'
+                    [techs.bemtreeToHtml, {
+                        bemhtmlTarget: folder + '_' + page + '.bemhtml.tmp.js',
+                        bemtreeTarget: folder + '_' + page + '.bemtree.tmp.js',
+                        destTarget: folder + '_' + page + '.html'
                     }]
                 ]);
 
-                nodeConfig.addTargets([folder + page + '.html']);
+                nodeConfig.addTargets([folder + '_' + page + '.html']);
             });
 
             nodeConfig.addTechs([
                 // css
                 [techs.stylus, {
-                    filesTarget: MODS[folder] + '_' + MODS[folder][0] + '.bemhtml.files',
+                    filesTarget: folder + '_' + MODS[folder][0] + '.tmp.files',
                     target: PROJECT + '.css',
                     sourcemap: !isProd,
                     autoprefixer: {
@@ -107,21 +101,21 @@ module.exports = function(config) {
 
                 // js
                 [techs.browserJs, {
-                    includeYM: true,
-                }],
-                [techs.fileMerge, {
-                    filesTarget: MODS[folder] + '_' + MODS[folder][0] + '.bemhtml.files',
-                    sources: [MODS[folder] + '_' + MODS[folder][0] + '.browser.js', MODS[folder] + '_' + MODS[folder][0] + '.browser.bemhtml.js']
-                    target: PROJECT + '.js'
+                    filesTarget: folder + '_' + MODS[folder][0] + '.tmp.files',
+                    target: PROJECT + '.js',
+                    includeYM: true
                 }],
 
                 // borschik
-                [techs.borschik, { source: PROJECT + '.js', target: PROJECT + '.min.js', minify: isProd }],
-                [techs.borschik, { source: PROJECT + '.css', target: PROJECT + '.min.css', tech: 'cleancss', minify: isProd }]
+                [techs.borschik, { source: PROJECT + '.js', target: PROJECT + '.min.js', minify: false }],
+                [techs.borschik, { source: PROJECT + '.css', target: PROJECT + '.min.css', tech: 'cleancss', minify: false }]
             ]);
 
             nodeConfig.addTargets([PROJECT + '.min.css', PROJECT + '.min.js']);
         });
+
+
+
     });
 
 };
