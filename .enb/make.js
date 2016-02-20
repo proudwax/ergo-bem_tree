@@ -49,12 +49,18 @@ module.exports = function(config) {
             nodeConfig.addTechs([
                 [enbBemTechs.levels, { levels: levels }]
             ]);
-            
+
             MODS[FOLDERS].forEach(function(page) {
                 nodeConfig.addTechs([
                     [techs.fileProvider, { target: folder + '_' + page + '.bemdecl.js' }],
+                    // client bemhtml
+                    [enbBemTechs.depsByTechToBemdecl, {
+                        target: folder + '_' + page + '.bemhtml.bemdecl.js',
+                        sourceTech: 'js',
+                        destTech: 'bemhtml'
+                    }],
                     [enbBemTechs.deps, {
-                        bemdeclFile: folder + '_' + page + '.bemdecl.js',
+                        bemdeclFile: folder + '_' + page + '.bemhtml.bemdecl.js',
                         target: folder + '_' + page + '.deps.tmp.js'
                     }],
                     [enbBemTechs.files, {

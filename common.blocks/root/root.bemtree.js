@@ -1,8 +1,6 @@
 block('root').replace()(function() {
 	var ctx = this.ctx;
-	
-    console.log(ctx);
-
+    
     var modName =  ctx.page.modName,
         modVal = ctx.page.modVal;
 
