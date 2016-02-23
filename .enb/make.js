@@ -16,8 +16,7 @@ var techs = {
         bemtree: require('enb-bemxjst/techs/bemtree'),
 
         // bemhtml
-        bemhtml: require('enb-bemxjst/techs/bemhtml'),
-        bemtreeToHtml: require('./techs/bemtree-to-html')
+        bemhtml: require('enb-bemxjst/techs/bemhtml')
     },
     enbBemTechs = require('enb-bem-techs'),
     levels = [
@@ -28,8 +27,7 @@ var techs = {
         { path: 'libs/bem-components/design/common.blocks', check: false },
         { path: 'libs/bem-components/design/desktop.blocks', check: false },
         'common.blocks',
-        'desktop.blocks',
-        'page.blocks'
+        'desktop.blocks'
     ];
 
 module.exports = function(config) {
@@ -57,9 +55,6 @@ module.exports = function(config) {
 
             // bemhtml
             [techs.bemhtml, { sourceSuffixes: ['bemhtml', 'bemhtml.js'] }],
-
-            // html
-            [techs.bemtreeToHtml],
 
             // client bemhtml
             [enbBemTechs.depsByTechToBemdecl, {
@@ -94,6 +89,6 @@ module.exports = function(config) {
             [techs.borschik, { source: '?.css', target: '?.min.css', tech: 'cleancss', minify: isProd }]
         ]);
 
-        nodeConfig.addTargets(['?.html', '?.min.css', '?.min.js']);
+        nodeConfig.addTargets(['?.bemtree.js', '?.bemhtml.js', '?.min.css', '?.min.js']);
     });
 };

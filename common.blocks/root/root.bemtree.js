@@ -1,12 +1,10 @@
 block('root').replace()(function() {
-	this.data = this.ctx.data;
-	
-	var ctx = this.ctx;
-    // пробрасываем data вглубь по дереву
-    this.data = ctx.data;
+	var data = this.data = this.ctx.data;
+
+    console.log(data);
 	
     // если задан context — требуется отрендерить не целую страницу, а лишь эту конкретную часть
-    if (ctx.context) return applyCtx(ctx.context);
+   // if (ctx.context) return applyCtx(ctx.context);
 	
     return applyCtx({
         block: 'page',
@@ -15,11 +13,11 @@ block('root').replace()(function() {
         head: [
             { elem : 'meta', attrs : { name : 'description', content : '' } },
             { elem : 'meta', attrs : { name : 'viewport', content : 'width=device-width, initial-scale=1' } },
-            { elem: 'css', url: 'index.min.css' }
+            { elem: 'css', url: '../index.min.css' }
         ],
         scripts: [
-            { elem: 'js', url: 'index.min.js' }
+            { elem: 'js', url: '../index.min.js' }
         ],
-        mods: { theme: 'ergo', view: 'index' /*'order'*/  /* 'cart' */ }
+        mods: { theme: 'ergo', view: data.type }
     });
 });

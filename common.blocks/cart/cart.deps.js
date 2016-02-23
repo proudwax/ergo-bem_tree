@@ -5,7 +5,7 @@
 		],
         shouldDeps: [
 			{ block: 'link', mods: { theme: 'ergo' } },
-			{ block: 'cart-item' }
+			{ block: 'cart-item', mods: { view: 'cart' } }
 		]
     },
     {
