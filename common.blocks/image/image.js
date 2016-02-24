@@ -55,8 +55,8 @@ provide(BEMDOM.decl(this.name, {
 		if(BEMDOM.win.scrollTop() >= this._offsetShow){
 			this
 				.unbindFromWin('scroll')
-				.delMod('lazy')
-				.setMod('loading');
+				.setMod('loading')
+				.delMod('lazy');
 		}		
 	},
 	

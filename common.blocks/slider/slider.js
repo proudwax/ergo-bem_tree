@@ -15,10 +15,15 @@ provide(BEMDOM.decl(this.name, {
 						paginationClickable: true,
 						spaceBetween: 0,
 						loop: true,
-					    onImagesReady: function(swiper){
+						preloadImages: true,
+    					lazyLoading: true,
+					    /*onImagesReady: function(swiper){
 					    	alert('re');
 					    },
 					    onSlideChangeStart: function(swiper){
+					    	_this._onInit();
+					    },*/
+					    onInit: function(swiper){
 					    	_this._onInit();
 					    }
 					});
