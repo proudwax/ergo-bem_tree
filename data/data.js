@@ -16,5 +16,11 @@ module.exports = [
         url: 'order',
         type: 'order',
         content: 'some more content'
+    },
+    {
+        title: 'Forth page',
+        url: 'product',
+        type: 'product',
+        content: 'some more content'
     }
 ];

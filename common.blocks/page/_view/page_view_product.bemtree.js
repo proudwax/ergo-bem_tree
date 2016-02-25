@@ -1,6 +1,4 @@
-block('page').mod('view', 'order').content()(function() {
-	//var data = this.data; 			// Пришла из data.json 
-		
+block('page').mod('view', 'product').content()(function() {
     return [
 		{
             block: 'section',
@@ -11,11 +9,7 @@ block('page').mod('view', 'order').content()(function() {
 				{
 					block: 'sticky',
 					mods: { theme: 'ergo', navigation: true }
-				}/*,
-                {
-                    block: 'content',
-					mods: { view: 'map' }
-                }*/
+				}
 			]
 		},
         {
@@ -30,7 +24,7 @@ block('page').mod('view', 'order').content()(function() {
 							block: 'section',
 							content: [
 								{
-									block: 'order-contacts'
+									block: 'goods-card'
 								}
 							]
 						}
@@ -45,8 +39,7 @@ block('page').mod('view', 'order').content()(function() {
 							block: 'section',
 							content: [
 								{
-									block: 'order-cart',
-									js: { /*total: data.total, count: data.count*/ }
+									block: 'goods-list'
 								}
 							]
 						}
