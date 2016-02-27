@@ -17,8 +17,8 @@ block('page').mod('view', 'product').content()(function() {
 			content : [
 				{
 					elem : 'col',
-					cls: 'row__col_6 row__col_last_portrait',
-					mods : { 6: true },
+					cls: 'row__col_12 row__col_last_portrait',
+					mods : { 12: true },
 					content: [
 						{
 							block: 'section',
@@ -32,8 +32,8 @@ block('page').mod('view', 'product').content()(function() {
 				},
 				{
 					elem: 'col',
-					cls: 'row__col_6',
-					mods: { 6: true },
+					cls: 'row__col_12',
+					mods: { 12: true },
 					content: [
 						{
 							block: 'section',

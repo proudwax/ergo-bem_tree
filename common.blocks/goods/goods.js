@@ -4,17 +4,17 @@ provide(BEMDOM.decl(this.name, {
     onSetMod : {
         'hovered': {
             'true': function(){
-                this.bindTo('mouseleave pointerleave pointerup', this._onMouseLeave);
+                this.bindTo('pointerleave pointerup', this._onMouseLeave);
             },
 
             '': function(){
-                this.unbindFrom('mouseleave pointerleave pointerup', this._onMouseLeave);
+                this.unbindFrom('pointerleave pointerup', this._onMouseLeave);
             }
         },
 		
 		'js': {
 			'inited': function(){
-				this.bindTo('mouseover pointerover pointerdown', this._onMouseOver)
+				this.bindTo('pointerover pointerdown', this._onMouseOver)
 					.__base.apply(this, arguments);
 			}
 		}
@@ -31,7 +31,7 @@ provide(BEMDOM.decl(this.name, {
 {
     live: function(){
         return this
-            .liveBindTo('mouseover pointerover pointerdown', this.prototype._onMouseOver)
+            .liveBindTo('pointerover pointerdown', this.prototype._onMouseOver)
             .__base.apply(this, arguments);
 	}
 }));

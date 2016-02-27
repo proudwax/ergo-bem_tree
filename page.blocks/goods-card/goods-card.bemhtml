@@ -1,0 +1,5 @@
+block('goods-card')(
+	js()(true),
+
+	elem('header').tag()('h1')
+)
