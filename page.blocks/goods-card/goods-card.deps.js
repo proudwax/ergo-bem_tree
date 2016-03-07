@@ -1,6 +1,12 @@
 ({
     shouldDeps: [
+    	{ block: 'row'},
+    	{ block: 'section'},
+    	{ block: 'sticky', mods: { theme: 'ergo', navigation: true }},
         { block: 'image' },
-		{ block: 'slider-with-thumbs' }
+        { block: 'select', mods: { theme: 'ergo' } },
+		{ block: 'slider', mods: { fotorama: true } },
+		{ block: 'button', mods: { theme: 'ergo' } },
+		{ block: 'rub' }
     ]
 })

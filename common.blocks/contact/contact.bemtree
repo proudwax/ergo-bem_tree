@@ -2,7 +2,6 @@ block('contact').content()(function() {
     return [    	
 		{
 			elem: 'phone',
-			mix: { block: 'character', mods: { plus: true } },
 			content: '7(000)000-00-00'
 		},
 		{

@@ -43,6 +43,7 @@ ctx = '.button_theme_ergo'
     .icon
     {
         position: relative;
+        vertical-align: top;
     }
 
     &.button_type_link
@@ -262,6 +263,8 @@ ctx = '.button_theme_ergo'
         .icon
         {
             width: 28px;
+            line-height: 28px;
+            font-size: 16px;
         }
 
         .button__text
@@ -286,6 +289,21 @@ ctx = '.button_theme_ergo'
         .icon
         {
             width: 32px;
+
+            &_cart{
+                &_black{
+                    background-image: url('../image/cart_l_black.png');
+                    background-size: cover;
+                    background-size: 15px;
+                }
+
+                &_white{
+                    background-image: url('../image/cart_l_white.png');
+                    background-size: cover;
+                    background-size: 15px;
+                }
+            }
+
         }
 
         .button__text

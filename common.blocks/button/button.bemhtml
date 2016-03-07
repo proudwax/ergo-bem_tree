@@ -5,5 +5,18 @@ block('button')(
 			return [ applyNext(), { elem: 'badge', content: this.ctx.badge }];
 		})
 	),
-	elem('badge').tag()('span')
+
+	elem('badge').tag()('span'),
+
+    mod('cart', 'white')(
+    	content()(function(){
+    		return [
+    			applyNext(),
+    			{
+    				block: 'icon',
+    				mods: { cart: 'white' }
+    			}
+    		]
+    	})	
+    )
 );

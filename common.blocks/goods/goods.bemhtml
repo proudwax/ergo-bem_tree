@@ -73,7 +73,9 @@ block('goods')(
 							url : this._js['goods-id'],
 							icon: {
 								block: 'icon',
-								cls: 'fa fa-search-plus'
+								cls: 'material-icons',
+								// content: '&#xE8B6;'
+								content: '&#xE8FF;'
 							}
 						},
 						{
@@ -82,7 +84,8 @@ block('goods')(
 							text: 'Купить',
 							icon: {
 								block: 'icon',
-								cls: 'fa fa-shopping-cart'
+								cls: 'material-icons',
+								content: '&#xE8CC;'
 							}
 						}
 					]	

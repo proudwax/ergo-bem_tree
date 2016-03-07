@@ -1,6 +1,7 @@
 {
     "freeze_paths" : {
         "libs/fontawesome/**": "output/fonts",
+        "libs/material-design-icons/iconfont/**": "output/fonts",
         "libs/**/*.png": ":base64:",
         "libs/**/*.svg": ":encodeURIComponent:",
         "*.blocks/**/*.png": ":base64:",

@@ -12,39 +12,18 @@ block('page').mod('view', 'product').content()(function() {
 				}
 			]
 		},
-        {
-			block : 'row',
-			content : [
+		{
+			block: 'breadcrumbs'
+		},
+		{
+			block: 'goods-card'
+		},
+		{
+			block: 'section',
+			content: [
 				{
-					elem : 'col',
-					cls: 'row__col_12 row__col_last_portrait',
-					mods : { 12: true },
-					content: [
-						{
-							block: 'section',
-							content: [
-								{
-									block: 'goods-card'
-								}
-							]
-						}
-					]
-				},
-				{
-					elem: 'col',
-					cls: 'row__col_12',
-					mods: { 12: true },
-					content: [
-						{
-							block: 'section',
-							content: [
-								{
-									block: 'goods-list'
-								}
-							]
-						}
-					]
-				}	
+					block: 'goods-list'
+				}
 			]
 		},
         {

@@ -11,7 +11,8 @@ block('page').mod('view', 'index').content()(function() {
 					mods: { theme: 'ergo', navigation: true }
 				},
 				{
-					block: 'slider'
+					block: 'slider',
+                    mods: { responsive: true }
 				},
                 {
                     block: 'content',

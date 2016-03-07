@@ -1,5 +1,41 @@
 block('goods-card')(
 	js()(true),
 
-	elem('header').tag()('h1')
+	elem('title')(
+		tag()('h1'),
+		
+		mod('small', true)(
+			tag()('h2')
+		)
+	),
+
+	elem('price_old').content()(function(){
+		return [
+			applyNext(),
+			{
+				block: 'rub',
+				mods: { size: 'small' }
+			}
+		]
+	}),
+
+	elem('price_current').content()(function(){
+		return [
+			applyNext(),
+			{
+				block: 'rub',
+				mods: { size: 'small' }
+			}
+		]
+	}),
+
+	elem('action').content()(function(){
+		return [
+			{
+			    block : 'button',
+			    mods : { theme : 'ergo', size : 'l', view : 'action', 'cart': 'white' },
+			    text : 'В корзину'
+			}
+		]
+	})
 )

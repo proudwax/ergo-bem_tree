@@ -15,7 +15,7 @@ block('goods-card').content()(function() {
 					"old": 10000,
 					"current": 7500
 				},
-			"desc": "Назначение — городской"
+			"desc": "<ul><li>100% натуральный хлопок</li><li>вес ребёнка до 20кг</li><li>кармат с застёжкой на молнии</li></ul>"
 		});
 	
 	function buildElemLable(price_current, price_old){
@@ -28,40 +28,175 @@ block('goods-card').content()(function() {
 		}
 	}
 
+	function buildElemPrice(price_current, price_old){
+		if(price_old != undefined){
+			return [
+				{
+					elem: 'price_current',
+					content: [
+						{
+							elem: 'price_old',
+							content: goods.price.old
+						},
+						goods.price.current
+					]
+				}
+			];
+		}else{
+			return {
+				elem: 'price_current',
+				content: goods.price.current
+			};
+		}
+	}
+
 	var images = goods.image.map(function(image){
 		return {
 			elem: 'image',
 			content: image
 		}
 	});
-	
-	console.log(goods);
 
 	return [
-		{
-			elem: 'content',
+		{ 
+			block : 'row', 
 			content: [
 				{
-					elem: 'header',
-					content: goods.title
+					elem : 'col',
+					elemMods : { 8: true },
+					content: [
+						{
+							block: 'section',
+							content: [
+								{
+									block: 'goods-card',
+									elem: 'information',
+									content: [
+										{
+											elem: 'header',
+											content: [
+												buildElemLable(goods.price.current, goods.price.old),
+												{
+													elem: 'title',
+													content: goods.title
+												}
+											]
+										},
+										{
+											elem: 'description',
+											content: [
+												{
+													elem: 'title',
+													elemMods: { small: true },
+													content: 'Описание'
+												},
+												goods.desc													
+											]
+										},
+										{
+											elem: 'slider',
+											content: [
+												{
+													block: 'slider',
+													mods: { 'fotorama': true },
+													content: goods.image
+												}
+											]
+										}			
+									]
+								}							
+							]
+						}
+					]
 				},
-				buildElemLable(goods.price.current, goods.price.old),
 				{
-					elem: 'price',
-					content: goods.price.current
-				},
-				{
-					elem: 'description',
-					content: goods.desc
-				}
-			]
-		},
-		{
-			elem: 'slider',
-			content: [
-				{
-					block: 'slider-with-thumbs',
-					mods: { type: 'vertical' }
+					elem : 'col',
+					elemMods : { 4: true },
+					content: [
+						{
+							block: 'section',
+							content: [
+								{
+									block: 'goods-card',
+									elem: 'cost',
+									content: [
+										{
+											elem: 'price',
+											content: [
+												'Цена:',
+												buildElemPrice(goods.price.current, goods.price.old)
+											]
+										},
+										{
+											elem: 'color',
+											content: [
+												'Цвет:',
+												{
+												    block : 'select',
+												    mods : { mode : 'radio', theme : 'ergo', size : 'l', width : 'available', type: 'link' },
+												    name : 'color',
+												    val : 1,
+												    options : [
+												        { 
+												        	val: 1, 
+												        	text: [
+												        		{
+												        			block: 'link',
+												        			url : '?color=Green',
+                													content : 'Green'
+												        		}
+												        	]
+												        },
+												        { 
+												        	val: 2, 
+												        	text: [
+												        		{
+												        			block: 'link',
+												        			url : '?color=Red',
+                													content : 'Red'
+												        		}
+												        	]	        	 
+												        },
+												        { 
+												        	val : 3,
+												        	text : [
+												        		{
+												        			block: 'link',
+												        			url : '?color=Mint',
+                													content : 'Mint'
+												        		}
+												        	]	
+												        }
+												    ]
+												}
+											]
+										},
+										{
+											elem: 'action'
+										},
+										{
+											block: 'sticky',
+											mods: { theme: 'ergo' },
+											content: [
+												{
+													elem: 'image',
+													content: goods.preview
+												},
+												{
+													elem: 'name',
+													content: goods.title
+												},
+												{
+													elem: 'cost',
+													content: goods.price.current
+												}
+											]
+										}	
+									]
+								}							
+							]
+						}
+					]
 				}
 			]
 		}
