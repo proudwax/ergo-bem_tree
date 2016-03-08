@@ -37,5 +37,14 @@ block('goods-card')(
 			    text : 'В корзину'
 			}
 		]
+	}),
+
+	elem('image').content()(function(){
+		return [
+			{
+				block: 'image',
+				url: applyNext()
+			}
+		]
 	})
 )

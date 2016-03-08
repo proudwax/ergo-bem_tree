@@ -1,6 +1,6 @@
 ctx = '.sticky_theme_ergo'
 {ctx} {
-   	&.sticky_fixed > .sticky__panel{
+   	&.sticky_fixed > .sticky__panel, &.sticky_type_hidden >  .sticky__panel{
 		
 		max-width: calc(100% - 2rem);
 		left: 1rem;
@@ -9,19 +9,19 @@ ctx = '.sticky_theme_ergo'
 	}
 	
 	@media only screen and (min-width: 48em) {
-		&.sticky_fixed > .sticky__panel{
+		&.sticky_fixed > .sticky__panel, &.sticky_type_hidden >  .sticky__panel{
 			max-width: calc(100% - 240px);
 		}		
 	}
 	
 	@media only screen and (min-width: 75em) {
-		&.sticky_fixed > .sticky__panel{
+		&.sticky_fixed > .sticky__panel, &.sticky_type_hidden >  .sticky__panel{
 			max-width: calc(1250px - 2rem);
 		}		
 	}
 	
 	@media screen and (orientation: portrait) { 
-		&.sticky_fixed > .sticky__panel{
+		&.sticky_fixed > .sticky__panel, &.sticky_type_hidden >  .sticky__panel{
 			max-width: calc(100% - 4rem);
 		}
 	}

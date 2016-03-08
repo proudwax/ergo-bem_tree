@@ -175,23 +175,35 @@ block('goods-card').content()(function() {
 											elem: 'action'
 										},
 										{
-											block: 'sticky',
-											mods: { theme: 'ergo' },
+											elem: 'nav',
 											content: [
 												{
-													elem: 'image',
-													content: goods.preview
-												},
-												{
-													elem: 'name',
-													content: goods.title
-												},
-												{
-													elem: 'cost',
-													content: goods.price.current
-												}
+													block: 'sticky',
+													mods: { theme: 'ergo', type: 'hidden' },
+													content: [
+														{
+															block: 'goods-card',
+															elem: 'image',
+															content: goods.preview
+														},
+														{
+															block: 'goods-card',
+															elem: 'name',
+															content: goods.title
+														},
+														{
+															block: 'goods-card',
+															elem: 'cost',
+															content: goods.price.current
+														},
+														{
+															block: 'goods-card',
+															elem: 'action'
+														}
+													]
+												}	
 											]
-										}	
+										}
 									]
 								}							
 							]
