@@ -122,6 +122,7 @@ block('goods-card').content()(function() {
 									content: [
 										{
 											elem: 'price',
+											cls: 'goods-card_width_available',
 											content: [
 												'Цена:',
 												buildElemPrice(goods.price.current, goods.price.old)
@@ -129,6 +130,7 @@ block('goods-card').content()(function() {
 										},
 										{
 											elem: 'color',
+											cls: 'goods-card_width_available',
 											content: [
 												'Цвет:',
 												{
@@ -172,7 +174,8 @@ block('goods-card').content()(function() {
 											]
 										},
 										{
-											elem: 'action'
+											elem: 'action',
+											cls: 'goods-card_width_available',
 										},
 										{
 											elem: 'nav',
@@ -183,18 +186,21 @@ block('goods-card').content()(function() {
 													content: [
 														{
 															block: 'goods-card',
-															elem: 'image',
-															content: goods.preview
-														},
-														{
-															block: 'goods-card',
-															elem: 'name',
-															content: goods.title
-														},
-														{
-															block: 'goods-card',
-															elem: 'cost',
-															content: goods.price.current
+															elem: 'toolbar',
+															content: [
+																{
+																	elem: 'image',
+																	content: goods.preview
+																},
+																{
+																	elem: 'name',
+																	content: goods.title
+																},
+																{
+																	elem: 'price_current',
+																	content: goods.price.current
+																}
+															]
 														},
 														{
 															block: 'goods-card',

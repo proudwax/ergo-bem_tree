@@ -42,6 +42,7 @@ provide(BEMDOM.decl(this.name, {
 			this.setMod(this.elem('panel'), 'shadow', BEMDOM.win.scrollTop() >= this.sticky_top);
 		});
 	},
+
 	_resizeWin: function() {
 		this.bindToWin('resize', function(e) {
 			this.sticky_top = this.domElem[0].offsetTop != 0 ? this.domElem[0].offsetTop : this.elem('backing').domElem[0].offsetTop;
@@ -52,18 +53,21 @@ provide(BEMDOM.decl(this.name, {
 			this.setMod(this.elem('panel'), 'shadow', BEMDOM.win.scrollTop() >= this.sticky_top);
 		});
 	},
+
 	_resizeBlock: function(){
 		this.sticky_top = this.domElem[0].offsetTop != 0 ? this.domElem[0].offsetTop : this.elem('backing').domElem[0].offsetTop;
 			
 		this.setMod('fixed', BEMDOM.win.scrollTop() >= this.sticky_top);
 		this.setMod(this.elem('panel'), 'shadow', BEMDOM.win.scrollTop() >= this.sticky_top);		
 	}, 
+
 	_getIndent: function(){
 		arr = this.findBlockOutside('page').findBlocksInside('sticky');
 		// arr = BEMDOM.doc.find('.sticky');
 		
 		arr.reduce(function(indent, current, i){
 			current.sticky_top = current.sticky_top - indent;
+
 			current.elem('panel').css({'top': indent}); 
 			// current.elem('panel').css({'top': indent, 'z-index': 10 - i }); 
 			

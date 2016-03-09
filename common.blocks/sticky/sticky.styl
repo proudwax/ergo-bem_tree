@@ -7,7 +7,8 @@ ctx = '.sticky'
 		{ctx}__panel{
 			position: fixed;
 			top: 0;
-			transform: translateY(-5rem);
+			opacity: 0;
+			transform: translateY(-10rem);
 		}
 	}
 
@@ -16,7 +17,9 @@ ctx = '.sticky'
 		overflow: hidden;
 		display: flex;
 		flex-flow: row wrap;
+		align-items: center;
 		justify-content: space-between;
+		transition: all 0.3s ease 0.1s;
 	}
 	
 	&__panel_shadow{
@@ -38,11 +41,11 @@ ctx = '.sticky'
 		background: rgba(255, 255, 255, 1);
 		top: 0;
 		z-index: 10;
-		transition: all 0.2s ease 0.1s;
 	}
 
 	&_type_hidden&_fixed > &__panel{
 		transform: translateY(0);
+		opacity: 1;
 	}
 		
 	&_fixed > &__backing{
