@@ -1,5 +1,4 @@
-// modules.define('button', ['i-bem__dom', 'jquery', 'BEMHTML'], function(provide, Button, BEMDOM, $, BEMHTML) {
-modules.define('button', ['jquery'], function(provide, $, Button) {
+modules.define('button', ['jquery', 'BEMHTML', 'dom'], function(provide, $, BEMHTML, Dom, Button) {
 
 provide(Button.decl({ modName: 'netcat', modVal: 'put' }, {
 	onSetMod : {
@@ -9,22 +8,23 @@ provide(Button.decl({ modName: 'netcat', modVal: 'put' }, {
 
 	            this.bindTo('click', function(e){
 	                e.preventDefault();
-	                
-	                //_this._send();
+	               	this.setMod('handling', true);
 
 	                $.ajax({
 	                    url: this._url,
 	                    success: function(response){
 	                        if(response.status == 'ok'){
-	                            // _this._sendOk();
-	                        	console.log(response);
+	                            _this.delMod('handling')
+	                            	.setMod('success', true);
 	                        }else{
-	                            // _this._sendNot();
-	                        	console.log(response);
+	                            _this.delMod('handling')
+	                            	.setMod('error', true);
 	                        }
 	                    },
 	                    error: function(response){
-	                        // _this._sendNot();
+	                        _this.delMod('handling')
+	                            .setMod('error', true);
+
 	                        console.log(response);
 	                    },
 	                    type: 'GET',
@@ -34,62 +34,71 @@ provide(Button.decl({ modName: 'netcat', modVal: 'put' }, {
 			}
 		},
 
-		'send': {
+		'handling': {
+			'true': function(){
+				this.delMod('view')
+					.delMod('type')
+					.setMod('disabled', true);
 
+				this.domElem.removeAttr('href')
+					.attr({
+						'disabled': 'disabled'
+					});
+
+				this.elem('text').text(this.params.handlingText);
+
+				this.unbindFrom('click');
+
+
+	         	Button.replace(this.findBlockInside('icon').domElem, BEMHTML.apply(
+	                {
+	                    block: 'button',	                    
+                    	elem: 'spin',
+		                content: [
+		                	{
+                    			block : 'spin',
+		               			mods : { theme : 'ergo', size : 'xs', visible : true } 		
+		                	}
+		                ]
+	                }
+            	));  
+			}
+		},
+
+		'success': {
+			'true': function(){
+				this.elem('text').text(this.params.incartText);
+
+		        Button.replace(this.elem('spin'), BEMHTML.apply(
+	                {
+	                    block: 'icon',
+	                    cls: 'material-icons',
+	                    content: '&#xE876;'
+	                }
+	            ));
+			}
+		},
+
+		'error': {
+			'true': function(){
+				this.elem('text').text(this.params.errorText);
+			    
+			    Button.replace(this.elem('spin'), BEMHTML.apply(
+	                {
+	                    block: 'icon',
+	                    cls: 'material-icons',
+	                    content: '&#xE001;'
+	                }
+	            ));			
+			}
 		}
 	},
 	
-	/*_send: function(button){
-        button.delMod('type')
-            .delMod('view')
-            .setMod('disabled', true);
-        button.domElem.attr({
-                'disabled': 'disabled',
-                'type': 'button',
-                'role': 'button'
-            });
-        button.domElem.removeAttr('href');
-
-        button.elem('text').text('Обработка');
-        BEMDOM.replace(button.findBlockInside('icon').domElem, BEMHTML.apply(
-                {
-                    block: 'button',
-                    elem: 'spin',
-                    content: [
-                        {
-                            block : 'spin',
-                            mods : { theme : 'ergo', size : 'xs', visible : true }
-                        }
-                    ]
-                }
-            ));         
-    },
-    
-    _sendOk: function(button){
-        button.elem('text').text('В корзине');
-        BEMDOM.replace(button.elem('spin'), BEMHTML.apply(
-                {
-                    block: 'icon',
-                    cls: 'material-icons',
-                    content: '&#xE876;'
-                }
-            ));
-    },
-    
-    _sendNot: function(button){
-        button.elem('text').text('Ошибка');
-        BEMDOM.replace(button.elem('spin'), BEMHTML.apply(
-                {
-                    block: 'icon',
-                    cls: 'material-icons',
-                    content: '&#xE001;'
-                }
-            ));
-    },*/
-	
 	getDefaultParams : function(){
         return {
-            lifeTime : 15000
+            handlingText: 'Обработка',
+            incartText: 'В корзине',
+            errorText: 'Ошибка'
         };
     }
 	
