@@ -13,6 +13,15 @@ block('order-contacts').content()(function() {
 			},
 			{
 				"block": "input",
+				"lable": "Фамилия",
+				"options": {
+					"type": "text",
+					"name": "name", 
+					"placeholder": "Фамилия" 
+				}
+			},
+			{
+				"block": "input",
 				"lable": "Телефон",
 				"options": {
 					"type": "tel",
@@ -37,6 +46,15 @@ block('order-contacts').content()(function() {
 					"name": "address",
 					"placeholder": "Адрес" 
 				}
+			},
+			{
+				"block": "input",
+				"lable": "Индекс",
+				"options": {
+					"type": "postindex", 
+					"name": "postindex",
+					"placeholder": "195000" 
+				}				
 			}
 		]
 	);
@@ -85,7 +103,8 @@ block('order-contacts').content()(function() {
 					text: 'Отправить',
 					icon: {
 						block: 'icon',
-						cls: 'fa fa-paper-plane'
+						cls: 'material-icons',
+						content: '&#xE163;'
 					}
 				}
 			]

@@ -16,7 +16,8 @@ block('page').mod('view', 'cart').content()(function() {
             block: 'section',
 			content: [
 				{
-                    block: 'cart'
+                    block: 'cart',
+                    mods: { main: true }
                 }			
 			]
 		},

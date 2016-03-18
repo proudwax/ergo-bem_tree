@@ -253,6 +253,17 @@ ctx = '.button_theme_ergo'
         {
             margin: 0 10px;
         }
+
+        .button__spin
+        {
+            display: inline-block;
+            width: 24px;
+            height: 24px; 
+
+            .spin_size_xs{
+                vertical-align: text-top;
+            }
+        }
     }
 
     &.button_size_m
@@ -270,6 +281,13 @@ ctx = '.button_theme_ergo'
         .button__text
         {
             margin: 0 13px;
+        }
+
+        .button__spin
+        {
+            display: inline-block;
+            width: 28px;
+            height: 28px; 
         }
     }
 	
@@ -289,21 +307,8 @@ ctx = '.button_theme_ergo'
         .icon
         {
             width: 32px;
-
-            &_cart{
-                &_black{
-                    background-image: url('../image/cart_l_black.png');
-                    background-size: cover;
-                    background-size: 15px;
-                }
-
-                &_white{
-                    background-image: url('../image/cart_l_white.png');
-                    background-size: cover;
-                    background-size: 15px;
-                }
-            }
-
+            line-height: 32px;
+            font-size: 18px;
         }
 
         .button__text

@@ -1,10 +1,15 @@
 ctx = '.breadcrumbs'
 {ctx} {
 	margin: -1rem 1rem 1rem 1rem;
+	line-height: 15px;
+	height: 15px;
+	font-size: 13px;
+	vertical-align: bottom;
 
 	.material-icons{
 		font-size: 15px;
 		line-height: 18px;
+		vertical-align: bottom;
 	}
 
 	&__list{
@@ -16,15 +21,13 @@ ctx = '.breadcrumbs'
 	&__item{
 		display: inline-block;
 		list-style-type: none;
-		vertical-align: middle;
+		vertical-align: bottom;
 
 		&:before{
 			font-family: 'Material Icons';
 			content: '\E315';
 			display: inline-block;
 			vertical-align: middle;
-			font-size: 15px;
-			line-height: 18px;
 		}
 
 		&_home{
@@ -37,10 +40,7 @@ ctx = '.breadcrumbs'
 	&__link{
 		color: #333;
 		display: inline-block;
-		line-height: 18px;
-		height: 18px;
-		font-size: 15px;
-		vertical-align: middle;
+		vertical-align: bottom;
 		text-decoration: none;
 		transition: color 0.15s ease-out;
 

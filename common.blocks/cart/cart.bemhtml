@@ -1,8 +1,4 @@
 block('cart')(
-	js()(true),
-	
-	tag()('form'),
-	
 	elem('image')(
 		content()(function(){
 			return {

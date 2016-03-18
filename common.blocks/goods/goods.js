@@ -11,15 +11,15 @@ provide(BEMDOM.decl(this.name, {
                 this.unbindFrom('pointerleave pointerup', this._onMouseLeave);
             }
         },
-		
-		'js': {
-			'inited': function(){
-				this.bindTo('pointerover pointerdown', this._onMouseOver)
-					.__base.apply(this, arguments);
-			}
-		}
+        
+        'js': {
+            'inited': function(){
+                this.bindTo('pointerover pointerdown', this._onMouseOver)
+                    .__base.apply(this, arguments);
+            }
+        }
     },
-	
+    
     _onMouseOver: function(){
         this.setMod('hovered');
     },
@@ -33,7 +33,7 @@ provide(BEMDOM.decl(this.name, {
         return this
             .liveBindTo('pointerover pointerdown', this.prototype._onMouseOver)
             .__base.apply(this, arguments);
-	}
+    }
 }));
 
 });

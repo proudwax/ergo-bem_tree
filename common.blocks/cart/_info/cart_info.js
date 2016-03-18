@@ -1,6 +1,6 @@
-modules.define('cart-info', ['i-bem__dom', 'BEMHTML', 'get-ending'], function(provide, BEMDOM, BEMHTML, getEnding) {
+modules.define('cart', ['i-bem__dom', 'BEMHTML', 'get-ending'], function(provide, BEMDOM, BEMHTML, getEnding) {
 
-provide(BEMDOM.decl(this.name, {
+provide(BEMDOM.decl({ block: this.name, modName: 'info', modVal: true }, {
     onSetMod : {
         'js' : {
             'inited' : function() {
@@ -19,7 +19,7 @@ provide(BEMDOM.decl(this.name, {
 		return this.params.count + ' товар' + getEnding.ending(this.params.count);
 	},
 	
-	_getTotal: function(){		
+	_getTotal: function(){
 		return '<strong>' + this.params.total + BEMHTML.apply(rub) + '</strong>';
 	}
 }));

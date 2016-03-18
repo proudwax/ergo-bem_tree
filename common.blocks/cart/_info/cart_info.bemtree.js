@@ -1,6 +1,6 @@
-block('cart-info').content()(function() {
+block('cart').mod('info', true).content()(function() {
 	var data = this.data; 			// Пришла из data.json 
-
+	
 	return [
 			{
 				elem: 'cart',

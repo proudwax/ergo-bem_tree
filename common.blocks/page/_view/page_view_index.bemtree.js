@@ -10,10 +10,10 @@ block('page').mod('view', 'index').content()(function() {
 					block: 'sticky',
 					mods: { theme: 'ergo', navigation: true }
 				},
-				{
+				/*{
 					block: 'slider',
                     mods: { responsive: true }
-				},
+				},*/
                 {
                     block: 'content',
 					mods: { view: 'main' }

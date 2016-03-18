@@ -33,7 +33,8 @@ block('goods-card')(
 		return [
 			{
 			    block : 'button',
-			    mods : { theme : 'ergo', size : 'l', view : 'action', 'cart': 'white' },
+			    mods : { theme : 'ergo', size : 'l', view : 'action', 'cart': true, type: 'link' },
+			    url : 'https://bem.info/',
 			    text : 'В корзину'
 			}
 		]

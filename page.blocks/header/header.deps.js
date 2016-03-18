@@ -2,6 +2,6 @@
     shouldDeps: [
         { block: 'logo' },
         { block: 'contact' },
-        { block: 'cart-info' }
+        { block: 'cart', mods: { info: true } }
     ]
 })

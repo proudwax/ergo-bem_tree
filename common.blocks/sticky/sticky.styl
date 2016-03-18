@@ -7,8 +7,13 @@ ctx = '.sticky'
 		{ctx}__panel{
 			position: fixed;
 			top: 0;
-			opacity: 0;
-			transform: translateY(-10rem);
+			/*opacity: 0;
+			transform: translateY(-10rem);*/
+
+			animation-duration: .3s;
+			animation-timing-function: ease-out;
+			animation-fill-mode: forwards;
+			animation-name: typeHidden;
 		}
 	}
 
@@ -44,11 +49,52 @@ ctx = '.sticky'
 	}
 
 	&_type_hidden&_fixed > &__panel{
-		transform: translateY(0);
-		opacity: 1;
+		animation-name: typeHidden_visible;
+		/*transform: translateY(0);
+		opacity: 1;*/
 	}
 		
 	&_fixed > &__backing{
 		display: block;
 	}
+}
+
+@keyframes typeHidden{
+    0%{
+    	visibility: visible;
+        transform: translateY(0);
+		opacity: 1;
+		z-index: 10;
+    }
+
+    99%{
+        z-index: 5;
+    }
+
+    100%{
+        visibility: hidden;
+        transform: translateY(-10rem);
+        opacity: 0;
+        z-index: 0;
+    }
+}
+
+@keyframes typeHidden_visible{
+    0%{
+        visibility: hidden;
+        transform: translateY(-10rem);
+        opacity: 0;
+        z-index: 0;
+    }
+
+    99%{
+        z-index: 5;
+    }
+
+    100%{
+    	visibility: visible;
+        transform: translateY(0);
+		opacity: 1;
+		z-index: 10;
+    }
 }

@@ -155,7 +155,8 @@ block('sticky').mod('cart-preview', true).content()(function() {
 					text : 'Корзина',
 					icon: {
 						block: 'icon',
-						cls: 'fa fa-shopping-cart'
+						cls: 'material-icons',
+						content: '&#xE8CC;'
 					},
 					badge: cart.count
 				},

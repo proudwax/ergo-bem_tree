@@ -1,6 +1,6 @@
-modules.define('cart', ['i-bem__dom', 'BEMHTML', 'events__channels', 'cart-item'], function(provide, BEMDOM, BEMHTML, channels, CartItem) {
+modules.define('cart', ['i-bem__dom', 'BEMHTML', 'events__channels', 'cart-item', 'get-ending'], function(provide, BEMDOM, BEMHTML, channels, CartItem, getEnding) {
 
-provide(BEMDOM.decl(this.name, {
+provide(BEMDOM.decl({ block: this.name, modName: 'main', modVal: true }, {
     onSetMod : {
         'js' : {
             'inited' : function() {
@@ -31,16 +31,6 @@ provide(BEMDOM.decl(this.name, {
 		}, {'count': 0, 'sum': 0});	
 	},
 	
-	_getEnding: function(count){
-		ending = ['ов', '', 'а', 'а', 'а', 'ов', 'ов', 'ов', 'ов', 'ов'];
-		
-		if(count >= 11 && count <= 14){
-			return 'ов';
-		}else{
-			return ending[count % 10];
-		}
-	},
-	
 	_getText: function(){
 		this._getTotal();
 
@@ -49,7 +39,7 @@ provide(BEMDOM.decl(this.name, {
 			mods: { size: 'small' }
 		}];
 	
-		return 'Итого: ' + this._total.count + ' товар' + this._getEnding(this._total.count) + ' на сумму <strong>' + this._total.sum + BEMHTML.apply(rub) + '</strong>';
+		return 'Итого: ' + this._total.count + ' товар' + getEnding.ending(this._total.count) + ' на сумму <strong>' + this._total.sum + BEMHTML.apply(rub) + '</strong>';
 	}
 }));
 

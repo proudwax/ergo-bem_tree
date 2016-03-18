@@ -4,7 +4,7 @@
 		{ block: 'header'},
 		{ block: 'sticky', mods: { theme: 'ergo', navigation: true }},
 		{ block: 'section'},
-		{ block: 'cart'},
+		{ block: 'cart', mods: { main: true } },
 		{ block: 'footer'}
     ]
 })

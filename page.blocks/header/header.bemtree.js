@@ -36,7 +36,8 @@ block('header').content()(function() {
                     elem: 'wrapped',
                     content: [
             			{
-            				block: 'cart-info'
+            				block: 'cart',
+                            mods: { info: true }
             			}
                     ]
                 }
