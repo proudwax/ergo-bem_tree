@@ -6,7 +6,7 @@
         { block: 'image' },
         { block: 'select', mods: { theme: 'ergo' } },
 		{ block: 'slider', mods: { fotorama: true } },
-		{ block: 'button', mods: { theme: 'ergo' } },
+		{ block: 'button', mods: { theme: 'ergo', netcat: 'put' } },
 		{ block: 'rub' }
     ]
 })

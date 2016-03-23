@@ -25,7 +25,8 @@ block('page').mod('view', 'index').content()(function() {
             content: [
         		{
                     block: 'sticky',
-                    mods: { theme: 'ergo', filter: true, 'cart-preview': true }
+                    mods: { theme: 'ergo', filter: true, 'cart-preview': true },
+                    panelMods: { between: true }
                 }, 
         		{
                     block: 'goods-list'

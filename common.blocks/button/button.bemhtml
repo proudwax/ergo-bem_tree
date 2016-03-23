@@ -10,5 +10,9 @@ block('button')(
                 }
             ]
         })  
+    ),
+
+    mod('netcat', 'put')(
+        elem('spin').tag()('span')
     )
 );

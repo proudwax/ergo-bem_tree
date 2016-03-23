@@ -33,9 +33,15 @@ block('goods-card')(
 		return [
 			{
 			    block : 'button',
-			    mods : { theme : 'ergo', size : 'l', view : 'action', 'cart': true, type: 'link' },
+			    js: { id: '123' },
+			    mods : { theme : 'ergo', size : 'l', view : 'action', netcat: 'put', type: 'link' },
 			    url : 'https://bem.info/',
-			    text : 'В корзину'
+			    text : 'В корзину',
+			    icon: {
+					block: 'icon',
+					cls: 'material-icons',
+					content: '&#xE8CC;'
+				}
 			}
 		]
 	}),

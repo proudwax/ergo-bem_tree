@@ -263,15 +263,22 @@
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: all 0.3s ease 0.1s;
+          transition: all 0.3s ease 0.1s;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-transition: all 0.3s ease 0.1s;
-          transition: all 0.3s ease 0.1s;
+}
+.sticky__panel_between {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .sticky__panel_shadow {
   position: absolute;
+  z-index: -1;
   content: '';
   top: 0;
   left: 0;
@@ -296,6 +303,12 @@
 }
 .sticky_fixed > .sticky__backing {
   display: block;
+}
+.sticky__col {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
 }
 @-webkit-keyframes typeHidden {
   0% {
@@ -414,28 +427,6 @@
   overflow: visible;
 }
 /* ../../common.blocks/button/button.styl:end */
-/* ../../common.blocks/button/__badge/button__badge.styl:begin */
-.button_theme_ergo.button_badge {
-  margin-right: 1rem;
-}
-.button_theme_ergo .button__badge {
-  background: #f37d2f none repeat scroll 0 0;
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.2), 0 1px 5px 0 rgba(0,0,0,0.12);
-  color: #fff;
-}
-.button_theme_ergo.button_size_m .button__badge {
-  font-size: 10px;
-  height: 18px;
-  line-height: 18px;
-  top: -2em;
-  width: 18px;
-  margin-right: -9px;
-  vertical-align: bottom;
-}
-/* ../../common.blocks/button/__badge/button__badge.styl:end */
 /* ../../common.blocks/sticky/_filter/sticky_filter.styl:begin */
 .sticky_filter > .sticky__panel {
   border-top: 1px solid #e6e6e6;
@@ -1420,6 +1411,8 @@
   line-height: 100px;
 }
 /* ../../common.blocks/cart-item/_view/cart-item_view_cart.styl:end */
+/* ../../common.blocks/sticky/__panel/sticky__panel.css:begin */
+/* ../../common.blocks/sticky/__panel/sticky__panel.css:end */
 /* ../../common.blocks/slider/_responsive/slider_responsive.styl:begin */
 .slider_responsive {
   margin-left: -1rem;
@@ -2833,6 +2826,9 @@
 .button_theme_ergo.button_type_link {
   text-decoration: none;
 }
+.button_theme_ergo .button__spin {
+  display: inline-block;
+}
 .button_theme_ergo:before {
   position: absolute;
   top: 1px;
@@ -3076,6 +3072,135 @@
   visibility: hidden;
 }
 /* ../../libs/bem-components/common.blocks/radio/_type/radio_type_button.styl:end */
+/* ../../common.blocks/checkbox/_theme/checkbox_theme_ergo.styl:begin */
+.checkbox_theme_ergo {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.checkbox_theme_ergo:hover {
+  cursor: pointer;
+}
+.checkbox_theme_ergo .checkbox__control {
+  position: absolute;
+  z-index: -1;
+  margin: 0;
+  opacity: 0;
+}
+.checkbox_theme_ergo .checkbox__box {
+  position: relative;
+  display: inline-block;
+  border-radius: 3px;
+  background: rgba(0,0,0,0.2);
+}
+.checkbox_theme_ergo .checkbox__box:before {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  content: '';
+  border-radius: 2px;
+  background: #fff;
+}
+.checkbox_theme_ergo .checkbox__box:after {
+  position: absolute;
+  top: -5px;
+  left: 2px;
+  content: '';
+  background-image: url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 width%3D%2215%22 height%3D%2216%22%3E%3Cpath d%3D%22M13.5.5l-8 12L1.7 8l-1 1.6L5.6 15l9.1-13.4z%22%2F%3E%3C%2Fsvg%3E");
+  background-size: 100%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.05s ease-out, opacity 0.05s ease-out, visibility 0s linear 0.05s;
+          transition: transform 0.05s ease-out, opacity 0.05s ease-out, visibility 0s linear 0.05s;
+}
+.checkbox_theme_ergo.checkbox_size_m {
+  font-size: 13px;
+}
+.checkbox_theme_ergo.checkbox_size_m .checkbox__box {
+  line-height: 14px;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  margin-right: 5px;
+}
+.checkbox_theme_ergo.checkbox_size_m .checkbox__box:after {
+  width: 15px;
+  height: 15px;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+.checkbox_theme_ergo.checkbox_size_l {
+  font-size: 15px;
+}
+.checkbox_theme_ergo.checkbox_size_l .checkbox__box {
+  line-height: 17px;
+  top: 3px;
+  width: 17px;
+  height: 17px;
+  margin-right: 7px;
+}
+.checkbox_theme_ergo.checkbox_size_l .checkbox__box:after {
+  width: 18px;
+  height: 18px;
+  -webkit-transform: translateY(-7px);
+          transform: translateY(-7px);
+}
+.checkbox_theme_ergo.checkbox_checked .checkbox__box {
+  background: #f37d2f;
+}
+.checkbox_theme_ergo.checkbox_checked .checkbox__box:before {
+  background: rgba(255,255,255,0.8);
+}
+.checkbox_theme_ergo.checkbox_checked .checkbox__box:after {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  -webkit-transition-delay: 0s;
+          transition-delay: 0s;
+}
+.checkbox_theme_ergo.checkbox_focused .checkbox__box {
+  box-shadow: 0 0 0 1px #fc0, inset 0 0 0 1px #fc0;
+}
+.checkbox_theme_ergo.checkbox_hovered .checkbox__box {
+  background: rgba(0,0,0,0.3);
+}
+.checkbox_theme_ergo.checkbox_hovered.checkbox_checked .checkbox__box {
+  background: rgba(129,103,0,0.6);
+}
+.checkbox_theme_ergo.checkbox_disabled {
+  cursor: default;
+  color: #999;
+}
+.checkbox_theme_ergo.checkbox_disabled .checkbox__box {
+  background: rgba(0,0,0,0.08);
+}
+.checkbox_theme_ergo.checkbox_disabled .checkbox__box:before {
+  display: none;
+}
+.checkbox_theme_ergo.checkbox_disabled.checkbox_checked .checkbox__box:after {
+  opacity: 0.4;
+}
+.checkbox_theme_ergo.checkbox_type_button {
+  display: inline-block;
+}
+.checkbox_theme_ergo.checkbox_type_line.checkbox_size_m {
+  margin-right: 13px;
+}
+.checkbox_theme_ergo.checkbox_type_line.checkbox_size_l {
+  margin-right: 15px;
+}
+.checkbox_theme_ergo.checkbox_type_line:last-child {
+  margin-right: 0;
+}
+_::-webkit-full-page-media,
+_:future,
+:root .checkbox_theme_islands .checkbox__box {
+  pointer-events: none;
+}
+/* ../../common.blocks/checkbox/_theme/checkbox_theme_ergo.styl:end */
 /* ../../common.blocks/select/_theme/select_theme_ergo.styl:begin */
 .select_theme_ergo {
   max-width: 100%;

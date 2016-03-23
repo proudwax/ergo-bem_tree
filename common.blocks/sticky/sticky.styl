@@ -23,12 +23,17 @@ ctx = '.sticky'
 		display: flex;
 		flex-flow: row wrap;
 		align-items: center;
-		justify-content: space-between;
 		transition: all 0.3s ease 0.1s;
+		justify-content: space-between;
+
+		&_between{
+			justify-content: space-between;
+		}
 	}
 	
 	&__panel_shadow{
 		position: absolute;
+		z-index: -1;
 		content: '';
 		top: 0;
 		left: 0;
@@ -56,6 +61,10 @@ ctx = '.sticky'
 		
 	&_fixed > &__backing{
 		display: block;
+	}
+
+	&__col{
+		flex: 0 1 auto;
 	}
 }
 
