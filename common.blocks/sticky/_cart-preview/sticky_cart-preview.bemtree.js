@@ -146,30 +146,35 @@ block('sticky').mod('cart-preview', true).content()(function() {
     return [
 		applyNext(),
 		{
-			block: 'cart-preview',
-			js: true,
+			elem: 'col',
 			content: [
 				{
-					block : 'button',
-					mods : { theme : 'ergo', size : 'm' },
-					text : 'Корзина',
-					icon: {
-						block: 'icon',
-						cls: 'material-icons',
-						content: '&#xE8CC;'
-					},
-					badge: cart.count
-				},
-				{
-					block : 'popup',
-					mods : { theme : 'ergo', target : 'anchor', autoclosable : true, 'cart': true, 'tail': true },
-					mainOffset : 13,
-					directions : ['bottom-right', 'top-right'],
+					block: 'cart-preview',
+					js: true,
 					content: [
 						{
-							elem: 'container',
+							block : 'button',
+							mods : { theme : 'ergo', size : 'm' },
+							text : 'Корзина',
+							icon: {
+								block: 'icon',
+								cls: 'material-icons',
+								content: '&#xE8CC;'
+							},
+							badge: cart.count
+						},
+						{
+							block : 'popup',
+							mods : { theme : 'ergo', target : 'anchor', autoclosable : true, 'cart': true, 'tail': true },
+							mainOffset : 13,
+							directions : ['bottom-right', 'top-right'],
 							content: [
-								blockCartPopup(cart)
+								{
+									elem: 'container',
+									content: [
+										blockCartPopup(cart)
+									]
+								}
 							]
 						}
 					]
