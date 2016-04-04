@@ -15,8 +15,9 @@ block('select').mod('type', 'link').elem('menu')(
                 if(option.icon) {
                     res.js.text = option.text;
                     res.content = [
+                        res.content,
                         option.icon,
-                        res.content
+                        'dfgdfgdfg'
                     ];
                 }
 

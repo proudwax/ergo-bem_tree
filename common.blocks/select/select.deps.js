@@ -1,3 +1,6 @@
 ({
-    mustDeps: { block: 'i-bem' }
+    mustDeps: { block: 'i-bem' },
+    shouldDeps: [
+			{ elems: ['menu'] }
+		]
 })
