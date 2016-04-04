@@ -70,7 +70,7 @@ block('sort').content()(function() {
     return [
 		{
 			block : 'select',
-			mods : { mode : 'radio-check', theme : 'ergo', size : 'm', 'tail': true, 'icon-pos': 'back' },
+			mods : { mode : 'radio-check', theme : 'ergo', size : 'm', 'tail': true, 'icon': true },
 			name: 'sort',
 			text: 'Сортировать по',
 			options : optionList(sortList)

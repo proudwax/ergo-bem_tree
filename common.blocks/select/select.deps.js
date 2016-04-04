@@ -1,6 +1,6 @@
 ({
     mustDeps: { block: 'i-bem' },
     shouldDeps: [
-			{ elems: ['menu'] }
+			{ mods : { 'icon' : true, 'mode': 'radio-check' } }
 		]
 })
