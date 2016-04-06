@@ -1,0 +1,26 @@
+ctx = '.sidebar'
+{ctx} {
+	box-sizing: border-box;
+	display: block;
+	position: fixed;
+	top: 0;
+	transform: translateX(-224px);
+	height: 100%;
+	width: 192px;
+	overflow-y: inherit;
+	margin-right: 16px;
+	background: #e6e6e6;
+	z-index: 100;
+	
+	&:hover{
+		overflow-y: auto;	
+	}
+	
+	&_shadow{
+		box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.14), 0 10px 10px 0 rgba(0, 0, 0, 0.12), 0 4px 4px -1px rgba(0, 0, 0, 0.2);
+	}
+	
+	&__inner{
+		padding: 16px;
+	}
+}

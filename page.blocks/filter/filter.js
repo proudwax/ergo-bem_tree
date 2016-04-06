@@ -34,8 +34,6 @@ provide(BEMDOM.decl(this.name, {
 	_redraw: function(){
 		var width__item = this.domElem[0].offsetWidth;
 
-		// console.log(width__item);
-
 		this._select.setMod('visible', width__item < 450);
 		this._radio_group.setMod('visible', width__item >= 450);
 	}

@@ -50,14 +50,7 @@ block('sort').content()(function() {
 		return items.map(function(item){
 			return {
 	            val: item.desc.url,
-	            text: [
-	            	item.name/*,
-	            	{
-		            	block: 'icon',
-		            	cls: 'material-icons',
-						content: item.desc.icon
-	            	}*/
-	            ],		
+	            text: item.name,	
 	            icon: {
 	            	block: 'icon',
 	            	cls: 'material-icons',

@@ -23,9 +23,12 @@ block('page').mod('view', 'index').content()(function() {
         {
             block: 'section',
             content: [
+				{
+					block: 'sidebar'
+				},
         		{
                     block: 'sticky',
-                    mods: { theme: 'ergo', filter: true, 'cart-preview': true },
+                    mods: { theme: 'ergo', filter: true/* , 'cart-preview': true */ },
                     panelMods: { between: true }
                 }, 
         		{
