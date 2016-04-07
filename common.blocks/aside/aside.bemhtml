@@ -1,0 +1,14 @@
+block('aside')(
+	js()(true),
+	
+	tag()('aside'),
+	
+	content()(function(){
+		return [
+			{
+				elem: 'inner',
+				content: applyNext()
+			}
+		]
+	})
+)

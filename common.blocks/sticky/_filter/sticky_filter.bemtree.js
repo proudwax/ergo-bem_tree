@@ -1,9 +1,14 @@
  block('sticky').mod('filter', true).content()(function() {
     return [
-	    {
+		{
 	        elem: 'col',
 	        content: [
-		        {	
+		        {
+					block: 'sidebar',
+					mods: { theme: 'ergo', size: 'm', view: 'action' },
+					textButton: 'Фильтр'
+				},
+				{	
 					block: 'filter'
 				}
 	        ]

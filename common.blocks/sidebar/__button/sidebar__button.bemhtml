@@ -1,0 +1,21 @@
+block('sidebar').elem('button')(
+	def()(function() {
+        var select = this._select,
+            mods = this.mods;
+
+        return applyCtx({
+            block : 'button',
+            mix : { block : this.block, elem : this.elem },
+            mods : {
+                size : mods.size,
+                theme : mods.theme,
+                view : mods.view,
+                focused : mods.focused,
+                disabled : mods.disabled
+            },
+            content : [
+                apply('content')
+            ]
+        });
+    })
+)

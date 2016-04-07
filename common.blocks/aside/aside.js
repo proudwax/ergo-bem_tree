@@ -1,4 +1,4 @@
-modules.define('sidebar', ['i-bem__dom', 'jquery', 'functions__throttle'], function(provide, BEMDOM, $, throttle) {
+modules.define('aside', ['i-bem__dom', 'jquery', 'functions__throttle'], function(provide, BEMDOM, $, throttle) {
 
 provide(BEMDOM.decl(this.name, {
     onSetMod : {
