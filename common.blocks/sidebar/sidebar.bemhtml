@@ -1,3 +1,15 @@
 block('sidebar')(
-	js()(true)
+	def()(function(){
+		return applyNext({
+			_textButton: this.ctx.textButton
+		});
+	}),
+
+	js()(true),
+	
+	elem('button').content()(function() {
+        return [
+            { elem : 'text', content : this._textButton }
+        ];
+    })
 )

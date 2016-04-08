@@ -1,7 +1,6 @@
 block('sidebar').elem('button')(
 	def()(function() {
-        var select = this._select,
-            mods = this.mods;
+		var mods = this.mods;
 
         return applyCtx({
             block : 'button',

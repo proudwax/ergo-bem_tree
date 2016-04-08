@@ -4,65 +4,49 @@ provide(BEMDOM.decl(this.name, {
     onSetMod : {
         'js' : {
             'inited' : function() {
-				this._isAttachedToScope = false,
-				this._flagPadding = false;
+				var _this = this;
 				
+				this._button = this.findBlockInside('button'),
+				this._aside = this.findBlockInside('aside'),
+				this._page = this.findBlockOutside('page'),
+				this._pageContainer = this._page.elem('container');
+				
+                this._button.on('click', function() {
+					_this._aside
+						.setMod('animation')
+						.toggleMod('visible');
+                });
+				
+				this._button.setMod('hidden', this._aside.hasMod('display'));
+				
+								
 				this._updateVisible();
 				
 				this.bindToWin('resize', throttle(this._updateVisible, 300));
 			}
-        },
-		
-		'visible': {
-			true: function(){
-				if(!this._isAttachedToScope) {
-                    BEMDOM.scope.append(this.domElem);
-                    this._isAttachedToScope = true;
-                }
-			
-				if(!this._flagPadding){
-					this.domElem.css({
-						'transform': 'translateX(0px)'	// 16px - отступ
-					});
-				}else{
-					this.domElem.css({
-						'transform': 'translateX(' + (this._paddingContainer - this.domElem.width() - 16) + 'px)'	// 16px - отступ
-					});
-				}
-			},
-			
-			'': function(){
-				this.domElem.css({
-					'transform': 'translateX(-' + (this.domElem.width() + 16) + 'px)'
-				});
-			}
-		}
+        }
     },
-
+	
 	_updateVisible: function(){
-		this._pageContainer = this.findBlockOutside('page').elem('container');
-		
 		// paddingContainer - ширина отступа от края window до контента 
 		// >= sidebar - показывать sidebar
 		// < sidebar - открывать по модификатору show
 		this._paddingContainer = (BEMDOM.win.width() - this._pageContainer.width()) / 2;
 
-		/* console.log(showFlag); */
+		/* console.log(this._paddingContainer); */
 
-		if(this._paddingContainer >= this.domElem.width()){
-			this._flagPadding = true;
-			
-			this
+		if(this._paddingContainer >= this._aside.domElem.width()){
+			this._aside
 				.delMod('animation')
-				.setMod('visible');
+				/* .setMod('visible') */
+				.setMod('display');
 		}else{
-			this._flagPadding = false;
-			
-			this
+			this._aside
 				.setMod('animation')
-				.delMod('visible');
+				/* .delMod('visible') */
+				.delMod('display');
 		}	
-	}
+	}	
 }));
 
 });

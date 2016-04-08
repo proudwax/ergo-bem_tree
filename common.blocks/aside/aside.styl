@@ -18,6 +18,10 @@ ctx = '.aside'
 	animation-timing-function: ease-out;
 	animation-fill-mode: forwards;
 	
+	&_shadow{
+		box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+	}
+	
 	&:hover{
 		overflow-y: auto;	
 	}
@@ -25,8 +29,31 @@ ctx = '.aside'
 	&_js_inited{
 		display: block;
 	}
+	
+	&_display{
+		margin: 0;
+		visibility: visible;
+		opacity: 1;
+	}
+	
+	&_visible{
+		margin: 0;
+		visibility: visible;
+		opacity: 1;	
+	}
+	
+	
+	&__inner{
+		padding: 16px;
+	}
+	
+	
+	
+	
+	
+	
 
-	&_animation{
+/* 	&_animation{
 		animation-name: sidebar_theme_ergo;
 		
 		&.sidebar_visible{
@@ -38,15 +65,8 @@ ctx = '.aside'
 		margin: 0;
 		visibility: visible;
 		opacity: 1;
-	}
-	
-	&_shadow{
-		box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.14), 0 10px 10px 0 rgba(0, 0, 0, 0.12), 0 4px 4px -1px rgba(0, 0, 0, 0.2);
-	}
-	
-	&__inner{
-		padding: 16px;
-	}
+	} */
+
 }
 
 @keyframes sidebar_theme_ergo {

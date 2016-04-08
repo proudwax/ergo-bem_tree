@@ -442,13 +442,16 @@
 /* ../../common.blocks/sticky/_filter/sticky_filter.styl:end */
 /* ../../page.blocks/filter/filter.styl:begin */
 .filter {
+  display: inline-block;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  display: inline-block;
-}
-.filter__group {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  vertical-align: middle;
+/* &__group{
+		padding-left: 1rem;
+		padding-right: 1rem;
+	} */
 }
 .filter .radio-group.radio-group_type_button,
 .filter .select {
@@ -827,111 +830,17 @@
 /* ../../common.blocks/icon/icon.styl:end */
 /* ../../common.blocks/sidebar/sidebar.styl:begin */
 .sidebar {
-  box-sizing: border-box;
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  height: 100%;
-  width: 192px;
-  overflow-y: hidden;
-  background: #e6e6e6;
-  z-index: 100;
-  display: none;
-  visibility: hidden;
-  margin: -9999px 0 0 -9999px;
-  -webkit-animation-duration: 0.1s;
-          animation-duration: 0.1s;
-  -webkit-animation-timing-function: ease-out;
-          animation-timing-function: ease-out;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  display: inline-block;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  vertical-align: middle;
 }
-.sidebar:hover {
-  overflow-y: auto;
+.sidebar .button {
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
-.sidebar_js_inited {
-  display: block;
-}
-.sidebar_animation {
-  -webkit-animation-name: sidebar_theme_ergo;
-          animation-name: sidebar_theme_ergo;
-}
-.sidebar_animation.sidebar_visible {
-  -webkit-animation-name: sidebar_theme_ergo_visible;
-          animation-name: sidebar_theme_ergo_visible;
-}
-.sidebar_visible {
-  margin: 0;
-  visibility: visible;
-  opacity: 1;
-}
-.sidebar_shadow {
-  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.14), 0 10px 10px 0 rgba(0,0,0,0.12), 0 4px 4px -1px rgba(0,0,0,0.2);
-}
-.sidebar__inner {
-  padding: 16px;
-}
-@-webkit-keyframes sidebar_theme_ergo {
-  0% {
-    visibility: visible;
-    margin: 0;
-    opacity: 1;
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-  99% {
-    margin: 0;
-  }
-  100% {
-    visibility: hidden;
-    margin: -9999px 0 0 -9999px;
-    opacity: 0;
-    -webkit-transform: translateX(-208px);
-            transform: translateX(-208px);
-  }
-}
-@keyframes sidebar_theme_ergo {
-  0% {
-    visibility: visible;
-    margin: 0;
-    opacity: 1;
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-  99% {
-    margin: 0;
-  }
-  100% {
-    visibility: hidden;
-    margin: -9999px 0 0 -9999px;
-    opacity: 0;
-    -webkit-transform: translateX(-208px);
-            transform: translateX(-208px);
-  }
-}
-@-webkit-keyframes sidebar_theme_ergo_visible {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    margin: 0;
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-}
-@keyframes sidebar_theme_ergo_visible {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    margin: 0;
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
+.sidebar .button_hidden {
+  display: none !important;
 }
 /* ../../common.blocks/sidebar/sidebar.styl:end */
 /* ../../common.blocks/aside/aside.styl:begin */
@@ -956,6 +865,22 @@
           animation-timing-function: ease-out;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+/* 	&_animation{
+		animation-name: sidebar_theme_ergo;
+		
+		&.sidebar_visible{
+			 animation-name: sidebar_theme_ergo_visible;
+		}
+	}
+	
+	&_visible{
+		margin: 0;
+		visibility: visible;
+		opacity: 1;
+	} */
+}
+.aside_shadow {
+  box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
 }
 .aside:hover {
   overflow-y: auto;
@@ -963,21 +888,15 @@
 .aside_js_inited {
   display: block;
 }
-.aside_animation {
-  -webkit-animation-name: sidebar_theme_ergo;
-          animation-name: sidebar_theme_ergo;
-}
-.aside_animation.sidebar_visible {
-  -webkit-animation-name: sidebar_theme_ergo_visible;
-          animation-name: sidebar_theme_ergo_visible;
+.aside_display {
+  margin: 0;
+  visibility: visible;
+  opacity: 1;
 }
 .aside_visible {
   margin: 0;
   visibility: visible;
   opacity: 1;
-}
-.aside_shadow {
-  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.14), 0 10px 10px 0 rgba(0,0,0,0.12), 0 4px 4px -1px rgba(0,0,0,0.2);
 }
 .aside__inner {
   padding: 16px;

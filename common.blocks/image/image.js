@@ -14,7 +14,7 @@ provide(BEMDOM.decl(this.name, {
 		
 		'lazy': {
 			'follow': function(){
-				throttle(this.bindToWin('scroll', function(e){
+				throttle(this.bindToWin('scroll resize', function(e){
 					this._offsetShow = this.domElem.offset().top - BEMDOM.win.height();
 					this._onLoad();
 				}), 300);
@@ -55,7 +55,7 @@ provide(BEMDOM.decl(this.name, {
 	_onLoad: function(){
 		if(BEMDOM.win.scrollTop() >= this._offsetShow){
 			this
-				.unbindFromWin('scroll')
+				.unbindFromWin('scroll resize')
 				.setMod('loading')
 				.delMod('lazy');
 		}		
