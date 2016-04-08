@@ -14,16 +14,17 @@ ctx = '.aside'
 	display: none;
 	visibility: hidden;
 	margin: -9999px 0 0 -9999px;
-	animation-duration: 0.1s;
+
+	animation-duration: 0.3s;
 	animation-timing-function: ease-out;
 	animation-fill-mode: forwards;
 	
 	&_shadow{
-		box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+		box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.54);
 	}
 	
 	&:hover{
-		overflow-y: auto;	
+		overflow-y: auto;
 	}
 	
 	&_js_inited{
@@ -36,36 +37,23 @@ ctx = '.aside'
 		opacity: 1;
 	}
 	
-	&_visible{
-		margin: 0;
-		visibility: visible;
-		opacity: 1;	
+	&_animation{
+		animation-name: sidebar_theme_ergo;
+		
+		&.aside_visible{
+			animation-name: sidebar_theme_ergo_visible;
+
+			margin: 0;
+			visibility: visible;
+			opacity: 1;
+			background: #fff;
+		}
 	}
 	
 	
 	&__inner{
 		padding: 16px;
 	}
-	
-	
-	
-	
-	
-	
-
-/* 	&_animation{
-		animation-name: sidebar_theme_ergo;
-		
-		&.sidebar_visible{
-			 animation-name: sidebar_theme_ergo_visible;
-		}
-	}
-	
-	&_visible{
-		margin: 0;
-		visibility: visible;
-		opacity: 1;
-	} */
 
 }
 
@@ -90,6 +78,7 @@ ctx = '.aside'
 @keyframes sidebar_theme_ergo_visible {
 	0% {
 		opacity: 0;
+		transform: translateX(-208px);
 	}
 	100% {
 		opacity: 1;

@@ -15,9 +15,18 @@ provide(BEMDOM.decl(this.name, {
                     this._isAttachedToScope = true;
                 }
 			
+				// this.params._paddingContainer - смотри в блоке sidebar
 				this.domElem.css({
-					'transform': 'translateX(' + (this._paddingContainer - this.domElem.width() - 16) + 'px)'	// 16px - отступ
+					'transform': 'translateX(' + (this.params._paddingContainer - this.domElem.width() - 16) + 'px)'	// 16px - отступ
 				});
+			},
+
+			'': function(){
+				// this.params._visibled - смотри в блоке sidebar
+				// true / false
+
+				/*console.log(this.params._visibled);
+				this.setMod('visible', true);*/
 			}
         },
 		
@@ -27,20 +36,29 @@ provide(BEMDOM.decl(this.name, {
                     BEMDOM.scope.append(this.domElem);
                     this._isAttachedToScope = true;
                 }
+
+                this._visibled = true;
 				
-				this.setMod('shadow');
-			
-				this.domElem.css({
+				this
+					.setMod('shadow')
+					.domElem.css({
 					'transform': 'translateX(0px)'	// 16px - отступ
 				});
 			},
 			
 			'': function(){
-				this.domElem.css({
+				this
+					.delMod('shadow')
+					.domElem.css({
 					'transform': 'translateX(-' + (this.domElem.width() + 16) + 'px)'
 				});
 			}
 		}
+    },
+    getDefaultParams: function(){
+    	return {
+    		_visibled: false
+    	}
     }
 }));
 

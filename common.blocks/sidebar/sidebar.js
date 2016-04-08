@@ -15,12 +15,13 @@ provide(BEMDOM.decl(this.name, {
 					_this._aside
 						.setMod('animation')
 						.toggleMod('visible');
+						
+					_this._aside.params._visibled = _this._aside.hasMod('visible') ? true : false;
                 });
 				
-				this._button.setMod('hidden', this._aside.hasMod('display'));
-				
-								
 				this._updateVisible();
+
+				// this._button.setMod('hidden', this._aside.hasMod('display'));
 				
 				this.bindToWin('resize', throttle(this._updateVisible, 300));
 			}
@@ -32,19 +33,22 @@ provide(BEMDOM.decl(this.name, {
 		// >= sidebar - показывать sidebar
 		// < sidebar - открывать по модификатору show
 		this._paddingContainer = (BEMDOM.win.width() - this._pageContainer.width()) / 2;
+		this._aside.params._paddingContainer = this._paddingContainer;
 
 		/* console.log(this._paddingContainer); */
 
 		if(this._paddingContainer >= this._aside.domElem.width()){
 			this._aside
 				.delMod('animation')
-				/* .setMod('visible') */
+				.delMod('visible')
 				.setMod('display');
+
+			this._button.setMod('hidden');
 		}else{
 			this._aside
-				.setMod('animation')
-				/* .delMod('visible') */
 				.delMod('display');
+
+			this._button.delMod('hidden');
 		}	
 	}	
 }));
