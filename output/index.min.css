@@ -869,7 +869,7 @@
 .aside_shadow {
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.5), 0 5px 5px 0 rgba(0,0,0,0.54);
 }
-.aside:hover {
+.aside_hovered {
   overflow-y: auto;
 }
 .aside_js_inited {
@@ -980,7 +980,7 @@
 .aside__close {
   position: absolute;
   top: 2rem;
-  right: 1rem;
+  left: 148px;
 }
 .aside_display .aside__close {
   display: none;

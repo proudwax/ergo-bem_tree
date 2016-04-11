@@ -1,4 +1,4 @@
-modules.define('aside', ['i-bem__dom', 'jquery', 'functions__throttle'], function(provide, BEMDOM, $, throttle) {
+modules.define('aside', ['i-bem__dom', 'jquery', 'dom', 'functions__throttle'], function(provide, BEMDOM, $, dom, throttle) {
 
 provide(BEMDOM.decl(this.name, {
     onSetMod : {
@@ -56,6 +56,8 @@ provide(BEMDOM.decl(this.name, {
 					.domElem.css({
 					'transform': 'translateX(0px)'	// 16px - отступ
 				});
+				
+				this.bindToDoc('pointerclick', this._onDocPointerClick);
 			},
 			
 			'': function(){
@@ -64,6 +66,8 @@ provide(BEMDOM.decl(this.name, {
 					.domElem.css({
 					'transform': 'translateX(-' + (this.domElem.width() + 16) + 'px)'
 				});
+				
+				this.unbindFromDoc('pointerclick', this._onDocPointerClick);
 			}
 		}
     },
@@ -75,6 +79,11 @@ provide(BEMDOM.decl(this.name, {
 
     _onMouseLeave: function(){
         this.delMod('hovered');
+    },
+
+    _onDocPointerClick : function(e) {
+		/* dom.contains(this.domElem, $(e.target));
+		this.delMod('visible'); */
     },	
 	
     getDefaultParams: function(){
