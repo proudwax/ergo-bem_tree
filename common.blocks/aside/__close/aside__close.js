@@ -6,14 +6,16 @@ provide(Aside.decl({
         'js' : {
             'inited' : function() {
 				var _this = this;
-				
-				this.bindTo(this.elem('close'), 'click', function(e){
-					e.preventDefault();
-					
-					_this.delMod('visible');
-					
-					_this.params._visibled = false;
-				});
+
+				this
+					.bindTo(this.elem('close'), 'click', function(e){
+						e.preventDefault();
+						
+						_this.delMod('visible');
+						
+						_this.params._visibled = false;
+					})
+					.__base.apply(this, arguments); // Доопределяем блок (всё то, что в блоке aside.js)
 			}
         }
 	}
