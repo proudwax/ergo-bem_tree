@@ -17,12 +17,12 @@ provide(BEMDOM.decl(this.name, {
 						.toggleMod('visible');
 						
 					_this._aside.params._visibled = _this._aside.hasMod('visible') ? true : false;
+					
+					/* _this._button.setMod('view', _this._aside.params._visibled ? 'action' : false ); */
                 });
 				
 				this._updateVisible();
-
-				// this._button.setMod('hidden', this._aside.hasMod('display'));
-				
+	
 				this.bindToWin('resize', throttle(this._updateVisible, 300));
 			}
         }

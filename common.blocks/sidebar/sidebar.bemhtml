@@ -11,5 +11,12 @@ block('sidebar')(
         return [
             { elem : 'text', content : this._textButton }
         ];
-    })
+    }),
+	
+	elem('aside').content()(function(){
+		return [
+			{ elem: 'title', content: this._textButton },
+			{ elem: 'content', content: applyNext() }
+		]
+	})
 )

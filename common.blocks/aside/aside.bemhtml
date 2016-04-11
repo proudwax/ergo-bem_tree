@@ -7,7 +7,12 @@ block('aside')(
 		return [
 			{
 				elem: 'inner',
-				content: applyNext()
+				content: [
+					{
+						elem: 'close'
+					},
+					applyNext()
+				]
 			}
 		]
 	})

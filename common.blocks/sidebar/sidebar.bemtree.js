@@ -4,7 +4,7 @@ block('sidebar').content()(function() {
 			elem: 'button'
 		},
 		{
-			block: 'aside',
+			elem: 'aside',
 			content: [
 				{
 					block : 'checkbox-group',

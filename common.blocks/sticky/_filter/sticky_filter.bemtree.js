@@ -5,7 +5,7 @@
 	        content: [
 		        {
 					block: 'sidebar',
-					mods: { theme: 'ergo', size: 'm', view: 'action' },
+					mods: { theme: 'ergo', size: 'm' },
 					textButton: 'Фильтр'
 				},
 				{	

@@ -2,9 +2,22 @@ modules.define('aside', ['i-bem__dom', 'jquery', 'functions__throttle'], functio
 
 provide(BEMDOM.decl(this.name, {
     onSetMod : {
-        'js' : {
+		'hovered': {
+            'true': function(){
+                this.bindTo('pointerleave pointerup', this._onMouseLeave);
+            },
+
+            '': function(){
+                this.unbindFrom('pointerleave pointerup', this._onMouseLeave);
+            }
+        },
+		
+		'js' : {
             'inited' : function() {
 				this._isAttachedToScope = false;
+				console.log(this._isAttachedToScope);
+				this.bindTo('pointerover pointerdown', this._onMouseOver)
+					.__base.apply(this, arguments); 
 			}
         },
 		
@@ -25,8 +38,8 @@ provide(BEMDOM.decl(this.name, {
 				// this.params._visibled - смотри в блоке sidebar
 				// true / false
 
-				/*console.log(this.params._visibled);
-				this.setMod('visible', true);*/
+				this.setMod('animation', this.params._visibled);
+				this.setMod('visible', this.params._visibled);
 			}
         },
 		
@@ -55,6 +68,16 @@ provide(BEMDOM.decl(this.name, {
 			}
 		}
     },
+
+    _onMouseOver: function(){
+        this.setMod('hovered');
+		
+    },
+
+    _onMouseLeave: function(){
+        this.delMod('hovered');
+    },	
+	
     getDefaultParams: function(){
     	return {
     		_visibled: false
