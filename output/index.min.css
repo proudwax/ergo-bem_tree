@@ -939,6 +939,9 @@
     -webkit-transform: translateX(-208px);
             transform: translateX(-208px);
   }
+  1% {
+    opacity: 1;
+  }
   100% {
     opacity: 1;
     margin: 0;
@@ -951,6 +954,9 @@
     opacity: 0;
     -webkit-transform: translateX(-208px);
             transform: translateX(-208px);
+  }
+  1% {
+    opacity: 1;
   }
   100% {
     opacity: 1;
