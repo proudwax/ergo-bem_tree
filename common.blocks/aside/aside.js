@@ -15,9 +15,9 @@ provide(BEMDOM.decl(this.name, {
 		'js' : {
             'inited' : function() {
 				this._isAttachedToScope = false;
-				console.log(this._isAttachedToScope);
+				
 				this.bindTo('pointerover pointerdown', this._onMouseOver)
-					.__base.apply(this, arguments); 
+					.__base.apply(this, arguments);
 			}
         },
 		
@@ -82,6 +82,12 @@ provide(BEMDOM.decl(this.name, {
     	return {
     		_visibled: false
     	}
+    }
+},{
+	live: function(){
+		return this
+            .liveBindTo('pointerover pointerdown', this.prototype._onMouseOver)
+            .__base.apply(this, arguments);
     }
 }));
 
