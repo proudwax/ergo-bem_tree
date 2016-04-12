@@ -14,7 +14,8 @@ provide(BEMDOM.decl(this.name, {
 		
 		'js' : {
             'inited' : function() {
-				this._isAttachedToScope = false;
+				this._isAttachedToScope = false,
+				this._anchor = null;
 				
 				this.bindTo('pointerover pointerdown', this._onMouseOver);
 			}
@@ -82,9 +83,18 @@ provide(BEMDOM.decl(this.name, {
     },
 
     _onDocPointerClick : function(e) {
-		/* dom.contains(this.domElem, $(e.target));
-		this.delMod('visible'); */
-    },	
+    	// https://ru.bem.info/libs/bem-core/v2.8.0/desktop/dom/docs/#fields-contains
+		if(dom.contains(this.domElem, $(e.target)) || dom.contains(this._anchor, $(e.target)))
+				return;
+
+		this.delMod('visible'); 
+    },
+
+    setAnchor: function(anchor){
+		this._anchor = anchor instanceof BEMDOM ? anchor.domElem : anchor;
+
+     	return this;
+     },
 	
     getDefaultParams: function(){
     	return {

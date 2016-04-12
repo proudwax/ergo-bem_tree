@@ -7,7 +7,7 @@ provide(BEMDOM.decl(this.name, {
 				var _this = this;
 				
 				this._button = this.findBlockInside('button'),
-				this._aside = this.findBlockInside('aside'),
+				this._aside = this.findBlockInside('aside').setAnchor(this._button),
 				this._page = this.findBlockOutside('page'),
 				this._pageContainer = this._page.elem('container');
 				

@@ -64,6 +64,7 @@ block('sort').content()(function() {
 		{
 			block : 'select',
 			mods : { mode : 'radio-check', theme : 'ergo', size : 'm', 'tail': true, 'icon': true },
+			popupDirections: ['bottom-right', 'top-right'],
 			name: 'sort',
 			text: 'Сортировать по',
 			options : optionList(sortList)

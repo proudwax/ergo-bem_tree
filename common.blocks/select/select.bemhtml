@@ -1,15 +1,36 @@
 block('select').def()(function() {
-    return applyNext({ _selectMods: this.mods });
+    return applyNext({ _popupDirections: this.ctx.popupDirections, _selectMods: this.mods });
 });
 
-block('popup').match(function(){ return this._selectMods && this._selectMods.tail === true })(
-	content()(function(){
-		return [
-			{
-				elem: 'tail',
-				tag: 'i'
-			},
-			applyNext(),
-		]
-	})
+block('popup')(
+	match(function(){ return this._popupDirections })(
+		def()(function(){
+			return applyNext({ directions: this._popupDirections });
+		}),
+
+		js()(function() {
+	        var ctx = this.ctx;
+
+	        return {
+	            mainOffset : ctx.mainOffset,
+	            secondaryOffset : ctx.secondaryOffset,
+	            viewportOffset : ctx.viewportOffset,
+	            directions : this._popupDirections,
+	            zIndexGroupLevel : ctx.zIndexGroupLevel
+	        };
+	    })
+	),
+
+	match(function(){ return this._selectMods && this._selectMods.tail === true })(
+		content()(function(){
+
+			return [
+				{
+					elem: 'tail',
+					tag: 'i'
+				},
+				applyNext(),
+			]
+		})
+	)
 );
