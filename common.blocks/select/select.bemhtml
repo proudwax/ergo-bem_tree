@@ -2,15 +2,17 @@ block('select').def()(function() {
     return applyNext({ _popupDirections: this.ctx.popupDirections, _selectMods: this.mods });
 });
 
-block('popup')(
-/* 	match(function(){ return this._popupDirections })(	
+
+// Всё находится в блоке popup
+/* block('popup')(
+	match(function(){ return this._popupDirections })(	
 		
 		def()(function(){
 			var newCtx = this.extend(this.ctx, { directions: this._popupDirections });
 			return applyCtx(newCtx);
 			return applyNext({ directions: [ 'bottom-right', 'top-right' ] });
 		})
-	), */
+	),
 
 	match(function(){ return this._selectMods && this._selectMods.tail === true })(
 		content()(function(){
@@ -24,10 +26,5 @@ block('popup')(
 			]
 		})
 	)
-);
+); */
 
-block('popup').def()(
-	match(function(){ return this._popupDirections })(function(){
-		return applyNext({ directions : [ 'bottom-right', 'top-right' ] }); 
-	})
-);
