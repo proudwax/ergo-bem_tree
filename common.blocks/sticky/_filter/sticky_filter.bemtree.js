@@ -6,7 +6,12 @@
 		        {
 					block: 'sidebar',
 					mods: { theme: 'ergo', size: 'm' },
-					textButton: 'Фильтр'
+					buttonText: 'Фильтр',
+					buttonIcon: {
+						block: 'icon',
+						cls: 'material-icons',
+						content: '&#xE896;'
+					}
 				},
 				{	
 					block: 'filter'
