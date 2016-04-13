@@ -10,12 +10,7 @@
 				},
 				{	
 					block: 'filter'
-				}
-	        ]
-	    },
-	    {
-	    	elem: 'col',
-	        content: [
+				},
 	        	{
 				    block: 'checkbox',
 				    mods: { theme : 'ergo', size : 'm' },
@@ -25,6 +20,11 @@
 				}
 	        ]
 	    },
+	    /*{
+	    	elem: 'col',
+	        content: [
+	        ]
+	    },*/
 	    {
 	    	elem: 'col',
 	        content: [
