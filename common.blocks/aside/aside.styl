@@ -7,7 +7,8 @@ ctx = '.aside'
 	left: 0;
 	opacity: 0;
 	height: 100%;
-	width: 192px;
+	/* width: 192px; */
+	width: 200px;
 	overflow-y: hidden;
 	background: #e6e6e6;
 	z-index: 100;
@@ -23,7 +24,7 @@ ctx = '.aside'
 		box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.54);
 	}
 	
-	&_hovered{
+	&_hovered, &:hover{
 		overflow-y: auto;
 	}
 	
@@ -62,7 +63,7 @@ ctx = '.aside'
 	}
 	
 	&__inner{
-		padding: 16px;
+		padding: 1rem;
 	}
 
 }

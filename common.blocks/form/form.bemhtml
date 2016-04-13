@@ -1,4 +1,14 @@
 block('form')(
+	def()(function(){
+		return applyNext({
+			_mods: this.ctx.mods,
+			_buttonName: this.ctx.buttonName,
+			_buttonText: this.ctx.buttonText,
+			_buttonMods: this.ctx.buttonMods,
+			_buttonIcon: this.ctx.buttonIcon
+		});
+	}),
+
 	js()(true),
 	
 	tag()('form'),
@@ -32,12 +42,24 @@ block('form')(
 	}),
 
 	elem('button').content()(function(){
-		return [
-			{
-			    block : 'button',
-			    mods : { theme : 'islands', size : 'm', type : 'submit' },
-			    text : 'Я отправляю данные'
-			}
-		]
+		var mods = { 
+				type : 'submit'
+			},
+			button = {};
+		
+		this._mods.theme && (mods.theme = this._mods.theme);
+		mods = this.extend(mods, this._buttonMods);
+
+		button = {
+			block : 'button',
+			mods : mods,
+			name: this._buttonName,
+			text : this._buttonText
+		};	
+		
+		if(this._buttonIcon)
+			button = this.extend(button, { icon: this._buttonIcon});
+
+		return button;
 	})
 )

@@ -8,8 +8,17 @@ block('sidebar').content()(function() {
 			content: [
 				{
 					block: 'form',
+					mods: { theme: 'ergo' },
 					action: '#',
 					method: 'get',
+					buttonName: 'submit',
+					buttonText: 'Применить',
+					buttonMods: { size: 'm', view: 'action' },
+					buttonIcon: {
+						block: 'icon',
+						cls: 'material-icons',
+						content: '&#xE8FF;'
+					},
 					content: [
 						{
 							block : 'checkbox-group',
@@ -21,50 +30,6 @@ block('sidebar').content()(function() {
 								{ val : 3, text : 'Модификатор' }
 							]
 						}
-					]
-				},
-				{
-					block : 'radio-group',
-					mods : { theme : 'islands', size : 'l' },
-					name : 'radio-line',
-					val : 2,
-					options : [
-						{ val : 1, text : 'Футбол', disabled : true },
-						{ val : 2, text : 'Баскетбол' },
-						{ val : 3, text : 'Гандбол' }
-					]
-				},
-				{
-					block : 'radio-group',
-					mods : { theme : 'islands', size : 'l' },
-					name : 'radio-line',
-					val : 2,
-					options : [
-						{ val : 1, text : 'Футбол', disabled : true },
-						{ val : 2, text : 'Баскетбол' },
-						{ val : 3, text : 'Гандбол' }
-					]
-				},
-				{
-					block : 'radio-group',
-					mods : { theme : 'islands', size : 'l' },
-					name : 'radio-line',
-					val : 2,
-					options : [
-						{ val : 1, text : 'Футбол', disabled : true },
-						{ val : 2, text : 'Баскетбол' },
-						{ val : 3, text : 'Гандбол' }
-					]
-				},
-				{
-					block : 'radio-group',
-					mods : { theme : 'islands', size : 'l' },
-					name : 'radio-line',
-					val : 2,
-					options : [
-						{ val : 1, text : 'Футбол', disabled : true },
-						{ val : 2, text : 'Баскетбол' },
-						{ val : 3, text : 'Гандбол' }
 					]
 				}
 			]

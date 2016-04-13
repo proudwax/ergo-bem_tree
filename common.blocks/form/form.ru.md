@@ -1,4 +1,22 @@
-# button
+# form
+
+```js
+{
+	block: 'form',
+	mods: { theme: 'ergo' },
+	action: '#',
+	method: 'get',
+	buttonName: 'submit',
+	buttonText: 'Применить',
+	buttonMods: { size: 'm', view: 'action' },
+	buttonIcon: {
+		block: 'icon',
+		cls: 'material-icons',
+		content: '&#xE8FF;'
+	},
+	content: [...]
+}
+```
 
 Используется для создания различных типов кнопок.
 
@@ -51,14 +69,6 @@
 
 Используется для создания кнопки, обеспечивающей переход по адресу, указанному в поле <a href="#buttonurl">url</a>.
 
-```js
-{
-    block : 'button',
-    mods : { theme : 'islands', size : 'm', type : 'link' },
-    url : 'https://bem.info/',
-    text : 'Попробуй БЭМ'
-}
-```
 
 ##### Кнопка отправки формы (модификатор `type` в значении `submit`)
 

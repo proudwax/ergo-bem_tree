@@ -75,19 +75,26 @@ provide(BEMDOM.decl(this.name, {
 
     _onMouseOver: function(){
         this.setMod('hovered');
-		
     },
 
     _onMouseLeave: function(){
         this.delMod('hovered');
     },
 
+	_onMouseClick: function(e){
+		this.set
+	},
+	
     _onDocPointerClick : function(e) {
     	// https://ru.bem.info/libs/bem-core/v2.8.0/desktop/dom/docs/#fields-contains
-		if(dom.contains(this.domElem, $(e.target)) || dom.contains(this._anchor, $(e.target)))
-				return;
-
-		this.delMod('visible'); 
+		if(dom.contains(this.domElem, $(e.target)) || dom.contains(this._anchor, $(e.target))){
+			this.setMod('focused');
+			return;
+		}
+		
+		this
+			.delMod('focused')
+			.delMod('visible'); 
     },
 
     setAnchor: function(anchor){
