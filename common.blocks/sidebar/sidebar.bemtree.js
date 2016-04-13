@@ -7,13 +7,20 @@ block('sidebar').content()(function() {
 			elem: 'aside',
 			content: [
 				{
-					block : 'checkbox-group',
-					mods : { theme : 'islands', size : 'l' },
-					name : 'checkbox-line',
-					options : [
-						{ val : 1, text : 'Блок', disabled : true },
-						{ val : 2, text : 'Элемент' },
-						{ val : 3, text : 'Модификатор' }
+					block: 'form',
+					action: '#',
+					method: 'get',
+					content: [
+						{
+							block : 'checkbox-group',
+							mods : { theme : 'islands', size : 'l' },
+							name : 'checkbox-line',
+							options : [
+								{ val : 1, text : 'Блок', disabled : true },
+								{ val : 2, text : 'Элемент' },
+								{ val : 3, text : 'Модификатор' }
+							]
+						}
 					]
 				},
 				{

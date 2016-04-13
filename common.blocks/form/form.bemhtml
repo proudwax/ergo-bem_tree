@@ -1,0 +1,43 @@
+block('form')(
+	js()(true),
+	
+	tag()('form'),
+
+	attrs()(function(){
+
+		var ctx = this.ctx,
+			attrs = {};
+
+		ctx.action && (attrs.action = ctx.action);
+		ctx.method && (attrs.method = ctx.method);
+		ctx.name && (attrs.name = ctx.name);
+		ctx.target && (attrs.target = ctx.target);
+		ctx.enctype && (attrs.enctype = ctx.enctype);
+		ctx.charset && (attrs['accept-charset'] = ctx.charset);
+		ctx.autocomplete && (attrs.autocomplete = ctx.autocomplete);
+
+		return attrs;
+	}),
+
+	content()(function(){
+		return [
+			{
+				elem: 'content',
+				content: applyNext()
+			},
+			{
+				elem: 'button'
+			}
+		]
+	}),
+
+	elem('button').content()(function(){
+		return [
+			{
+			    block : 'button',
+			    mods : { theme : 'islands', size : 'm', type : 'submit' },
+			    text : 'Я отправляю данные'
+			}
+		]
+	})
+)
