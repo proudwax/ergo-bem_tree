@@ -7,8 +7,7 @@
 		{ elems: ['button', 'aside'] },
 		
 		// Дополнительные, что в контенте .bemtree
-        { block: 'checkbox-group', mods: { theme: 'islands', size : 'l' } },
-        { block: 'radio-group', mods: { theme: 'islands', size : 'l' } },
-        { block: 'form' }
+        { block: 'form' },
+        { block: 'checkbox', mods: { theme: 'ergo' } }
     ]
 })

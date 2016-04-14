@@ -2,6 +2,7 @@ block('form')(
 	def()(function(){
 		return applyNext({
 			_mods: this.ctx.mods,
+			_elemButtomMods: this.ctx.elemButtomMods,
 			_buttonName: this.ctx.buttonName,
 			_buttonText: this.ctx.buttonText,
 			_buttonMods: this.ctx.buttonMods,
@@ -39,27 +40,5 @@ block('form')(
 				elem: 'button'
 			}
 		]
-	}),
-
-	elem('button').content()(function(){
-		var mods = { 
-				type : 'submit'
-			},
-			button = {};
-		
-		this._mods.theme && (mods.theme = this._mods.theme);
-		mods = this.extend(mods, this._buttonMods);
-
-		button = {
-			block : 'button',
-			mods : mods,
-			name: this._buttonName,
-			text : this._buttonText
-		};	
-		
-		if(this._buttonIcon)
-			button = this.extend(button, { icon: this._buttonIcon});
-
-		return button;
 	})
 )

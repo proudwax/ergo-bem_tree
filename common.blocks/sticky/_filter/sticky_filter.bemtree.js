@@ -12,17 +12,10 @@
 						cls: 'material-icons',
 						content: '&#xE896;'
 					}
-				},
+				}/*,
 				{	
 					block: 'filter'
-				},
-	        	{
-				    block: 'checkbox',
-				    mods: { theme : 'ergo', size : 'm' },
-				    name: 'sale',
-				    val: 'true',
-				    text : 'со скидкой'
-				}
+				}*/
 	        ]
 	    },
 	    /*{

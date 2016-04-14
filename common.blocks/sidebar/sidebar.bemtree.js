@@ -11,24 +11,22 @@ block('sidebar').content()(function() {
 					mods: { theme: 'ergo' },
 					action: '#',
 					method: 'get',
+					elemButtomMods: { fixed: 'bottom' },
 					buttonName: 'submit',
 					buttonText: 'Применить',
-					buttonMods: { size: 'm', view: 'action' },
+					buttonMods: { size: 'l', view: 'action' },
 					buttonIcon: {
 						block: 'icon',
 						cls: 'material-icons',
-						content: '&#xE8FF;'
+						content: '&#xE164;'
 					},
 					content: [
-						{
-							block : 'checkbox-group',
-							mods : { theme : 'islands', size : 'l' },
-							name : 'checkbox-line',
-							options : [
-								{ val : 1, text : 'Блок', disabled : true },
-								{ val : 2, text : 'Элемент' },
-								{ val : 3, text : 'Модификатор' }
-							]
+			        	{
+						    block: 'checkbox',
+						    mods: { theme : 'ergo', size : 'l' },
+						    name: 'sale',
+						    val: 'true',
+						    text : 'со скидкой'
 						}
 					]
 				}
