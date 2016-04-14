@@ -1,18 +1,14 @@
 block('form').elem('button')(
+	
 	def()(function(){
-		console.log(this._elemButtomMods);
-		console.log(this.ctx);
-
-		return [
-			{
-				elem: 'buttom',
-				elemMods: this._elemButtomMods
-				// content: applyNext()
-			}
-		]
-	}),
+		return applyNext({ 'ctx.elemMods': { fixed: 'bototm' } });
+	}
+		/* match(function(){ return this._elemButtomMods; })(
+		) */
+	),
 
 	content()(function(){
+		console.log(this.ctx);
 		var mods = { 
 				type : 'submit'
 			},
