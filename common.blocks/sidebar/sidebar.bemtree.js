@@ -11,6 +11,7 @@ block('sidebar').content()(function() {
 					mods: { theme: 'ergo' },
 					action: '#',
 					method: 'get',
+<<<<<<< HEAD
 					elemButtomMods: { fixed: 'bottom' },
 					buttonName: 'submit',
 					buttonText: 'Применить',
@@ -19,6 +20,15 @@ block('sidebar').content()(function() {
 						block: 'icon',
 						cls: 'material-icons',
 						content: '&#xE164;'
+=======
+					buttonName: 'submit',
+					buttonText: 'Применить',
+					buttonMods: { size: 'm', view: 'action' },
+					buttonIcon: {
+						block: 'icon',
+						cls: 'material-icons',
+						content: '&#xE8FF;'
+>>>>>>> 7456ef649ebbf0057855939bfbd6e0b99019dea7
 					},
 					content: [
 			        	{
