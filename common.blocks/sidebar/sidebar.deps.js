@@ -7,7 +7,6 @@
 		{ elems: ['button', 'aside'] },
 		
 		// Дополнительные, что в контенте .bemtree
-        { block: 'form' },
-        { block: 'checkbox', mods: { theme: 'ergo' } }
+        { block: 'form' }
     ]
 })

@@ -33,7 +33,7 @@ block('form')(
 	content()(function(){
 		return [
 			{
-				elem: 'content',
+				elem: 'container',
 				content: applyNext()
 			},
 			{
@@ -41,5 +41,17 @@ block('form')(
 				elemMods: this._elemButtomMods
 			}
 		]
-	})
+	}),
+	
+	elem('item').match(function(){ return this.position == 1})(
+		def()(function(){
+			return applyNext({ 'ctx.elemMods': {first : true} });
+		})
+	),
+	
+	elem('legend')(
+		content()(function(){
+			return '<h3>' + applyNext() + '</h3>';
+		})
+	)
 )
