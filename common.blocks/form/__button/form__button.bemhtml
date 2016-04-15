@@ -1,14 +1,25 @@
 block('form').elem('button')(
 	
-	def()(function(){
+	/*def()(function(){
 		return applyNext({ 'ctx.elemMods': { fixed: 'bototm' } });
-	}
-		/* match(function(){ return this._elemButtomMods; })(
-		) */
-	),
+	}),*/
+
+	/*match(function(){ return this._elemButtomMods; })(
+		content()(function(){
+			return [
+				{
+					elem: 'content',
+					content: applyNext()
+				},
+				{
+					elem: 'button',
+					elemMods: this._elemButtomMods
+				}
+			]
+		})	
+	),*/
 
 	content()(function(){
-		console.log(this.ctx);
 		var mods = { 
 				type : 'submit'
 			},

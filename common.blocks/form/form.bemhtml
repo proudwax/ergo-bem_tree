@@ -37,7 +37,8 @@ block('form')(
 				content: applyNext()
 			},
 			{
-				elem: 'button'
+				elem: 'button',
+				elemMods: this._elemButtomMods
 			}
 		]
 	})

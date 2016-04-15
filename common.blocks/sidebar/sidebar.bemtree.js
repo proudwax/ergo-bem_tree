@@ -11,7 +11,7 @@ block('sidebar').content()(function() {
 					mods: { theme: 'ergo' },
 					action: '#',
 					method: 'get',
-					elemButtomMods: { fixed: 'bottom' },
+					elemButtomMods: { fixed: 'bottom', shadow: true },
 					buttonName: 'submit',
 					buttonText: 'Применить',
 					buttonMods: { size: 'l', view: 'action' },
@@ -23,7 +23,7 @@ block('sidebar').content()(function() {
 					content: [
 			        	{
 						    block: 'checkbox',
-						    mods: { theme : 'ergo', size : 'l' },
+						    mods: { theme : 'ergo', size : 'm' },
 						    name: 'sale',
 						    val: 'true',
 						    text : 'со скидкой'
