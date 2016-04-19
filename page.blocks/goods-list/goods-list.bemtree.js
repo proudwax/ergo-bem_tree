@@ -1,6 +1,9 @@
 block('goods-list').content()(function() {
+
 	
-	var items = ([
+	
+	var json = '',
+		items = ([
 		{
 			"goods-id": 1,
 			"title": "Ergobaby — Organic Navy",
@@ -152,9 +155,9 @@ block('goods-list').content()(function() {
 			"desc": "Назначение — городской"
 		}
 	]);
-	
+
 	function buildElemLable(price_current, price_old){
-		if(price_old != undefined){
+		if(price_old != undefined && price_old != ''){
 			var percent = Math.ceil(100 - ((price_current / price_old) * 100));
 			return {
 				elem: 'lable',
@@ -162,56 +165,64 @@ block('goods-list').content()(function() {
 			};
 		}
 	}
-	
-    return items.map(function(item){
-		return {
-			elem: 'item',
-			js: { filter: item.category },
-			content: [
-				{
-					block: 'goods',
-					js: {	
-						'goods-id': item['goods-id'], 
-						title: item.title, 
-						/* source: '/assets/json/1.json', cost: 10000, name: 'Organic Navy' */
-					},
-					mods: { 'border': true, 'showcase': true },
-					content: [
-						{
-							elem: 'container',
-							content: [
-								buildElemLable(item.price.current, item.price.old),
-								{
-									elem: 'image',
-									content: [
-										{
-											block: 'image',
-											mods: { lazy: true },
-											url: item.preview,
-											alt: item.name												
-										}
-									]
-								},
-								{
-									elem: 'content',
-									content: [
-										{
-											elem: 'name',
-											content: item.name
-										},
-										{
-											elem: 'price',
-											price_current: item.price.current,
-											price_old: item.price.old
-										}
-									]
-								}
-							]
-						}
-					]
-				}			
-			]
-		}
-	});
-	
+
+	function getBemJson(json){
+		return json.map(function(item){
+			return {
+				elem: 'item',
+				js: { filter: item.category },
+				content: [
+					{
+						block: 'goods',
+						js: {	
+							'goods-id': item['goods-id'], 
+							title: item.title, 
+							/* source: '/assets/json/1.json', cost: 10000, name: 'Organic Navy' */
+						},
+						mods: { 'border': true, 'showcase': true },
+						content: [
+							{
+								elem: 'container',
+								content: [
+									buildElemLable(item.price.current, item.price.old),
+									{
+										elem: 'image',
+										content: [
+											{
+												block: 'image',
+												mods: { lazy: true },
+												url: item.preview,
+												alt: item.name												
+											}
+										]
+									},
+									{
+										elem: 'content',
+										content: [
+											{
+												elem: 'name',
+												content: item.name
+											},
+											{
+												elem: 'price',
+												price_current: item.price.current,
+												price_old: item.price.old
+											}
+										]
+									}
+								]
+							}
+						]
+					}			
+				]
+			}
+		});
+	}
+
+	/*if(this.ctx.context == 'goods-list'){
+		return 're';
+	}*/
+
+	json = this.dataGoods || items;
+	return getBemJson(json);
 });

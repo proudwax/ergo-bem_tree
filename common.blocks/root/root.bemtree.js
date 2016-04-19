@@ -1,10 +1,8 @@
 block('root').replace()(function() {
-	var data = this.data = this.ctx.data;
-
-    // console.log(data);
-	
-    // если задан context — требуется отрендерить не целую страницу, а лишь эту конкретную часть
-    // if (ctx.context) return applyCtx(ctx.context);
+	var data = this.data = this.ctx.data,
+		dataGoods = this.dataGoods = this.ctx.dataGoods;
+		
+    if (this.ctx.context) return this.ctx.context;
 	
     return applyCtx({
         block: 'page',
