@@ -1,12 +1,7 @@
 block('goods-list').content()(function() {
+
 	
-	/* this.data = this.ctx.data; */
 	
-	/* console.log(this.dataGoods); */
-	/* console.log(this.data); */
-	
-	/* if(this.data)
-		return this.data; */
 	var json = '',
 		items = ([
 		{
@@ -161,8 +156,6 @@ block('goods-list').content()(function() {
 		}
 	]);
 
-	json = this.dataGoods || items;
-	
 	function buildElemLable(price_current, price_old){
 		if(price_old != undefined){
 			var percent = Math.ceil(100 - ((price_current / price_old) * 100));
@@ -225,6 +218,7 @@ block('goods-list').content()(function() {
 			}
 		});
 	}
-	
+
+	json = this.dataGoods || items;
 	return getBemJson(json);
 });

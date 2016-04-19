@@ -1,11 +1,18 @@
-modules.define('goods-list', ['i-bem__dom', 'BEMHTML', 'BEMTREE', 'jquery', 'events__channels', 'functions__throttle'], function(provide, BEMDOM, BEMTREE, BEMHTML, $, channels, throttle) {
+modules.define('goods-list', ['i-bem__dom', 'BEMTREE', 'BEMHTML', 'jquery', 'events__channels', 'functions__throttle'], function(provide, BEMDOM, BEMTREE, BEMHTML, $, channels, throttle) {
 
 provide(BEMDOM.decl(this.name, {
 	onSetMod : {
 		'js': {
             'inited': function() {
-            	var _this = this;
+            	var _this = this
+					json = [{ "goods-id": "0", "title": "Ergobaby — Organic Navy", "name": "Organic Navy", "category": "", "preview": "http://ergobaby.yazvyazda.ru/netcat_files/5/2/organic_navy.Jpg", "price": { "old": "14000", "current": "8900" }, "desc": "" }];
 
+					
+				html = BEMHTML.apply(BEMTREE.apply({ block: 'root', dataGoods: json, context: { block: 'goods-list' } }));
+				
+				this.domElem.replaceWith(html);
+				/* console.log(BEMTREE.apply({ block: 'root', dataGoods: json, context: { block: 'goods-list' } })); */
+				
 				this._redraw();
 
 				// следует использовать https://ru.bem.info/libs/bem-core/v2.8.0/desktop/functions/#elems-throttle чтобы не дергать коллбек слишком часто
