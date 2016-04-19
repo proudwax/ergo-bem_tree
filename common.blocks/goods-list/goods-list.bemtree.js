@@ -1,6 +1,14 @@
 block('goods-list').content()(function() {
 	
-	var items = ([
+	/* this.data = this.ctx.data; */
+	
+	/* console.log(this.dataGoods); */
+	/* console.log(this.data); */
+	
+	/* if(this.data)
+		return this.data; */
+	var json = '',
+		items = ([
 		{
 			"goods-id": 1,
 			"title": "Ergobaby — Organic Navy",
@@ -152,6 +160,8 @@ block('goods-list').content()(function() {
 			"desc": "Назначение — городской"
 		}
 	]);
+
+	json = this.dataGoods || items;
 	
 	function buildElemLable(price_current, price_old){
 		if(price_old != undefined){
@@ -162,56 +172,59 @@ block('goods-list').content()(function() {
 			};
 		}
 	}
+
+	function getBemJson(json){
+		return json.map(function(item){
+			return {
+				elem: 'item',
+				js: { filter: item.category },
+				content: [
+					{
+						block: 'goods',
+						js: {	
+							'goods-id': item['goods-id'], 
+							title: item.title, 
+							/* source: '/assets/json/1.json', cost: 10000, name: 'Organic Navy' */
+						},
+						mods: { 'border': true, 'showcase': true },
+						content: [
+							{
+								elem: 'container',
+								content: [
+									buildElemLable(item.price.current, item.price.old),
+									{
+										elem: 'image',
+										content: [
+											{
+												block: 'image',
+												mods: { lazy: true },
+												url: item.preview,
+												alt: item.name												
+											}
+										]
+									},
+									{
+										elem: 'content',
+										content: [
+											{
+												elem: 'name',
+												content: item.name
+											},
+											{
+												elem: 'price',
+												price_current: item.price.current,
+												price_old: item.price.old
+											}
+										]
+									}
+								]
+							}
+						]
+					}			
+				]
+			}
+		});
+	}
 	
-    return items.map(function(item){
-		return {
-			elem: 'item',
-			js: { filter: item.category },
-			content: [
-				{
-					block: 'goods',
-					js: {	
-						'goods-id': item['goods-id'], 
-						title: item.title, 
-						/* source: '/assets/json/1.json', cost: 10000, name: 'Organic Navy' */
-					},
-					mods: { 'border': true, 'showcase': true },
-					content: [
-						{
-							elem: 'container',
-							content: [
-								buildElemLable(item.price.current, item.price.old),
-								{
-									elem: 'image',
-									content: [
-										{
-											block: 'image',
-											mods: { lazy: true },
-											url: item.preview,
-											alt: item.name												
-										}
-									]
-								},
-								{
-									elem: 'content',
-									content: [
-										{
-											elem: 'name',
-											content: item.name
-										},
-										{
-											elem: 'price',
-											price_current: item.price.current,
-											price_old: item.price.old
-										}
-									]
-								}
-							]
-						}
-					]
-				}			
-			]
-		}
-	});
-	
+	return getBemJson(json);
 });

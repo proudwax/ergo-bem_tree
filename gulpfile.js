@@ -47,6 +47,7 @@ gulp.task('generate', function(done) {
 gulp.task('watch', function() {
     gulp.watch('data/*', gulp.series('static', 'generate'));
     gulp.watch('common.blocks/**', gulp.series('default'));
+    gulp.watch('page.blocks/**', gulp.series('default'));
 });
 
 gulp.task('clean', function() {
