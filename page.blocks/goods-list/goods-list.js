@@ -10,7 +10,6 @@ provide(BEMDOM.decl(this.name, {
 					
 				html = BEMHTML.apply(BEMTREE.apply({ block: 'root', dataGoods: json, context: { block: 'goods-list' } }));
 				
-				this.domElem.replaceWith(html);
 				/* console.log(BEMTREE.apply({ block: 'root', dataGoods: json, context: { block: 'goods-list' } })); */
 				
 				this._redraw();
@@ -28,6 +27,7 @@ provide(BEMDOM.decl(this.name, {
 				
 				channels('changeUrl').on('change', function(e, val) {
 					console.log(val);
+					BEMDOM.update(this.domElem, html);
 					
 					$.ajax({
 						/* url: 'http://ergobaby.yazvyazda.ru/catalog/?isNaked=1&nc_ctpl=2000&price=ASC', */
@@ -41,7 +41,7 @@ provide(BEMDOM.decl(this.name, {
 						/* alert( "error" ); */
 					})
 					.always(function(data) {
-						console.log(BEMTREE.apply({ block: 'root', dataGoods: data, context: { block: 'goods-list' } }));
+						/* console.log(BEMTREE.apply({ block: 'root', dataGoods: data, context: { block: 'goods-list' } })); */
 					});
 					
 				});
