@@ -45,7 +45,12 @@ block('form')(
 	
 	elem('item').match(function(){ return this.position == 1})(
 		def()(function(){
-			return applyNext({ 'ctx.elemMods': {first : true} });
+			return applyCtx(
+			{
+				elem: this.elem,
+				elemMods: { first : true },
+				content: this.ctx.content
+			});
 		})
 	),
 	
