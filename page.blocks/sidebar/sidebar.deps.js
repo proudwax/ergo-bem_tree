@@ -7,6 +7,6 @@
 		{ elems: ['button', 'aside'] },
 		
 		// Дополнительные, что в контенте .bemtree
-        { block: 'form' }
+        { block: 'form', mods: { filter: true } }
     ]
 })

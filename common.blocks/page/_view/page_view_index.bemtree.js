@@ -29,7 +29,8 @@ block('page').mod('view', 'index').content()(function() {
                     panelMods: { between: true }
                 }, 
         		{
-                    block: 'goods-list'
+                    block: 'goods-list',
+					js: { source: '/catalog/', params: { 'isNaked': 1, 'nc_ctpl': 2000 } }
                 }
             ]
         },

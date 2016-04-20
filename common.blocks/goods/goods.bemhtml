@@ -58,47 +58,44 @@ block('goods')(
 	}),
 
 	match(function(){ return this.mods.showcase && this._js['goods-id'] })(
-		elem('content').content()(function() {
-			return [
-				applyNext(),
-				{
-					elem: 'action',
-					mix: [{ block : 'control-group' }], 
-					content:[
-						{
-							block: 'button',
-							mix: [{ block: 'goods-card-link', js: true }, { block: 'history-use', js: true }],
-							mods: { theme: 'ergo', size: 'm', 'more': true, type : 'link' },
-							text: 'Подробнее',
-							url : this._js['goods-id'],
-							icon: {
-								block: 'icon',
-								cls: 'material-icons',
-								// content: '&#xE8B6;'
-								content: '&#xE8FF;'
-							}
-						},
-						{
-							block: 'button',
-							mods: { view : 'action', theme: 'ergo', size: 'm', netcat: 'put', type: 'link' },
-							url: 'http://minishop.yazvyazda.ru/netcat/modules/minishop/index.php?good[1][name]=%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%204&good[1][price]=1250&good[1][hash]=9c3a3fc913fbee62408efc571c5d2b49&good[1][uri]=%2Fkatalog%2Fkategorii-tovarov%2Fkategoriya-2%2Ftovar-6.html',
-							text: 'Купить',
-							icon: {
-								block: 'icon',
-								cls: 'material-icons',
-								content: '&#xE8CC;'
-							}
+		elem('action')(
+			mix()([{ block : 'control-group' }]),
+		
+			content()(function(){
+				return [
+					{
+						block: 'button',
+						mods: { theme: 'ergo', size: 'm', 'more': true, type : 'link' },
+						text: 'Подробнее',
+						url : this.ctx.urlInfo,
+						icon: {
+							block: 'icon',
+							cls: 'material-icons',
+							// content: '&#xE8B6;'
+							content: '&#xE8FF;'
 						}
-					]	
-				}
-			];
-		}),
+					},
+					{
+						block: 'button',
+						js: { hash: this.ctx.hash },
+						mods: { view : 'action', theme: 'ergo', size: 'm', netcat: 'put', type: 'link' },
+						url: /* 'http://minishop.yazvyazda.ru/netcat/modules/minishop/index.php?good[1][name]=%D0%A2%D0%BE%D0%B2%D0%B0%D1%80%204&good[1][price]=1250&good[1][hash]=9c3a3fc913fbee62408efc571c5d2b49&good[1][uri]=%2Fkatalog%2Fkategorii-tovarov%2Fkategoriya-2%2Ftovar-6.html', */ this.ctx.urlCart,
+						text: 'Купить',
+						icon: {
+							block: 'icon',
+							cls: 'material-icons',
+							content: '&#xE8CC;'
+						}
+					}
+				]
+			})
+		),
+		
 		elem('name').content()(function(){
 			return [{
 				block: 'link',
-				mods: { theme: 'islands', 'more': true },
-				mix: [{ block: 'goods-card-link', js: true }, { block: 'history-use', js: true }],
-				url: this._js['goods-id'],
+				mods: { theme: 'ergo', 'more': true },
+				url : this.ctx.urlInfo,
 				content: applyNext()
 			}]
 		})

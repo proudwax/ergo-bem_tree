@@ -5,42 +5,42 @@ block('sort').content()(function() {
 				"name": "Названию",
 				"desc": {
 					"icon": "&#xE5C7;",
-					"url": "name=asc"
+					"url": "name-asc"
 				}
 			},
 			{ 
 				"name": "Названию",
 				"desc": {
 					"icon": "&#xE5C5;",
-					"url": "name=desc"
+					"url": "name-desc"
 				}
 			},
 			{
 				"name": "Цене",
 				"desc": {
 					"icon": "&#xE5C7;",
-					"url": "price=asc"
+					"url": "price-asc"
 				}
 			},
 			{ 
 				"name": "Цене", 
 				"desc": {
 					"icon": "&#xE5C5;",
-					"url": "price=desc"
+					"url": "price-desc"
 				}
 			},
 			{ 
 				"name": "Популярности",
 				"desc": {
 					"icon": "&#xE5C7;",
-					"url": "views=asc"
+					"url": "views-asc"
 				}
 			},
 			{ 
 				"name": "Популярности",
 				"desc": {
 					"icon": "&#xE5C5;",
-					"url": "views=desc"
+					"url": "views-desc"
 				}
 			}
 		]

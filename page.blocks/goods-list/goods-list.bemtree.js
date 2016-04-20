@@ -1,9 +1,6 @@
 block('goods-list').content()(function() {
 
-	
-	
-	var json = '',
-		items = ([
+	var items = ([
 		{
 			"goods-id": 1,
 			"title": "Ergobaby — Organic Navy",
@@ -19,7 +16,13 @@ block('goods-list').content()(function() {
 					"old": 10000,
 					"current": 7500
 				},
-			"desc": "Назначение — городской"
+			"desc": "Назначение — городской",
+			"url": 
+				{
+					"info": "/1",
+					"cart": "/1_cart"
+				},
+			"hash": "1fa5f5377f916b649d3ee04317d9ab9f "
 		},
 		{
 			"goods-id": 2,
@@ -34,7 +37,13 @@ block('goods-list').content()(function() {
 			],
 			"price":
 				{ "current": 10000 },
-			"desc": "Назначение — городской"
+			"desc": "Назначение — городской",
+			"url": 
+				{
+					"info": "/1",
+					"cart": "/1_cart"
+				},
+			"hash": "1fa5f5377f916b649d3ee04317d9ab9f "
 		},
 		{
 			"goods-id": 3,
@@ -48,7 +57,13 @@ block('goods-list').content()(function() {
 				"http://ergobaby.yazvyazda.ru/assets/i/promo3-2.jpg"
 			],
 			"price":{ "current": 10000 },
-			"desc": "Назначение — городской"
+			"desc": "Назначение — городской",
+			"url": 
+				{
+					"info": "/1",
+					"cart": "/1_cart"
+				},
+			"hash": "1fa5f5377f916b649d3ee04317d9ab9f "
 		},
 		{
 			"goods-id": 4,
@@ -62,7 +77,13 @@ block('goods-list').content()(function() {
 				"http://ergobaby.yazvyazda.ru/assets/i/promo4-2.jpg"
 			],
 			"price":{ "current": 10000 },
-			"desc": "Назначение — городской"
+			"desc": "Назначение — городской",
+			"url": 
+				{
+					"info": "/1",
+					"cart": "/1_cart"
+				},
+			"hash": "1fa5f5377f916b649d3ee04317d9ab9f "
 		},
 		{
 			"goods-id": 6,
@@ -76,7 +97,13 @@ block('goods-list').content()(function() {
 				"http://ergobaby.yazvyazda.ru/assets/i/promo6-2.jpg"
 			],
 			"price":{ "current": 10000 },
-			"desc": "Назначение — городской"
+			"desc": "Назначение — городской",
+			"url": 
+				{
+					"info": "/1",
+					"cart": "/1_cart"
+				},
+			"hash": "1fa5f5377f916b649d3ee04317d9ab9f "
 		},
 		{
 			"goods-id": 5,
@@ -93,7 +120,13 @@ block('goods-list').content()(function() {
 				"old": 15000,
 				"current": 10000
 			},
-			"desc": "Назначение — городской"
+			"desc": "Назначение — городской",
+			"url": 
+				{
+					"info": "/1",
+					"cart": "/1_cart"
+				},
+			"hash": "1fa5f5377f916b649d3ee04317d9ab9f "
 		},
 		{
 			"goods-id": 7,
@@ -107,7 +140,13 @@ block('goods-list').content()(function() {
 				"http://ergobaby.yazvyazda.ru/assets/i/promo7-2.jpg"
 			],
 			"price":{ "current": 10000 },
-			"desc": "Назначение — городской"
+			"desc": "Назначение — городской",
+			"url": 
+				{
+					"info": "/1",
+					"cart": "/1_cart"
+				},
+			"hash": "1fa5f5377f916b649d3ee04317d9ab9f "
 		},
 		{
 			"goods-id": 8,
@@ -121,7 +160,13 @@ block('goods-list').content()(function() {
 				"http://ergobaby.yazvyazda.ru/assets/i/promo8-2.jpg"
 			],
 			"price":{ "current": 10000 },
-			"desc": "Назначение — городской"
+			"desc": "Назначение — городской",
+			"url": 
+				{
+					"info": "/1",
+					"cart": "/1_cart"
+				},
+			"hash": "1fa5f5377f916b649d3ee04317d9ab9f "
 		},
 		{
 			"goods-id": 9,
@@ -138,7 +183,13 @@ block('goods-list').content()(function() {
 				"old": 20000,
 				"current": 10000
 			},
-			"desc": "Назначение — городской"
+			"desc": "Назначение — городской",
+			"url": 
+				{
+					"info": "/1",
+					"cart": "/1_cart"
+				},
+			"hash": "1fa5f5377f916b649d3ee04317d9ab9f "
 		},
 		{
 			"goods-id": 10,
@@ -152,7 +203,13 @@ block('goods-list').content()(function() {
 				"http://ergobaby.yazvyazda.ru/assets/i/promo10-2.jpg"
 			],
 			"price":{ "current": 10000 },
-			"desc": "Назначение — городской"
+			"desc": "Назначение — городской",
+			"url": 
+				{
+					"info": "/1",
+					"cart": "/1_cart"
+				},
+			"hash": "1fa5f5377f916b649d3ee04317d9ab9f "
 		}
 	]);
 
@@ -177,7 +234,6 @@ block('goods-list').content()(function() {
 						js: {	
 							'goods-id': item['goods-id'], 
 							title: item.title, 
-							/* source: '/assets/json/1.json', cost: 10000, name: 'Organic Navy' */
 						},
 						mods: { 'border': true, 'showcase': true },
 						content: [
@@ -201,12 +257,19 @@ block('goods-list').content()(function() {
 										content: [
 											{
 												elem: 'name',
-												content: item.name
+												content: item.name,
+												urlInfo: item.url.info
 											},
 											{
 												elem: 'price',
 												price_current: item.price.current,
 												price_old: item.price.old
+											},
+											{
+												elem: 'action',
+												hash: item.hash,
+												urlInfo: item.url.info,
+												urlCart: item.url.cart
 											}
 										]
 									}
@@ -219,10 +282,5 @@ block('goods-list').content()(function() {
 		});
 	}
 
-	/*if(this.ctx.context == 'goods-list'){
-		return 're';
-	}*/
-
-	json = this.dataGoods || items;
-	return getBemJson(json);
+	return getBemJson(items);
 });

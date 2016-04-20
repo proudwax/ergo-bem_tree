@@ -1,18 +1,11 @@
-modules.define('goods-list', ['i-bem__dom', 'BEMTREE', 'BEMHTML', 'jquery', 'events__channels', 'functions__throttle'], function(provide, BEMDOM, BEMTREE, BEMHTML, $, channels, throttle) {
+modules.define('goods-list', ['i-bem__dom', 'BEMTREE', 'BEMHTML', 'jquery', 'history', 'uri', 'events__channels', 'functions__throttle'], function(provide, BEMDOM, BEMTREE, BEMHTML, $, History, Uri, channels, throttle) {
 
 provide(BEMDOM.decl(this.name, {
 	onSetMod : {
 		'js': {
             'inited': function() {
-            	var _this = this
-					json = [{ "goods-id": "0", "title": "Ergobaby — Organic Navy", "name": "Organic Navy", "category": "", "preview": "http://ergobaby.yazvyazda.ru/netcat_files/5/2/organic_navy.Jpg", "price": { "old": "14000", "current": "8900" }, "desc": "" }];
-					
-				/*bemjson = BEMTREE.apply({ block: 'root', dataGoods: json, context: { block: 'goods-list' } });
-				html = BEMHTML.apply(bemjson);*/
-
-				// console.log(bemjson);
-				
-				/* console.log(BEMTREE.apply({ block: 'root', dataGoods: json, context: { block: 'goods-list' } })); */
+            	var _this = this,
+					history = new History();
 				
 				this._redraw();
 
@@ -27,32 +20,47 @@ provide(BEMDOM.decl(this.name, {
 					});
 				});
 				
-				channels('changeUrl').on('change', function(e, val) {
-					console.log(val);
+				// В канал передаётся объект Uri
+				channels('changeUrl').on('change', function(e, url) {
+				
+					history.changeState('replace', { title: 'Title', url: url });
+					_this.setMod(_this.elem('spin'), 'visible', true);
+
+					// Тех. url для добавления path и params из блока 'goods-list' и отправки ajax
+					tehUrl = Uri.parse(url.toString());
 					
+					tehUrl.setPath(_this.params.source);
+					
+					for(var key in _this.params.params){
+						tehUrl.addParam(key, _this.params.params[key]);
+					}
+
 					$.ajax({
-						 // url: 'http://ergobaby.yazvyazda.ru/catalog/?isNaked=1&nc_ctpl=2000&price=ASC', 
-						url: '/page.json',
+						url: tehUrl.toString(), 
+						/* url: '/page.json', */
 						dataType: 'json',
 						type: 'GET'					
-					}).done(function() {
+					})
+					.done(function(data){
 						/* alert( "success" ); */
-					})
-					.fail(function() {
-						/* alert( "error" ); */
-					})
-					.always(function(data) {
+						BEMDOM.update(_this.domElem, _this._generateHtml(data));
 						
-						BEMDOM.replace(_this.domElem, _this._generateHtml(data));
-						console.log(data); 
+						_this.delMod(_this.elem('spin'), 'visible');
+					})
+					.fail(function(){
+						alert('error');
+					})
+					.always(function(data){	
+						delete tehUrl;
 					});
 					
 				});
             }
         }
 	},
+	
 	_generateHtml: function(json){
-		return BEMHTML.apply(BEMTREE.apply({ block: 'root', dataGoods: json, context: { block: 'goods-list' } }))
+		return BEMHTML.apply(BEMTREE.apply({ block: 'root', dataGoods: json, context: { block: 'goods-list', elem: 'container' } }));
 	},
 
 	_redraw: function(){
