@@ -9,7 +9,7 @@ block('sidebar').content()(function() {
 				{
 					block: 'form',
 					mods: { theme: 'ergo', filter: true },
-					action: '#',
+					action: '',
 					method: 'get',
 					/* elemButtomMods: { fixed: 'bottom', shadow: true }, */
 					buttonName: 'submit',

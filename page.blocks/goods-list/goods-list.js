@@ -1,11 +1,12 @@
-modules.define('goods-list', ['i-bem__dom', 'BEMTREE', 'BEMHTML', 'jquery', 'history', 'uri', 'events__channels', 'functions__throttle'], function(provide, BEMDOM, BEMTREE, BEMHTML, $, History, Uri, channels, throttle) {
+modules.define('goods-list', ['i-bem__dom', 'BEMTREE', 'BEMHTML', 'jquery', 'history', 'uri', 'location', 'events__channels', 'functions__throttle', 'objects'], function(provide, BEMDOM, BEMTREE, BEMHTML, $, History, Uri, location, channels, throttle, Objects) {
 
 provide(BEMDOM.decl(this.name, {
 	onSetMod : {
 		'js': {
             'inited': function() {
             	var _this = this,
-					history = new History();
+					history = new History(),
+					simpleUrl = window.location.href;
 				
 				this._redraw();
 
@@ -20,29 +21,34 @@ provide(BEMDOM.decl(this.name, {
 					});
 				});
 				
-				// В канал передаётся объект Uri
-				channels('changeUrl').on('change', function(e, url) {
+				// В канал передаётся объект сериализация форм
+				channels('changeUrl').on('change', function(e, serialize) {
 				
-					history.changeState('replace', { title: 'Title', url: url });
+					url = Uri.parse(simpleUrl + '?' + serialize);
+
+					history.changeState('replace', { title: 'Title', url: url.toString() });
 					_this.setMod(_this.elem('spin'), 'visible', true);
 
 					// Тех. url для добавления path и params из блока 'goods-list' и отправки ajax
-					tehUrl = Uri.parse(url.toString());
-					
-					tehUrl.setPath(_this.params.source);
-					
-					for(var key in _this.params.params){
-						tehUrl.addParam(key, _this.params.params[key]);
-					}
+					/* tehUrl = Uri.parse(url); */
 
-					$.ajax({
-						url: tehUrl.toString(), 
-						/* url: '/page.json', */
+					// технические параметры для url (isNaked, nc_ctpl)
+					if(_this.params.source)
+						url.setPath(_this.params.source);
+					
+					if(_this.params.params){
+						for(var key in _this.params.params){
+							url.addParam(key, _this.params.params[key]);
+						}
+					}
+					
+					/* console.log(url.toString()); */
+					/* $.ajax({
+						url: url.toString(),
 						dataType: 'json',
 						type: 'GET'					
 					})
 					.done(function(data){
-						/* alert( "success" ); */
 						BEMDOM.update(_this.domElem, _this._generateHtml(data));
 						
 						_this.delMod(_this.elem('spin'), 'visible');
@@ -51,8 +57,8 @@ provide(BEMDOM.decl(this.name, {
 						alert('error');
 					})
 					.always(function(data){	
-						delete tehUrl;
-					});
+						delete url;
+					}); */
 					
 				});
             }

@@ -7,6 +7,7 @@
 			{ block: 'events', elems: ['channels'] },
 			{ block: 'goods' },
 			{ block: 'rub' },
+			'history', 'uri', 'location',
 			{ block: 'image' }
 		]	
 	},

@@ -1,4 +1,4 @@
-modules.define('sort', ['i-bem__dom', 'events__channels', 'jquery', 'uri', 'select'], function(provide, BEMDOM, channels, $, Uri, Select) {
+modules.define('sort', ['i-bem__dom', 'events__channels', 'jquery', 'uri', 'select', 'events'], function(provide, BEMDOM, channels, $, Uri, Select, events) {
 
 provide(BEMDOM.decl(this.name, {
 	onSetMod : {
@@ -9,23 +9,26 @@ provide(BEMDOM.decl(this.name, {
 					
 					this._select = this.findBlockInside('select');
 
+				// Проверка и добавление значения в select
 				if(u.queryParams.sort){
 					this._select.setVal(u.queryParams.sort);
 				}	
 				
                 Select.on(this.domElem, 'change', function(e){
-					if(u.queryParams.sort){
-						if(e.target.getVal()){
-							u.replaceParam('sort', e.target.getVal());
-						}else{
-							u.deleteParam('sort');
-						}
-					}else{
-						u.addParam('sort', e.target.getVal());
-					}
-
-                    channels('changeUrl').emit('change', u);
+					// Предполагалось, что по событию будет отправка сериализации в других блоках
+					// _this.emit('submit');
+					
+					// Передача в канал параметра sort из select
+                    /* channels('serializeFormSort').emit('change', _this.domElem.serializeArray()); */
+                    channels('serializeSort').emit('change', _this.domElem.serialize());
                 });
+				
+				channels('serializeForm').on('change', function(e, serializeArr){
+					serializeThis = _this.domElem.serialize();
+					serializeFull = serializeArr && serializeThis ? serializeArr + '&' + serializeThis : serializeArr + serializeThis;
+										
+					channels('changeUrl').emit('change', serializeFull);
+				});
             }
         }
 	}
