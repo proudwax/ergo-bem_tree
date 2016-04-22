@@ -6,10 +6,7 @@ provide(Form.decl({ modName: 'filter', modVal: true }, {
             'inited' : function() {	
 				var _this = this,
 				u = Uri.parse(window.location.href);
-				
-				console.log(this.findBlockInside({ block: 'checkbox', elem: 'control' }));
-				console.log($('[name="sale"]'));
-				
+
 				this.bindTo('submit', function(e){
 					e.preventDefault();
 					

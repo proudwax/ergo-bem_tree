@@ -1,3 +1,45 @@
+/* ../../common.blocks/page/page.css:begin */
+/*@import url("../../libs/fontawesome/css/font-awesome.min.css");*/
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../../output/fonts/JvuM7LVRIiMne00pCiRJKg8J7eE.eot"); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url("../../output/fonts/CZY1kujJU8x-FOP7ClsF1QQuhDU.woff2") format('woff2'),
+       url("../../output/fonts/xslTwsyyypq7IduNv0c7WkNfAII.woff") format('woff'),
+       url("../../output/fonts/_AXeMSNOAJD33cKM4bI69AJssdo.ttf") format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  -webkit-font-feature-settings: 'liga';
+          font-feature-settings: 'liga';
+}
+/* ../../common.blocks/page/page.css:end */
 /* ../../page.blocks/header/header.styl:begin */
 .header {
   background: #fff;
@@ -2396,48 +2438,96 @@
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 5px 5px 0 rgba(0,0,0,0.24);
 }
 /* ../../common.blocks/plugin/__fotorama/plugin__fotorama.styl:end */
-/* ../../common.blocks/page/page.css:begin */
-/*@import url("../../libs/fontawesome/css/font-awesome.min.css");*/
+/* ../../common.blocks/page/_theme/page_theme_ergo.styl:begin */
 @font-face {
-  font-family: 'Material Icons';
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Roboto Thin'), local('Roboto-Thin'), url("https://fonts.gstatic.com/s/roboto/v15/ty9dfvLAziwdqQ2dHoyjpvesZW2xOQ-xsNqO47m55DA.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url("https://fonts.gstatic.com/s/roboto/v15/0eC6fl06luXEYWpBSJvXCFtXRa8TVwTICgirnJhmVJw.woff2") format('woff2');
+}
+@font-face {
+  font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  src: url("../../output/fonts/JvuM7LVRIiMne00pCiRJKg8J7eE.eot"); /* For IE6-8 */
-  src: local('Material Icons'),
-       local('MaterialIcons-Regular'),
-       url("../../output/fonts/CZY1kujJU8x-FOP7ClsF1QQuhDU.woff2") format('woff2'),
-       url("../../output/fonts/xslTwsyyypq7IduNv0c7WkNfAII.woff") format('woff'),
-       url("../../output/fonts/_AXeMSNOAJD33cKM4bI69AJssdo.ttf") format('truetype');
+  src: local('Roboto'), local('Roboto-Regular'), url("https://fonts.gstatic.com/s/roboto/v15/bbysZXYlQ_uS6wRz---nZA.woff2") format('woff2');
 }
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
+@font-face {
+  font-family: 'Roboto';
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  -webkit-font-feature-settings: 'liga';
-          font-feature-settings: 'liga';
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'), url("https://fonts.gstatic.com/s/roboto/v15/ZLqKeelYbATG60EpZBSDy1tXRa8TVwTICgirnJhmVJw.woff2") format('woff2');
 }
-/* ../../common.blocks/page/page.css:end */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url("https://fonts.gstatic.com/s/roboto/v15/77FXFjRbGzN4aCrSFhlh3ltXRa8TVwTICgirnJhmVJw.woff2") format('woff2');
+}
+html {
+  min-height: 100%;
+}
+.page_theme_ergo {
+  font: 13px/15px 'Roboto', Helvetica, sans-serif;
+  font-weight: 300;
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  color: #333;
+  background: #e6e6e6;
+}
+.page_theme_ergo ::-moz-selection {
+  background: #f37d2f;
+  color: #fff;
+}
+.page_theme_ergo ::selection {
+  background: #f37d2f;
+  color: #fff;
+}
+.page_theme_ergo ::-moz-selection {
+  background: #f37d2f;
+  color: #fff;
+}
+.page_theme_ergo.page_goods-card .page__container > div.sticky,
+.page_theme_ergo.page_goods-card .page__container > .section {
+  width: 50%;
+  max-width: 625px;
+}
+.page_theme_ergo .page__container {
+/*background: #fff;*/
+  max-width: calc(100% - 2rem);
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 0;
+}
+@media only screen and (min-width: 48em) {
+  .page_theme_ergo .page__container {
+    max-width: calc(100% - 240px);
+/*max-width: calc(100% - 440px);*/
+  }
+}
+@media only screen and (min-width: 75em) {
+  .page_theme_ergo .page__container {
+    max-width: calc(1250px - 2rem);
+  }
+}
+@media screen and (orientation: portrait) {
+  .page_theme_ergo .page__container {
+    max-width: calc(100% - 4rem);
+  }
+  .page_theme_ergo.page_goods-card .page__container > div.sticky,
+  .page_theme_ergo.page_goods-card .page__container > .section {
+    width: 100%;
+    max-width: 1250px;
+  }
+}
+/* ../../common.blocks/page/_theme/page_theme_ergo.styl:end */
 /* ../../common.blocks/link/_theme/link_theme_ergo.styl:begin */
 .link_theme_ergo {
   color: #44b;
@@ -4002,96 +4092,6 @@
   }
 }
 /* ../../common.blocks/modal/_theme/modal_theme_ergo.styl:end */
-/* ../../common.blocks/page/_theme/page_theme_ergo.styl:begin */
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 100;
-  src: local('Roboto Thin'), local('Roboto-Thin'), url("https://fonts.gstatic.com/s/roboto/v15/ty9dfvLAziwdqQ2dHoyjpvesZW2xOQ-xsNqO47m55DA.woff2") format('woff2');
-}
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Roboto Light'), local('Roboto-Light'), url("https://fonts.gstatic.com/s/roboto/v15/0eC6fl06luXEYWpBSJvXCFtXRa8TVwTICgirnJhmVJw.woff2") format('woff2');
-}
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Roboto'), local('Roboto-Regular'), url("https://fonts.gstatic.com/s/roboto/v15/bbysZXYlQ_uS6wRz---nZA.woff2") format('woff2');
-}
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local('Roboto Medium'), local('Roboto-Medium'), url("https://fonts.gstatic.com/s/roboto/v15/ZLqKeelYbATG60EpZBSDy1tXRa8TVwTICgirnJhmVJw.woff2") format('woff2');
-}
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Roboto Bold'), local('Roboto-Bold'), url("https://fonts.gstatic.com/s/roboto/v15/77FXFjRbGzN4aCrSFhlh3ltXRa8TVwTICgirnJhmVJw.woff2") format('woff2');
-}
-html {
-  min-height: 100%;
-}
-.page_theme_ergo {
-  font: 13px/15px 'Roboto', Helvetica, sans-serif;
-  font-weight: 300;
-  min-height: 100%;
-  width: 100%;
-  margin: 0;
-  color: #333;
-  background: #e6e6e6;
-}
-.page_theme_ergo ::-moz-selection {
-  background: #f37d2f;
-  color: #fff;
-}
-.page_theme_ergo ::selection {
-  background: #f37d2f;
-  color: #fff;
-}
-.page_theme_ergo ::-moz-selection {
-  background: #f37d2f;
-  color: #fff;
-}
-.page_theme_ergo.page_goods-card .page__container > div.sticky,
-.page_theme_ergo.page_goods-card .page__container > .section {
-  width: 50%;
-  max-width: 625px;
-}
-.page_theme_ergo .page__container {
-/*background: #fff;*/
-  max-width: calc(100% - 2rem);
-  margin: 0 auto;
-  padding: 0 1rem;
-  position: relative;
-  z-index: 0;
-}
-@media only screen and (min-width: 48em) {
-  .page_theme_ergo .page__container {
-    max-width: calc(100% - 240px);
-/*max-width: calc(100% - 440px);*/
-  }
-}
-@media only screen and (min-width: 75em) {
-  .page_theme_ergo .page__container {
-    max-width: calc(1250px - 2rem);
-  }
-}
-@media screen and (orientation: portrait) {
-  .page_theme_ergo .page__container {
-    max-width: calc(100% - 4rem);
-  }
-  .page_theme_ergo.page_goods-card .page__container > div.sticky,
-  .page_theme_ergo.page_goods-card .page__container > .section {
-    width: 100%;
-    max-width: 1250px;
-  }
-}
-/* ../../common.blocks/page/_theme/page_theme_ergo.styl:end */
 /* ../../common.blocks/checkbox/_theme/checkbox_theme_ergo.styl:begin */
 .checkbox_theme_ergo {
   position: relative;

@@ -19,7 +19,6 @@ provide(BEMDOM.decl(this.name, {
 					// _this.emit('submit');
 					
 					// Передача в канал параметра sort из select
-                    /* channels('serializeFormSort').emit('change', _this.domElem.serializeArray()); */
                     channels('serializeSort').emit('change', _this.domElem.serialize());
                 });
 				

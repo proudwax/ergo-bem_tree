@@ -43,7 +43,7 @@ provide(BEMDOM.decl(this.name, {
 					}
 					
 					/* console.log(url.toString()); */
-					/* $.ajax({
+					$.ajax({
 						url: url.toString(),
 						dataType: 'json',
 						type: 'GET'					
@@ -58,7 +58,7 @@ provide(BEMDOM.decl(this.name, {
 					})
 					.always(function(data){	
 						delete url;
-					}); */
+					});
 					
 				});
             }
