@@ -1,4 +1,4 @@
-modules.define('sidebar', ['i-bem__dom', 'jquery', 'functions__throttle'], function(provide, BEMDOM, $, throttle) {
+modules.define('sidebar', ['i-bem__dom', 'jquery', 'functions__throttle', 'events__channels'], function(provide, BEMDOM, $, throttle, channels) {
 
 provide(BEMDOM.decl(this.name, {
     onSetMod : {
@@ -20,6 +20,11 @@ provide(BEMDOM.decl(this.name, {
                 });
 				
 				this._updateVisible();
+	
+				channels('serializeForm').on('change', function(e, serialize) {
+					_this._aside
+						.delMod('visible');
+				});
 	
 				this.bindToWin('resize', throttle(this._updateVisible, 300));
 			}
